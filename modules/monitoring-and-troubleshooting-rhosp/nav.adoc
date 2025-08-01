@@ -1,0 +1,3 @@
+* xref:monitoring-and-troubleshooting-rhosp.adoc[]
+** xref:using-ceilometer-and-gnocchi-for-metrics-and-events.adoc[]
+** xref:identifying-and-resolving-common-issues.adoc[]

@@ -1,0 +1,5 @@
+#  Hands-on Lab
+
+= Hands-on Lab
+
+This hands-on lab section offers practical experience with Red Hat OpenStack Platform (RHOSP) fundamentals. It includes setting up a lab environment for practicing essential RHOSP tasks such as installation, configuration, and basic management. Key activities involve creating and managing projects, users, and roles through the Horizon Dashboard. Additionally, learners will engage in exercises covering instance creation and troubleshooting RHOSP instance connectivity issues, solidifying their understanding of key RHOSP components like networking, storage, and compute services.

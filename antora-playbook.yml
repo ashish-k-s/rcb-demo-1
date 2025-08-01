@@ -1,6 +1,6 @@
 site:
-  title: FIXME Course Title
-  start_page: course-starter-template::index.adoc
+  title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
+  start_page: rcb-demo-1::index.adoc
 
 content:
   sources:

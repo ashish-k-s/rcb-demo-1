@@ -1,0 +1,72 @@
+#  Exercises covering installation, configuration, and basic management tasks
+
+### Hands-On Lab: Exercises Covering Installation, Configuration, and Basic Management Tasks
+
+#### 1. Installing Red Hat OpenStack Platform (RHOSP)
+
+*Objective*: Learn the steps to install RHOSP using Director, the official OpenStack deployment and lifecycle management tool for RHOSP.
+
+**Prerequisites**:
+- A compatible Red Hat Enterprise Linux (RHEL) server environment with necessary subscriptions.
+- Sufficient resources: CPU, memory, and disk space as per [official RHOSP sizing guide](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.2/html/director_installation_and_usage/planning-your-overcloud).
+
+**Steps**:
+1. Prepare the undercloud (the control node) by installing required packages and configuring network settings.
+   - Install `openstack-tripleo-puppet` package using `yum`.
+  2. Configure the `undercloud.conf` file with details like administrative email, DNS, and other parameters.
+3. Prepare the overcloud (compute, storage, and network nodes) by registering them to the undercloud and enabling necessary repositories.
+4. Deploy the overcloud using the `openstack overcloud deploy` command with custom configuration files (`overcloud-baremetal-expanded.yaml` or similar). Monitor the deployment process through the `/var/log/containers/stdouts/` logs.
+
+**Verification**:
+- Access the OpenStack Dashboard (Horizon) via a web browser using the public IP of your overcloud node, and ensure you can log in with the admin credentials.
+
+---
+
+#### 2. Configuring RHOSP Networking
+
+*Objective*: Learn to create networks, subnets, routers, and ports for connecting instances to the outside world or amongst themselves.
+
+**Prerequisites**:
+- Access to the OpenStack Dashboard (Horizon).
+- Basic understanding of networking concepts like VLANs and subnetting.
+
+**Steps**:
+1. Navigate to **Project > Network > Networks**. Click 'Create Network' and provide a name, CIDR, and optional description. Select a suitable network type (e.g., Flat or VLAN).
+2. Create a subnet for the newly created network by clicking 'Create Subnet', providing a name, network CIDR, gateway, and DNS.
+3. Navigate to **Project > Network > Routers** and create a router using 'Create Router'. Attach the previously created network's external (public) subnet to this router.
+4. Add an interface to the router for connecting to the local (private) network or specific instances via floating IPs.
+5. Create ports as needed in the **Project > Network > Ports** section, associating them with instances or directly with networks/subnets.
+
+**Verification**:
+- Launch a new instance and assign it to one of the created networks/subnets to ensure network connectivity.
+
+---
+
+#### 3. Managing Storage in RHOSP (Cinder, Swift, Glance)
+
+*Objective*: Learn to create, manage, and delete volumes (Cinder), upload/download objects (Swift), and manage images (Glance).
+
+**Prerequisites**:
+- Access to the OpenStack Dashboard (Horizon).
+- Basic understanding of storage concepts like block storage and object storage.
+
+**Steps - Cinder (Block Storage)**:
+1. Navigate to **Project > Volumes > Volumes** and click 'Create Volume'. Provide a name, description, and select a suitable size and type.
+2. Attach the volume to an instance from the instance details page under 'Volumes'.
+3. Detach or delete volumes as needed from the **Project > Volumes > Volumes** section.
+
+**Steps - Swift (Object Storage)**:
+1. Navigate to **Project > Object Store > Containers**. Click 'Create Container' and provide a container name.
+2. Upload objects to this container using the Swift client or any S3-compatible tool like `rclone`.
+3. List, download, and delete objects as needed within the container.
+
+**Steps - Glance (Image Service)**:
+1. Navigate to **Project > Images > Images** and click 'Create Image' to capture an instance's state as an image. Provide a name and description.
+2. List, download, and delete images as needed from this section.
+
+**Verification**:
+- Verify successful operations by checking volume attachment status on instances, object listings in Swift containers, and image availability in Glance.
+
+---
+
+These exercises cover essential RHOSP installation, configuration, and basic management tasks while providing hands-on experience with key components like networking, storage, and compute services. Students will gain practical skills alongside theoretical knowledge by following detailed step-by-step instructions.

@@ -1,0 +1,5 @@
+#  Storage in RHOSP
+
+= Storage in RHOSP
+
+OpenStack's storage services, Cinder, Swift, and Glance, provide robust solutions for block, object, and image storage respectively. Cinder offers persistent block storage as volumes, allowing for attaching and detaching from instances. Swift provides scalable object storage for files, ideal for backup and archiving. Glance manages disk images for instances, enabling capture, conversion, and storage of virtual machine images. This section covers an overview of these services and practical guidance on managing volumes and images in Red Hat OpenStack Platform (RHOSP).

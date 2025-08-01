@@ -1,0 +1,10 @@
+#  Security and Access Control in RHOSP
+
+= Security and Access Control in RHOSP
+
+This section delves into the security aspects of Red Hat OpenStack Platform (RHOSP), focusing on Keystone, the identity service that manages authentication and authorization. Users learn to understand user roles, projects, and services, enabling them to control access to cloud resources effectively. The content covers managing security groups for controlling inbound and outbound traffic to instances, as well as configuring firewalls using the OpenStack Networking module. Key points include:
+
+- Keystone's role in authentication and authorization within RHOSP
+- User roles, projects, and services management for resource access control
+- Security group implementation for instance traffic control
+- Firewall configuration with OpenStack Networking module

@@ -1,0 +1,5 @@
+#  Compute (Nova) in RHOSP
+
+= Compute (Nova) in RHOSP
+
+Nova, a core component of Red Hat OpenStack Platform (RHOSP), is responsible for providing and managing virtual machines (VMs) or instances. It offers various instance types and flavors, enabling users to select the appropriate resources based on their workload requirements. Nova supports multiple hypervisors, including KVM, VMware, and Hyper-V, ensuring flexibility in deployment. Users can launch instances through the Horizon Dashboard or command line interface (CLI), specifying parameters like flavor, image, and network. Once launched, instances can be managed with operations such as start, stop, pause, and resume. Additionally, Nova provides APIs for integration with other OpenStack services and third-party tools, facilitating automation and orchestration in cloud environments.

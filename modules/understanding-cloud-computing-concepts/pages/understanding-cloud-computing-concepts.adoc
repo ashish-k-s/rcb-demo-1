@@ -1,0 +1,11 @@
+#  Understanding Cloud Computing Concepts
+
+= Understanding Cloud Computing Concepts
+
+Cloud computing is a technology that enables on-demand access to shared configurable computing resources over the internet. It offers benefits such as cost savings, increased productivity, speed and efficiency, and accessibility. The main service models are:
+
+- Infrastructure as a Service (IaaS): Provides virtualized computing resources via the internet.
+- Platform as a Service (PaaS): Delivers hardware and software tools over the internet for application development.
+- Software as a Service (SaaS): Allows users to access applications stored on a remote cloud network.
+
+This foundational knowledge is crucial for understanding the OpenStack platform's structure and services.

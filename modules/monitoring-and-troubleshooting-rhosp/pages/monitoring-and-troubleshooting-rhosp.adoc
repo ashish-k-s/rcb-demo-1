@@ -1,0 +1,9 @@
+#  Monitoring and Troubleshooting RHOSP
+
+= Monitoring and Troubleshooting RHOSP
+
+This section focuses on learning techniques to monitor and troubleshoot the Red Hat OpenStack Platform (RHOSP). It covers using Ceilometer for collecting and measuring various metrics, and Gnocchi for storing and providing time-series data for query and archival. Key points include:
+
+- Understanding how to use Ceilometer and Gnocchi for monitoring RHOSP performance, resource usage, and identifying potential issues.
+- Identifying common RHOSP issues by analyzing metrics and events.
+- Learning strategies for resolving typical problems in RHOSP environments.

@@ -1,0 +1,3 @@
+* xref:storage-in-rhosp.adoc[]
+** xref:overview-of-storage-services-cinder-swift-glance.adoc[]
+** xref:managing-volumes-and-images.adoc[]

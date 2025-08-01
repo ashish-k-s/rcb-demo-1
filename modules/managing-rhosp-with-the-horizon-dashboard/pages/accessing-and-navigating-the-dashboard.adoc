@@ -1,0 +1,40 @@
+#  Accessing and navigating the dashboard
+
+== Managing RHOSP with the Horizon Dashboard
+
+=== Accessing and Navigating the Dashboard
+
+In Red Hat OpenStack Platform (RHOSP), the **Horizon Dashboard** provides a web-based user interface for managing OpenStack services. It serves as a unified control panel, enabling administrators and users to interact with various components efficiently. This section outlines the process of accessing and navigating the Horizon Dashboard.
+
+### Accessing the Horizon Dashboard
+
+1. **Open a supported web browser**: The Horizon Dashboard is compatible with popular browsers such as Google Chrome, Mozilla Firefox, and Microsoft Edge.
+2. **Enter the dashboard URL**: In your browser's address bar, type the following URL, replacing `HOSTNAME` with your RHOSP environment's fully qualified domain name or IP address:
+
+   ```
+   https://HOSTNAME/horizon
+   ```
+3. **Authentication**: Upon accessing the Horizon Dashboard for the first time, you will be prompted to enter your OpenStack credentials (username and password). These credentials are managed by Keystone, the identity service in RHOSP responsible for authentication and authorization.
+
+### Navigating the Horizon Dashboard
+
+Once authenticated, you'll see the main dashboard providing an overview of key resources and activities within your RHOSP environment:
+
+1. **Project Overview**: Displays a summary of projects (also known as 'tenants') associated with your account, including compute, block storage (Cinder), and object storage (Swift) usage statistics.
+2. **Recent Activity**: Lists recent actions performed in the dashboard, such as instance launches or image uploads, allowing you to monitor system activity.
+3. **Navigation Menu**: Located on the left-hand side, this menu provides access to various OpenStack services and their respective management functionalities:
+
+   - **Compute (Nova)**: Manage virtual machine instances and flavors.
+   - **Networking**: Create and manage networks, subnets, and routers.
+   - **Object Storage (Swift)**: Interact with object storage services for storing and retrieving files.
+   - **Block Storage (Cinder)**: Manage block storage volumes and snapshots.
+   - **Images**: Upload, manage, and use disk images for launching instances.
+   - **Users & Roles**: Handle user accounts and assign roles to control access permissions.
+
+4. **Search Bar**: Located at the top of the page, this bar allows you to quickly search for resources across different OpenStack services.
+5. **Help Menu**: Access context-sensitive help and documentation for each dashboard section by clicking the '?' icon next to the respective service in the navigation menu.
+
+### Additional Notes
+
+- **Multiple Dashboards**: Depending on your user roles, you might have access to additional dashboards such as the 'Administrative Dashboard' or 'Settings Dashboard'. These can be accessed via the user dropdown menu in the top right corner.
+- **Customization**: Some aspects of the Horizon Dashboard can be customized according to your organization's branding preferences. This includes logo uploads and modifying CSS styles. Consult the relevant RHOSP documentation for more information on customization options.

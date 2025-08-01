@@ -1,0 +1,5 @@
+* xref:hands-on-lab.adoc[]
+** xref:setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.adoc[]
+** xref:exercises-covering-installation-configuration-and-basic-management-tasks.adoc[]
+** xref:rhosp-instance-creation.adoc[]
+** xref:troubleshooting-rhosp-instance-connectivity-issues.adoc[]

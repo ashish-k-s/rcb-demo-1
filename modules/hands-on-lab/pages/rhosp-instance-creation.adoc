@@ -1,0 +1,44 @@
+#  RHOSP instance creation
+
+== Compute (Nova) in RHOSP
+        - Instance Types and Flavors
+
+        In Red Hat OpenStack Platform (RHOSP), an instance refers to a virtual machine running on a compute node. Understanding instance types and flavors is crucial for selecting the appropriate resources for your workloads.
+
+**Instance Types**
+
+An instance type defines the hardware specifications of a virtual machine, such as CPU, memory, and storage. These specifications determine the performance and capacity of your instances. Common instance types include:
+
+- **Computing-optimized**: Best suited for compute-intensive workloads, like web servers or application servers. They offer higher CPU performance at the expense of lower memory and storage.
+- **Memory-optimized**: Ideal for memory-intensive applications, such as databases or big data analytics. These instances provide more RAM at the cost of reduced CPU and storage resources.
+- **Storage-optimized**: Designed for workloads requiring extensive local storage, like media servers or content management systems. They offer more block storage but with fewer CPU and memory resources.
+- **General-purpose**: Suitable for a broad range of applications that don't have extreme resource demands. These instances strike a balance between CPU, memory, and storage.
+
+**Flavors**
+
+In RHOSP, flavors represent different instance types with varying hardware specifications. You can customize existing flavors or create new ones to suit your requirements. When creating or modifying flavors, consider the following attributes:
+
+- `vcpus`: The number of virtual CPUs (or cores) allocated to an instance.
+- `memory_mb`: The amount of RAM in megabytes allocated to an instance.
+- `root_gb`: The size of the root disk partition in gigabytes for the instance's operating system and boot partition.
+- `ephemeral_gb`: The size of any additional local storage available to the instance, which is lost when the instance is deleted or rebooted.
+- `swap`: The size of a swap partition, if enabled, in megabytes.
+
+**Creating RHOSP Instances**
+
+To create an instance using the Horizon Dashboard:
+
+1. **Access the Dashboard**: Log in to your RHOSP environment using your credentials and navigate to the "Project" dropdown, then select "Compute" > "Instances".
+2. **Create Instance**: Click on the "Create" button.
+3. **Configure Details**: Fill in the required details:
+   - Instance Name: Provide a descriptive name for easy identification.
+   - Flavor: Select an appropriate flavor based on your workload requirements.
+   - Image: Choose the desired image (operating system) from the list of available templates.
+   - Network: Select or create a network for your instance to connect to.
+4. **Configure Additional Options** (optional):
+   - Security Groups: Assign security groups that define inbound and outbound traffic rules for your instance.
+   - Key Pair: Associate a key pair for secure SSH access to your instance.
+   - Device Counts: Specify additional devices like disks or network interfaces if needed.
+5. **Launch Instance**: Review your configuration and click "Launch" to create the instance.
+
+After launching, you can monitor the status of your instance within the Horizon Dashboard, ensuring it reaches the "Active" state before connecting to it via SSH.

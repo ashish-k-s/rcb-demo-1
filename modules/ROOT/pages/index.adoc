@@ -1,22 +1,37 @@
-= An Example Quick Course
+=  Fundamentals of Red Hat OpenStack Platform (RHOSP)
 :navtitle: Home
 
 == Introduction
 
-Course Title: Course title FIXME
+Course Title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
 
 Description:
 Course description FIXME
 
 Duration: FIXME hours
 
-== Objectives
+== Topics covered in this course
 
-On completing this course, you should be able to:
 
-* Observable, measurable objective...
-* Observable, measurable objective...
-* Observable, measurable objective...
+*  Understanding Cloud Computing Concepts
+
+*  Introduction to OpenStack
+
+*  Managing RHOSP with the Horizon Dashboard
+
+*  Networking in RHOSP
+
+*  Storage in RHOSP
+
+*  Compute (Nova) in RHOSP
+
+*  Security and Access Control in RHOSP
+
+*  Monitoring and Troubleshooting RHOSP
+
+*  Hands-on Lab
+
+
 
 == Prerequisites
 

@@ -1,0 +1,37 @@
+#  Overview of storage services: Cinder, Swift, Glance
+
+== Storage in RHOSP
+
+Red Hat OpenStack Platform (RHOSP) offers robust storage solutions through its integrated services: Cinder, Swift, and Glance. These services cater to various use cases, from block storage to object storage and disk images management. Here's an overview of each service:
+
+=== Cinder (Block Storage)
+
+Cinder is the block storage service in OpenStack, providing persistent and highly available block-level storage devices for virtual machines. It supports various storage backends like local disks, iSCSI, CEPH, NFS, and Fibre Channel. Key features of Cinder include:
+
+* **Volumes**: Cinder offers block-level storage volumes that can be attached to and detached from instances on demand. This feature allows for flexible storage configurations and easy migration of instances between hosts.
+* **Snapshots**: Users can create point-in-time copies (snapshots) of volumes, which can be used for backup purposes or to quickly replicate data across multiple environments.
+* **Replication**: Cinder supports replicating volumes across different availability zones or even different geographical locations, ensuring high availability and disaster recovery capabilities.
+
+=== Swift (Object Storage)
+
+Swift is OpenStack's object storage service, offering scalable and redundant storage for large amounts of unstructured data, such as images, videos, and documents. Unlike Cinder's block-level approach, Swift uses a distributed architecture with containers and objects. Key features of Swift include:
+
+* **Scalability**: Swift is designed to scale horizontally by adding more storage nodes, making it suitable for handling massive datasets.
+* **Redundancy**: Data in Swift is replicated across multiple storage devices within a cluster, ensuring high availability and resilience against hardware failures.
+* **API Access**: Swift provides an open-source RESTful API for storing and retrieving objects, enabling integration with various applications and services.
+
+=== Glance (Image Service)
+
+Glance serves as the disk image service in OpenStack, managing images that are used to create and configure virtual machine instances. It stores and retrieves disk images, allowing users to upload, register, and manage disk images for their compute instances. Key features of Glance include:
+
+* **Image Management**: Users can upload disk images (in various formats like RAW, QCOW2, VHD, and VMDK) and manage them through Glance's API or dashboard.
+* **Discovery Service**: Glance offers a discovery service that allows instances to locate and access their assigned images during boot time.
+* **Image-based Instance Creation**: Users can quickly launch virtual machine instances from registered disk images using the Nova compute service, streamlining the deployment process.
+
+== Hands-on Lab - Managing Storage Services
+
+To solidify understanding of Cinder, Swift, and Glance, students will engage in hands-on activities that cover:
+
+1. **Cinder Volume Creation and Management**: Students will learn to create, attach, detach, and manage volumes using the OpenStack dashboard and command-line interface (CLI). They'll also explore snapshot creation and replication settings.
+2. **Swift Object Storage**: Students will upload, download, and list objects in a Swift container, gaining familiarity with its RESTful API and access control mechanisms.
+3. **Glance Image Management**: Students will register new disk images, list available images, and launch instances using the registered images, demonstrating their grasp of Glance's image management capabilities.

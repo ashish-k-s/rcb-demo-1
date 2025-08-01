@@ -1,10 +1,26 @@
-name: course-starter-template
-title: FIXME Course Title
+name: rcb-demo-1
+title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
 version: 1
 nav:
 - modules/ROOT/nav.adoc
 - modules/LABENV/nav.adoc
-- modules/chapter1/nav.adoc
-- modules/chapter2/nav.adoc
-- modules/chapter3/nav.adoc
+
+- modules/understanding-cloud-computing-concepts/nav.adoc
+
+- modules/introduction-to-openstack/nav.adoc
+
+- modules/managing-rhosp-with-the-horizon-dashboard/nav.adoc
+
+- modules/networking-in-rhosp/nav.adoc
+
+- modules/storage-in-rhosp/nav.adoc
+
+- modules/compute-nova-in-rhosp/nav.adoc
+
+- modules/security-and-access-control-in-rhosp/nav.adoc
+
+- modules/monitoring-and-troubleshooting-rhosp/nav.adoc
+
+- modules/hands-on-lab/nav.adoc
+
 - modules/appendix/nav.adoc

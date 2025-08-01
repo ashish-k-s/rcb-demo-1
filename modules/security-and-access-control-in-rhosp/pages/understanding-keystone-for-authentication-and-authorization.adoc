@@ -1,0 +1,51 @@
+#  Understanding Keystone for authentication and authorization
+
+=== Understanding Keystone for Authentication and Authorization
+
+Red Hat OpenStack Platform (RHOSP) employs an identity service named **Keystone** to manage users, services, and tenants (projects). It provides a centralized authentication and authorization service across all OpenStack components. This section outlines the fundamentals of Keystone, its architecture, core concepts, and how it facilitates access control in RHOSP.
+
+#### Keystone Architecture
+
+Keystone is composed of several processes that run as separate services:
+
+1. **api**: The API service exposes a RESTful web service for communication with other OpenStack components and external clients. It validates requests, interacts with the database, and invokes business logic within other Keystone processes.
+2. **admin**: The admin service handles administrative tasks such as managing users, roles, and tenants.
+3. **keystone-all**: A utility process that manages token validation for incoming API calls, ensuring that requests are properly authenticated.
+4. **database**: Stores all persistent data related to users, tenants, roles, services, and policies.
+
+#### Core Keystone Concepts
+
+1. **Users**: Individual accounts in RHOSP, which can be granted specific permissions and roles.
+2. **Tenants (Projects)**: Logical containers for resources such as virtual machines, networks, and storage. Each tenant has its own set of users and resources.
+3. **Roles**: A role defines a set of permissions that dictate how a user can interact with RHOSP resources. Common roles include admin, member, and reader.
+4. **Services**: The OpenStack components that require authentication for communication between each other. Services like Nova (Compute), Neutron (Networking), Glance (Image), Cinder (Block Storage), etc., rely on Keystone to authenticate their requests.
+5. **Tokens**: Keystone generates unique tokens upon successful authentication. Tokens are then used to identify and authorize users when they interact with OpenStack services.
+
+#### Authentication Flow in RHOSP
+
+1. A user submits a request to an OpenStack service, such as creating a virtual machine.
+2. The OpenStack service passes the request along with required credentials (username and password) to Keystone's **api** process.
+3. Keystone verifies the user’s credentials against its database.
+4. If the credentials are valid, Keystone generates an authentication token and sends it back to the OpenStack service.
+5. The OpenStack service validates the token using the **keystone-all** process before fulfilling the user's request.
+6. Subsequent requests from the user to the OpenStack service include this token for authorization purposes.
+
+#### Access Control Mechanisms
+
+Keystone enforces access control by associating roles with tenants and users. This ensures that a user can only perform actions permitted by their assigned role within their tenant. Key mechanisms include:
+
+- **Role-Based Access Control (RBAC)**: Keystone uses RBAC to define permissions associated with roles. These permissions dictate what actions users can perform on resources within tenants.
+- **Tenant Isolation**: Users are confined to their assigned tenant, preventing unauthorized access to other tenants’ resources.
+- **Fine-Grained Access Control**: Keystone supports detailed control over individual resource types (e.g., networks, instances) by defining specific actions that can be performed on them (e.g., create, read, update, delete).
+
+#### Troubleshooting Common Issues
+
+When working with Keystone in RHOSP, common issues may include:
+
+- **Authentication failures**: Check user credentials, Keystone service status, and network connectivity to resolve authentication problems.
+- **Insufficient permissions**: Verify that users have the appropriate roles assigned within their tenants for desired actions. Review RBAC configurations if necessary.
+- **Token validation errors**: Ensure that the OpenStack services are correctly configured to communicate with Keystone via token validation.
+
+Understanding Keystone is crucial for managing user access and ensuring secure operations in Red Hat OpenStack Platform. Its robust authentication and authorization mechanisms allow administrators to control resource usage effectively, thereby maintaining a secure cloud environment.
+
+===

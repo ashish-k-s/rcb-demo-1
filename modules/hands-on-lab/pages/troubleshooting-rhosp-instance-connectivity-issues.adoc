@@ -1,0 +1,99 @@
+#  Troubleshooting RHOSP instance connectivity issues
+
+Troubleshooting RHOSP Instance Connectivity Issues
+===================================================
+
+In this section, we will discuss common issues that may arise when trying to establish connectivity with instances in a Red Hat OpenStack Platform (RHOSP) environment and provide guidance on how to address these problems effectively.
+
+**Understanding Connectivity Problems**
+
+Connectivity issues can manifest in various ways, such as:
+
+1. Inability to ping or SSH into an instance.
+2. Intermittent connectivity or high latency.
+3. Network configuration discrepancies between the instance and the expected network settings.
+
+**Key Components to Investigate**
+
+When troubleshooting RHOSP instance connectivity issues, consider the following OpenStack components:
+
+1. **Neutron (Network Service):** Ensure that the proper networks, subnets, and routers are configured for your instances.
+2. **Nova (Compute Service):** Verify that the instance was created with appropriate flavor settings, including CPU, memory, and disk configurations.
+3. **Keystone (Identity Service):** Confirm authentication and authorization settings for users, projects, and roles.
+4. **Ironic (Bare Metal Service):** If dealing with bare-metal instances, check the provisioning and cleaning processes.
+
+**Troubleshooting Steps**
+
+1. **Verify Instance Status:**
+   Use the following command to check the instance status in the OpenStack dashboard or through the OpenStack CLI:
+
+   ```bash
+   openstack server show <instance_name_or_id>
+   ```
+
+   This command will provide detailed information about your instance, including its power state and task state.
+
+2. **Check Neutron Configuration:**
+   - List available networks, subnets, and routers:
+
+     ```bash
+     openstack network list
+     openstack subnet list
+     openstack router list
+     ```
+
+   - Verify that the instance is connected to the correct network and subnet, and that a proper route exists for external connectivity (if needed).
+
+3. **Inspect Security Groups and Firewalls:**
+   - List security groups associated with the instance:
+
+     ```bash
+     openstack security group list
+     ```
+
+   - Review inbound rules in each security group to ensure that necessary ports are open (e.g., SSH - port 22, HTTP - port 80).
+
+4. **Investigate Floating IP Addresses:**
+   If you suspect that the issue is related to external connectivity:
+   - List available floating IP addresses:
+
+     ```bash
+     openstack floating ip list
+     ```
+
+   - Allocate a floating IP address to your instance if it does not already have one:
+
+     ```bash
+     openstack floating ip create <pool_name>
+     openstack server add floating ip <instance_name_or_id> <allocated_floating_ip>
+     ```
+
+5. **Examine Nova Console Logs:**
+   Review the Nova logs for any errors or relevant information during instance creation:
+
+   - OpenStack control node log file location (adjust according to your OpenStack distribution):
+
+     ```bash/etc/nova/compute.log
+     ```
+
+6. **Consult Keystone Logs and Configuration:**
+   If authentication issues are suspected, examine the Keystone logs and configuration files for any discrepancies:
+
+   - Keystone log file location (adjust according to your OpenStack distribution):
+
+     ```bash/var/log/keystone/keystone.log
+     ```
+
+7. **Review Ironic Logs (for Bare-metal Instances):**
+   If dealing with a bare-metal instance, review the Ironic logs for any errors during provisioning or cleaning:
+
+   - Ironic log file location (adjust according to your OpenStack distribution):
+
+     ```bash/var/log/ironic/ironic.log
+     ```
+
+**Additional Resources**
+
+For more in-depth troubleshooting and advanced scenarios, refer to the official Red Hat OpenStack Platform documentation: [Red Hat OpenStack Platform Documentation](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/)
+
+By following these steps and utilizing available resources, you should be able to identify and resolve common connectivity issues in your RHOSP environment effectively. Remember that troubleshooting often requires a systematic approach and patience, so take your time to investigate each potential cause thoroughly.

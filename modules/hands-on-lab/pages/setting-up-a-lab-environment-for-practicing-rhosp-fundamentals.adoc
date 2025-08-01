@@ -1,0 +1,86 @@
+#  Setting up a lab environment for practicing RHOSP fundamentals
+
+To set up a lab environment for practicing Red Hat OpenStack Platform (RHOSP) fundamentals, follow these steps to create a functional and educational virtualized infrastructure. This guide assumes you have access to a system with sufficient resources (CPU, RAM, and storage) to run multiple virtual machines.
+
+### Prerequisites:
+1. A host machine (physical or virtual) with at least 4 CPU cores, 8 GB RAM, and 50 GB of free disk space.
+2. Virtualization software such as KVM, VMware Workstation, or VirtualBox.
+3. Basic knowledge of Linux command line and networking concepts.
+
+### Step 1: Install Virtualization Software
+Install your chosen virtualization software on the host machine if not already installed. For this guide, we'll use KVM with libvirt as it's open-source and widely used in enterprise environments.
+
+#### On a CentOS/RHEL system:
+```bash
+sudo yum install -y dnf libvirt qemu-kvm bridge-utils
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+```
+
+#### On an Ubuntu system:
+```bash
+sudo apt update
+sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
+sudo systemctl start libvirtd
+sudo systemctl enable libvirtd
+```
+
+### Step 2: Prepare RHOSP Control Plane Nodes
+Create three virtual machines (VMs) to represent the control plane nodes in a basic RHOSP deployment. Each node will run OpenStack services like Keystone, Glance, Nova, and Neutron.
+
+1. **Controller Node:**
+   - 2 CPU cores, 4 GB RAM, 30 GB disk space
+   - Install CentOS 8 Minimal
+
+2. **Network Node:**
+   - 2 CPU cores, 4 GB RAM, 30 GB disk space
+   - Install CentOS 8 Minimal
+
+3. **Compute Node:**
+   - 2 CPU cores, 4 GB RAM, 30 GB disk space
+   - Install CentOS 8 Minimal
+
+Ensure each node has a unique hostname and configured networking (static IP addresses or managed by a DHCP server).
+
+### Step 3: Prepare RHOSP Data Plane Nodes
+Create three more VMs to represent the data plane nodes in your lab environment, which will handle storage and compute resources.
+
+1. **Cinder Node (Storage):**
+   - 2 CPU cores, 4 GB RAM, 50 GB disk space
+   - Install CentOS 8 Minimal
+
+2. **Swift Node (Object Storage):**
+   - 2 CPU cores, 4 GB RAM, 50 GB disk space
+   - Install CentOS 8 Minimal
+
+3. **Glance Node (Image Service):**
+   - 2 CPU cores, 4 GB RAM, 50 GB disk space
+   - Install CentOS 8 Minimal
+
+Configure networking and hostnames similar to the control plane nodes.
+
+### Step 4: Install RHOSP Software Packages
+Log in to each node via SSH and install the required software packages for OpenStack services. For this guide, we'll use the RDO Packstack method for installation.
+
+1. **Controller Node:**
+   ```bash
+   sudo yum install -y https://rdo-master.peers.cm/yum/repos/packstack-CentOS8-x86_64.repo
+   sudo packstack --allinone
+   ```
+
+2. **Network, Compute, Cinder, Swift, and Glance Nodes:**
+   On each node, run the following command to join the existing OpenStack deployment:
+   ```bash
+   sudo yum install -y https://rdo-master.peers.cm/yum/repos/packstack-CentOS8-x86_64.repo
+   sudo packstack --regionOne-public-url http://<controller-node-ip>:5000/v3 --regionOne-internal-url http://172.16.0.10/<controller-node-ip>:5000/v3 --regionOne-admin-url http://172.16.0.10/<controller-node-ip>:5000/v3
+   ```
+
+Replace `<controller-node-ip>` with the actual IP address of your Controller Node.
+
+### Step 5: Verify RHOSP Deployment
+Access the OpenStack Horizon Dashboard using the controller node's IP address and the default credentials (admin/password). Ensure all services are running, and you can create and manage projects, users, roles, networks, subnets, routers, instances, volumes, and images.
+
+### Step 6: Configure Security Groups and Firewalls
+To enable communication between your lab nodes and ensure security, configure security groups and firewall rules on the Controller Node using the OpenStack Horizon Dashboard or the command line.
+
+With this lab environment set up, you can now practice RHOSP fundamentals, such as creating and managing projects, users, roles, networking components (networks, subnets, routers), storage (Cinder volumes), and compute instances (Nova). Remember to troubleshoot any issues that arise during the exercises by examining service logs, using monitoring tools like Ceilometer and Gnocchi, and consulting OpenStack documentation.

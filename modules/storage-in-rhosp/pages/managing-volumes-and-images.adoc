@@ -1,0 +1,141 @@
+#  Managing volumes and images
+
+**Managing Volumes and Images in Red Hat OpenStack Platform (RHOSP)**
+
+In this section, we will delve into managing storage services in RHOSP, specifically focusing on Cinder for block storage and Swift for object storage through images. We'll explore creating, attaching, detaching, and deleting volumes as well as uploading and downloading images.
+
+== 5. Storage in RHOSP: Managing Volumes and Images
+
+    === 5.1 Overview of Storage Services
+    
+    OpenStack provides various storage services for block (Cinder) and object (Swift) storage. These services are crucial for managing persistent data in your cloud environment.
+
+    - **Cinder (Block Storage):** Offers scalable, persistent block-level storage devices for use with instances. It supports various volume types like HDD, SSD, and tensor.
+    
+    - **Swift (Object Storage):** Provides a highly available and distributed object storage system for files and binary large objects (BLOBs). Swift stores data as objects in containers.
+
+    === 5.2 Managing Volumes with Cinder
+    
+    Volumes in Cinder are used for persistent block-level storage that can be attached to and detached from instances. Here’s how to manage volumes:
+
+    === 5.2.1 Creating a Volume
+    
+      To create a volume, use the following OpenStack CLI command:
+      
+      ```
+      $ openstack volume create --size <size> <volume-name>
+      ```
+
+      Replace `<size>` with the desired volume size in GB and `<volume-name>` with a name for your new volume.
+
+    === 5.2.2 Attaching a Volume
+    
+      Attach a volume to an instance using:
+      
+      ```
+      $ openstack server add volume <instance-id> <volume-id>
+      ```
+
+      Replace `<instance-id>` with the ID of the instance to which you want to attach the volume, and `<volume-id>` with the ID of the newly created volume.
+
+    === 5.2.3 Detaching a Volume
+    
+      To detach a volume from an instance:
+      
+      ```
+      $ openstack server remove volume <instance-id> <volume-id>
+      ```
+
+      Replace `<instance-id>` and `<volume-id>` as before.
+
+    === 5.2.4 Deleting a Volume
+    
+      When you no longer need a volume, delete it with:
+      
+      ```
+      $ openstack volume delete <volume-id>
+      ```
+
+      Replace `<volume-id>` with the ID of the volume to be removed.
+
+    === 5.2.5 Snapshots
+    
+      You can create snapshots of volumes for backup purposes using:
+      
+      ```
+      $ openstack volume snapshot create <volume-name>
+      ```
+
+      To list available snapshots, use:
+      
+      ```
+      $ openrest client volume snapshot list <volume-name>
+      ```
+
+    === 5.2.6 Restoring from a Snapshot
+    
+      Restore a volume from a snapshot with:
+      
+      ```
+      $ openstack volume create --snapshot <snapshot-id> <new-volume-name>
+      ```
+
+      Replace `<snapshot-id>` with the ID of the snapshot and `<new-volume-name>` with a name for the restored volume.
+
+    === 5.2.7 Deleting a Snapshot
+    
+      Remove an unwanted snapshot using:
+      
+      ```
+      $ openstack volume snapshot delete <snapshot-id>
+      ```
+
+      Replace `<snapshot-id>` with the ID of the snapshot to be deleted.
+
+    == 5.3 Managing Images in Swift
+    
+    Images in RHOSP are used for booting instances, and they are stored as files in the Swift object storage service. Here's how to manage images:
+
+    === 5.3.1 Uploading an Image
+    
+      Upload a new image to Glance (the image service) using:
+      
+      ```
+      $ openstack image create --disk-format <format> --container <container> --file <image-path> <image-name>
+      ```
+
+      Replace `<format>` with the desired disk format (e.g., qcow2, raw), `<container>` with the name of the container in which to store the image, `<image-path>` with the local path to your image file, and `<image-name>` with a name for your new image.
+
+    === 5.3.2 Listing Images
+    
+      List available images with:
+      
+      ```
+      $ openstack image list
+      ```
+
+    === 5.3.3 Downloading an Image
+    
+      Download an image from Glance using:
+      
+      ```
+      $ openstack image save --file <image-destination> <image-id>
+      ```
+
+      Replace `<image-destination>` with the path where you want to save the image file and `<image-id>` with the ID of the image.
+
+    === 5.3.4 Deleting an Image
+    
+      Remove an unwanted image using:
+      
+      ```
+      $ openstack image delete <image-id>
+      ```
+
+      Replace `<image-id>` with the ID of the image to be deleted.
+
+== Hands-on Lab Exercises
+    - **Volume Management:** Create, attach, and detach volumes. Create snapshots and restore from them.
+    - **Image Management:** Upload an image to Glance, list available images, and download one for local use.
+
+By completing these exercises, learners will gain hands-on experience with managing volumes and images in RHOSP, enabling them to effectively handle persistent storage and instance booting requirements in their cloud environments.

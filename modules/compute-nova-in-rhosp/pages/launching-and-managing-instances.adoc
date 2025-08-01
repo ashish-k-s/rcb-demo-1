@@ -1,0 +1,30 @@
+#  Launching and managing instances
+
+== Compute (Nova) in RHOSP
+    = Launching and Managing Instances
+
+    In Red Hat OpenStack Platform (RHOSP), **Compute (Nova)** is responsible for providing on-demand, scalable access to computing resources. This section focuses on launching and managing instances using the RHOSP dashboard, Horizon.
+
+**Launching an Instance**
+
+To launch an instance in RHOSP, follow these steps:
+
+1. **Access Horizon Dashboard:** Log in to the RHOSP environment and navigate to the **Horizon Dashboard**.
+2. **Navigate to Compute > Instances:** In the left-hand navigation panel, click on **Compute** followed by **Instances**. This will display the instances overview page.
+3. **Create a New Instance:** Click the **Create** button located at the upper-left corner of the Instances overview page.
+4. **Configure Instance Details:** Provide necessary details like instance name, flavor (instance type), and key pair. Flavors define the compute, memory, and storage capacity of your instance. Key pairs are used for secure SSH access to your instances.
+5. **Select Image or Upload an Image:** Choose an available image from the dropdown list or upload a custom image (if needed) from the **Glance** service.
+6. **Configure Networking:** Select the desired network and subnet for your instance's network connectivity. You can also create new networks, subnets, or routers if required.
+7. **Launch the Instance:** Review the configured settings and click **Launch** to initiate the instance creation process.
+
+**Managing Instances**
+
+Once the instance is launched, you can perform various management tasks using the Horizon Dashboard:
+
+1. **Stop/Start an Instance:** Select the running instance and click **Stop** or **Start** in the Instance Actions dropdown menu.
+2. **Resize an Instance:** Resize (or change) the flavor of a running instance by selecting the instance, clicking **Change Flavor**, and choosing the new flavor from the list.
+3. **Delete an Instance:** Stop the instance if it's running and then click **Delete** in the Instance Actions dropdown menu to remove the instance permanently.
+4. **Console Access:** Access your instance's console for graphical or text-based interaction using the **Console** tab under the selected instance.
+5. **Metadata Services:** Manage metadata services associated with instances, such as setting custom data for the instance to access during boot time.
+
+By following these steps and utilizing the Horizon Dashboard, users can effectively launch and manage RHOSP instances. Remember that practical experience is crucial; consider participating in the provided hands-on lab exercises to reinforce your understanding of managing instances in RHOSP.

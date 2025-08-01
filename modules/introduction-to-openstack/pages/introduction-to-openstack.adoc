@@ -1,0 +1,16 @@
+#  Introduction to OpenStack
+
+= Introduction to OpenStack
+
+OpenStack is an open-source cloud computing platform that controls large pools of compute, storage, and networking resources throughout a datacenter. This section provides an overview of OpenStack architecture and its components, including:
+
+- **OpenStack Architecture**: It consists of several integrated services that work together to manage and provision cloud resources. The architecture is modular, allowing for the addition or removal of services based on specific needs.
+
+- **Key Components**:
+  - **Nova**: The compute service responsible for managing instances (virtual machines).
+  - **Neutron**: The networking service that provides software-defined networking capabilities.
+  - **Cinder**: The block storage service providing persistent storage to guest VMs.
+  - **Glance**: The image service responsible for storing and retrieving disk images used for server booting.
+  - **Keystone**: The identity service managing users, tenants (projects), roles, and services across all OpenStack components.
+
+Understanding these core components is essential for effective management and utilization of resources within a Red Hat OpenStack Platform (RHOSP) environment.

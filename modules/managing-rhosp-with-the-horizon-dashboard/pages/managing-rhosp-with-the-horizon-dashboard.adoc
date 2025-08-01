@@ -1,0 +1,11 @@
+#  Managing RHOSP with the Horizon Dashboard
+
+= Managing RHOSP with the Horizon Dashboard
+
+The Horizon Dashboard is a web-based user interface for managing Red Hat OpenStack Platform (RHOSP). It provides a graphical environment to access and navigate RHOSP services, enabling administrators and users to create and manage projects, users, and roles efficiently. Key features include:
+
+- Accessing the dashboard via a compatible web browser
+- Creating new projects for organizing resources and assigning appropriate roles and users
+- Managing existing users, roles, and their permissions within projects
+- Monitoring resource usage and quotas for projects and users
+- Performing basic administrative tasks such as service maintenance and updates

@@ -1,0 +1,37 @@
+#  Instance types and flavors
+
+=== Instance Types and Flavors
+
+In Red Hat OpenStack Platform (RHOSP), an instance represents a virtual machine (VM) running on a host machine. Instance types and flavors are crucial for understanding the resources allocated to these VMs. This section explains the difference between instance types and flavors, their significance, and how they impact your RHOSP environment.
+
+= Instance Types
+
+Instance types in RHOSP define the hardware specifications of virtual machines, such as CPU, memory, and storage. They provide a standardized way to categorize VMs based on performance and resource requirements. Common instance types include:
+
+- **Micro**: Suitable for lightweight applications or testing environments, with limited resources (e.g., 1 vCPU, 512 MB RAM).
+- **Small**: Adequate for small-scale web servers, databases, or development workloads, with moderate resources (e.g., 2 vCPUs, 4 GB RAM).
+- **Medium**: Suitable for medium-sized applications or more resource-intensive workloads, such as test/dev environments or small production deployments (e.g., 4 vCPUs, 8 GB RAM).
+- **Large**: Designed for high-performance computing tasks, databases, or larger production workloads, with substantial resources (e.g., 16 vCPUs, 32 GB RAM).
+- **Extra Large**: Optimal for large-scale applications and demanding workloads like big data analytics or high-performance cluster computing (e.g., 32 vCPUs, 64 GB RAM).
+
+Keep in mind that instance types are provider-specific and can vary between RHOSP deployments. Always consult your cloud provider's documentation for accurate specifications.
+
+= Flavors
+
+Flavors, on the other hand, are a more flexible representation of instance resources in RHOSP. They allow administrators to define custom configurations for virtual machine instances based on specific needs. Flavors consist of the following key attributes:
+
+- **Name**: The human-readable name of the flavor (e.g., 'standard.small', 'highcpu').
+- **RAM**: The amount of RAM (in MB) allocated to each instance.
+- **vCPUs**: The number of virtual CPUs assigned to an instance.
+- **Disk**: The root disk size in GB or a description for ephemeral disks.
+- **Swap**: The swap space size in MB, if enabled.
+- **Ephemeral Configuration**: Settings for any additional ephemeral disks attached to instances using this flavor.
+- **OS Disk Configuration**: Specifies how the operating system (OS) disk is managed, such as using or not using snapshots and backup.
+
+Administrators can create custom flavors tailored to specific workloads, optimizing resource allocation and costs. This flexibility allows organizations to manage diverse applications efficiently within a single RHOSP environment.
+
+= Instance Types vs. Flavors
+
+While instance types categorize hardware resources in a standardized way, flavors offer more customization for administrators. An instance type might correspond to one or multiple flavors in an RHOSP deployment. For example, a cloud provider's 'small' instance type could map to two different flavors: one with more RAM and another with more vCPUs based on user requirements.
+
+Understanding the distinction between instance types and flavors empowers you to effectively manage resources and optimize your RHOSP environment for various workloads. This knowledge will be invaluable when creating, managing, and troubleshooting instances within Red Hat OpenStack Platform.

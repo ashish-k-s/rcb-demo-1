@@ -1,0 +1,49 @@
+#  Using Ceilometer and Gnocchi for metrics and events
+
+=== Using Ceilometer and Gnocchi for Metrics and Events
+
+Ceilometer and Gnocchi are two essential metering services in Red Hat OpenStack Platform (RHOSP) used for collecting, storing, and providing access to infrastructure metrics data. These services help users monitor their cloud environments by gathering critical information about resource usage, performance, and events. In this section, we will delve into Ceilometer and Gnocchi, understanding their roles and learning how to use them effectively for monitoring RHOSP deployments.
+
+#### Ceilometer: A Meter Aggregator
+
+Ceilometer is a metering service in OpenStack that collects, stores, and provides access to infrastructure metrics data. It gathers data from various sources such as Nova (Compute), Glance (Image Service), Neutron (Networking), and Cinder (Block Storage). Ceilometer aggregates these raw metric data points into meaningful measurements for further analysis and monitoring purposes.
+
+**Key features of Ceilometer:**
+
+1. **Data Collection**: Gathers raw metrics from multiple OpenStack services and transforms them into standardized, consistent formats.
+2. **Metadata**: Allows attaching additional metadata to collected metrics, such as timestamps or source identifiers for more context.
+3. **Aggregation**: Aggregates metering data for various purposes like summing up resource usage over time.
+4. **Transport Mechanisms**: Provides different transport mechanisms (e.g., message queues, databases) to store and forward the collected data.
+5. **Notifications**: Sends alerts or notifications based on specific metric thresholds or events.
+
+#### Gnocchi: A Time-Series Database for Metrics
+
+Gnocchi is an archive service in OpenStack designed to store and retrieve time-series data, such as metrics gathered by Ceilometer. It provides a scalable, efficient method of storing massive amounts of metric data over extended periods.
+
+**Key features of Gnocchi:**
+
+1. **Scalability**: Handles large volumes of time-series data efficiently using technologies like PostgreSQL for backend storage and Whisper for aggregation.
+2. **Time-Series Data Storage**: Optimized for querying, retrieving, and aggregating time-series data over customizable time ranges.
+3. **Data Ingestion**: Accepts metric data from Ceilometer or other sources via its API or message queues (e.g., AMQP).
+4. **Resource Allocation**: Allows users to define resource allocation policies for data retention, compression, and storage location.
+5. **Querying and Analysis**: Provides a flexible query language and an API for advanced querying and data analysis.
+
+#### Integrating Ceilometer and Gnocchi
+
+In a typical RHOSP deployment, Ceilometer and Gnocchi work together to provide comprehensive monitoring capabilities:
+
+1. **Metric Collection**: Ceilometer gathers raw metrics from various OpenStack services.
+2. **Data Aggregation**: Ceilometer processes, aggregates, and enriches the collected metrics data.
+3. **Data Storage**: Processed metrics are forwarded to Gnocchi for archival and efficient long-term storage.
+4. **Querying and Analysis**: Users can query Gnocchi's time-series database using its API or a command-line tool (gnocchi) to analyze historical metric data, generate reports, and set up alerts based on thresholds.
+
+#### Practical Hands-on Activity: Using Ceilometer and Gnocchi
+
+1. **Deploy RHOSP**: Ensure you have an operational RHOSP environment with Ceilometer and Gnocchi installed and configured properly.
+2. **Verify Metric Collection**: Check that Ceilometer is successfully collecting metrics from relevant OpenStack services (e.g., Nova, Neutron).
+3. **View Metrics in Horizon**: Access the Horizon dashboard to view basic metric data and verify that Ceilometer is forwarding metrics to Gnocchi.
+4. **Query Gnocchi**: Use `gnocchi` command-line tool or its API to query historical metrics data, for example, CPU usage over a specific time range.
+5. **Set Up Alerts**: Configure Ceilometer notifications based on predefined thresholds (e.g., CPU utilization exceeding 80%) and test alert mechanisms.
+6. **Analyze Metrics Data**: Generate reports or dashboards using the collected metrics data to gain insights into resource usage patterns and identify potential performance bottlenecks.
+
+By following this hands-on activity, you will gain practical experience in using Ceilometer and Gnocchi for collecting, storing, and analyzing infrastructure metrics within a Red Hat OpenStack Platform environment. This understanding is crucial for efficient monitoring, troubleshooting, and resource optimization in cloud deployments.

@@ -1,0 +1,11 @@
+#  Networking in RHOSP
+
+= Networking in RHOSP
+
+Networking in Red Hat OpenStack Platform (RHOSP) involves understanding OpenStack's networking concepts and configuring networks, subnets, and routers. Key aspects include:
+
+- **OpenStack networking concepts**: Learn about Software Defined Networking (SDN), virtual bridges, and network nodes like the network node and ML2 plugin.
+- **Network creation**: Understand how to create networks for different purposes, such as external access or private communication between instances.
+- **Subnet configuration**: Grasp the concept of subnets within networks for organizing IP addresses and managing routing.
+- **Routers management**: Learn to configure routers to connect different subnets and provide internet access to instances.
+- **Security Groups and Firewalls**: Use security groups and firewall rules to control inbound/outbound traffic at instance level, ensuring secure communication between resources in RHOSP.

@@ -1,0 +1,80 @@
+#  Creating and managing projects, users, and roles
+
+== Managing RHOSP with the Horizon Dashboard
+
+=== Creating and Managing Projects, Users, and Roles
+
+In Red Hat OpenStack Platform (RHOSP), the Horizon dashboard provides a user-friendly interface for managing various aspects of your cloud environment, including projects, users, and roles. This section will guide you through creating and managing these essential components to ensure proper access control and resource allocation within your RHOSP deployment.
+
+**Projects**
+
+A project in RHOSP represents an isolated group of resources for a particular user or service. It provides boundaries for managing users, roles, and access to various services.
+
+*Creating a Project:*
+
+1. Log in to the Horizon dashboard.
+2. In the left-hand navigation pane, click **Project** > **Projects**.
+3. Click **Create Project**.
+4. Enter the required project details (Name, Description).
+5. Optionally, associate an organization and enable/disable the project.
+6. Click **Create Project**.
+
+*Managing a Project:*
+
+Once created, you can manage projects by editing their properties or deleting them if no longer needed:
+
+1. Select the target project from the Projects list.
+2. Click **Edit Project** to update its details.
+3. Or click **Delete Project** to remove it entirely. Confirm deletion when prompted.
+
+**Users**
+
+Users in RHOSP are individual accounts granted access to projects and resources based on assigned roles.
+
+*Creating a User:*
+
+1. From the left-hand navigation pane, click **Project** > **Users**.
+2. Click **Create User**.
+3. Enter user details (Name, Email, Password).
+4. Optionally, associate an organization and set the user as active or inactive.
+5. Click **Create User**.
+
+*Managing a User:*
+
+Manage users by editing their properties or deleting them:
+
+1. Select the target user from the Users list.
+2. Click **Edit User** to update its details.
+3. Or click **Delete User** to remove it entirely. Confirm deletion when prompted.
+
+**Roles**
+
+Roles in RHOSP define the actions that a user can perform within a project. Predefined roles include: admin, member, and reseller_admin. Custom roles can also be created according to specific needs.
+
+*Creating a Role:*
+
+1. From the left-hand navigation pane, click **Admin** > **Roles**.
+2. Click **Create Role**.
+3. Enter role details (Name, Description).
+4. Define role logic by selecting allowed actions on resources or services.
+5. Optionally, associate an organization and enable/disable the role.
+6. Click **Create Role**.
+
+*Managing a Role:*
+
+Manage roles by editing their properties or deleting them:
+
+1. Select the target role from the Roles list.
+2. Click **Edit Role** to update its details.
+3. Or click **Delete Role** to remove it entirely. Confirm deletion when prompted.
+
+*Assigning Users to Projects and Roles:*
+
+After creating users and roles, assign them to projects for appropriate access control:
+
+1. Select the target project from the Projects list.
+2. Click **Project Users**.
+3. To add a user, click **Add User**, search for the desired user, and select their role in the dropdown menu.
+4. Confirm addition by clicking **Add**.
+
+By following these steps, you can effectively create and manage projects, users, and roles using the RHOSP Horizon dashboard, ensuring secure and controlled access to resources within your cloud environment.

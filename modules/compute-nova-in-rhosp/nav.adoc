@@ -1,0 +1,3 @@
+* xref:compute-nova-in-rhosp.adoc[]
+** xref:instance-types-and-flavors.adoc[]
+** xref:launching-and-managing-instances.adoc[]

@@ -1,0 +1,50 @@
+#  Configuring networks, subnets, and routers
+
+= Configuring Networks, Subnets, and Routers in Red Hat OpenStack Platform (RHOSP)
+
+OpenStack's networking service, Neutron, provides a robust and flexible method for managing virtual networks within your RHOSP environment. This section will guide you through the process of configuring networks, subnets, and routers using the Horizon Dashboard, RHOSP's web-based management interface.
+
+## Prerequisites
+
+Before diving into network configuration, ensure you have:
+
+1. Access to the RHOSP Horizon Dashboard (https://<your_openstack_ip>:8000/dashboard) with administrative privileges.
+2. Basic understanding of IP addressing and subnetting concepts.
+
+## Configuring Networks
+
+1. **Login to Horizon Dashboard** and navigate to **Project > Network > Networks**. Click **Create Network**.
+
+2. Enter a name for the new network, e.g., `my_network`, and select the desired physical network (usually default, `provider:physical_network`).
+
+3. Check the **Enabled** box and click **Create Network**. Your new network is now ready to be used within your RHOSP project.
+
+## Configuring Subnets
+
+1. Navigate back to **Project > Network > Networks**, select the newly created network, and click on **Create Subnet**.
+
+2. Enter a name for the subnet (e.g., `my_subnet`), specify the CIDR notation for the IP range (e.g., 192.168.1.0/24), and choose the network you just created (`my_network`).
+
+3. Select a DHCP agent if needed, enter the network gateway and DNS nameservers, and check **Enable Namespace**. Click **Create Subnet** to finalize the configuration.
+
+## Configuring Routers
+
+1. Navigate to **Project > Network > Routers** and click **Create Router**.
+
+2. Enter a name for the new router (e.g., `my_router`), choose an external network (usually the public network provided by your RHOSP deployment), and select the internal network (`my_network`) you created earlier. Check **Enable Admin State**. Click **Create Router** to proceed.
+
+3. With your new router selected, click on **Add Interface** and choose both the internal (`my_network`) and external networks to attach them to the router. This establishes a connection between your isolated internal network and the broader external network.
+
+4. To enable routing between subnets, navigate to **Project > Network > Routers**, select your router, and click on the **+** icon next to the **Routes** tab. Enter the destination network (CIDR) and the next hop (the IP address of the gateway for the respective network). Click **Add** to save the route.
+
+## Hands-on Lab Activity
+
+1. **Set up a lab environment** following the provided instructions, ensuring you have a working RHOSP deployment with the necessary components like controllers, network nodes, and compute nodes.
+
+2. Access the Horizon Dashboard and follow the steps outlined above to configure networks, subnets, and routers as described.
+
+3. **Create instances** in your newly configured networks and test connectivity between them and external resources via the router configuration.
+
+4. Troubleshoot any potential issues that arise during network configuration or instance connectivity using the monitoring and troubleshooting tools covered in the respective section of this training content.
+
+By practicing these steps, you will gain hands-on experience with configuring networks, subnets, and routers in Red Hat OpenStack Platform, enabling you to manage your virtual networks effectively.
