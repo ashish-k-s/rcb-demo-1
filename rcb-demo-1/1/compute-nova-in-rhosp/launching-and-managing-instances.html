@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Launching and managing instances :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="instance-types-and-flavors.html">
+    <link rel="next" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a></li>
+    <li><a href="launching-and-managing-instances.html">Launching and managing instances</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Launching and managing instances</h1>
+<div class="sect1">
+<h2 id="_compute_nova_in_rhosp"><a class="anchor" href="#_compute_nova_in_rhosp"></a>Compute (Nova) in RHOSP</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>= Launching and Managing Instances</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>In Red Hat OpenStack Platform (RHOSP), **Compute (Nova)** is responsible for providing on-demand, scalable access to computing resources. This section focuses on launching and managing instances using the RHOSP dashboard, Horizon.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Launching an Instance</strong></p>
+</div>
+<div class="paragraph">
+<p>To launch an instance in RHOSP, follow these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Access Horizon Dashboard:</strong> Log in to the RHOSP environment and navigate to the <strong>Horizon Dashboard</strong>.</p>
+</li>
+<li>
+<p><strong>Navigate to Compute &gt; Instances:</strong> In the left-hand navigation panel, click on <strong>Compute</strong> followed by <strong>Instances</strong>. This will display the instances overview page.</p>
+</li>
+<li>
+<p><strong>Create a New Instance:</strong> Click the <strong>Create</strong> button located at the upper-left corner of the Instances overview page.</p>
+</li>
+<li>
+<p><strong>Configure Instance Details:</strong> Provide necessary details like instance name, flavor (instance type), and key pair. Flavors define the compute, memory, and storage capacity of your instance. Key pairs are used for secure SSH access to your instances.</p>
+</li>
+<li>
+<p><strong>Select Image or Upload an Image:</strong> Choose an available image from the dropdown list or upload a custom image (if needed) from the <strong>Glance</strong> service.</p>
+</li>
+<li>
+<p><strong>Configure Networking:</strong> Select the desired network and subnet for your instance&#8217;s network connectivity. You can also create new networks, subnets, or routers if required.</p>
+</li>
+<li>
+<p><strong>Launch the Instance:</strong> Review the configured settings and click <strong>Launch</strong> to initiate the instance creation process.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Managing Instances</strong></p>
+</div>
+<div class="paragraph">
+<p>Once the instance is launched, you can perform various management tasks using the Horizon Dashboard:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Stop/Start an Instance:</strong> Select the running instance and click <strong>Stop</strong> or <strong>Start</strong> in the Instance Actions dropdown menu.</p>
+</li>
+<li>
+<p><strong>Resize an Instance:</strong> Resize (or change) the flavor of a running instance by selecting the instance, clicking <strong>Change Flavor</strong>, and choosing the new flavor from the list.</p>
+</li>
+<li>
+<p><strong>Delete an Instance:</strong> Stop the instance if it&#8217;s running and then click <strong>Delete</strong> in the Instance Actions dropdown menu to remove the instance permanently.</p>
+</li>
+<li>
+<p><strong>Console Access:</strong> Access your instance&#8217;s console for graphical or text-based interaction using the <strong>Console</strong> tab under the selected instance.</p>
+</li>
+<li>
+<p><strong>Metadata Services:</strong> Manage metadata services associated with instances, such as setting custom data for the instance to access during boot time.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By following these steps and utilizing the Horizon Dashboard, users can effectively launch and manage RHOSP instances. Remember that practical experience is crucial; consider participating in the provided hands-on lab exercises to reinforce your understanding of managing instances in RHOSP.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="instance-types-and-flavors.html">Instance types and flavors</a></span>
+  <span class="next"><a href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

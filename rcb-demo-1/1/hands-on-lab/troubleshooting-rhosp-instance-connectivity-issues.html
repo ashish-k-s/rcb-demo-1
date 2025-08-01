@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Troubleshooting RHOSP instance connectivity issues :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="rhosp-instance-creation.html">
+    <link rel="next" href="../appendix/appendix.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="hands-on-lab.html">Hands-on Lab</a></li>
+    <li><a href="troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Troubleshooting RHOSP instance connectivity issues</h1>
+<h1 id="_troubleshooting_rhosp_instance_connectivity_issues" class="sect0"><a class="anchor" href="#_troubleshooting_rhosp_instance_connectivity_issues"></a>Troubleshooting RHOSP Instance Connectivity Issues</h1>
+<div class="paragraph">
+<p>In this section, we will discuss common issues that may arise when trying to establish connectivity with instances in a Red Hat OpenStack Platform (RHOSP) environment and provide guidance on how to address these problems effectively.</p>
+</div>
+<div class="paragraph">
+<p><strong>Understanding Connectivity Problems</strong></p>
+</div>
+<div class="paragraph">
+<p>Connectivity issues can manifest in various ways, such as:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Inability to ping or SSH into an instance.</p>
+</li>
+<li>
+<p>Intermittent connectivity or high latency.</p>
+</li>
+<li>
+<p>Network configuration discrepancies between the instance and the expected network settings.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Key Components to Investigate</strong></p>
+</div>
+<div class="paragraph">
+<p>When troubleshooting RHOSP instance connectivity issues, consider the following OpenStack components:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Neutron (Network Service):</strong> Ensure that the proper networks, subnets, and routers are configured for your instances.</p>
+</li>
+<li>
+<p><strong>Nova (Compute Service):</strong> Verify that the instance was created with appropriate flavor settings, including CPU, memory, and disk configurations.</p>
+</li>
+<li>
+<p><strong>Keystone (Identity Service):</strong> Confirm authentication and authorization settings for users, projects, and roles.</p>
+</li>
+<li>
+<p><strong>Ironic (Bare Metal Service):</strong> If dealing with bare-metal instances, check the provisioning and cleaning processes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Troubleshooting Steps</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Verify Instance Status:</strong>
+Use the following command to check the instance status in the OpenStack dashboard or through the OpenStack CLI:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+openstack server show &lt;instance_name_or_id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>This command will provide detailed information about your instance, including its power state and task state.</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Check Neutron Configuration:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>List available networks, subnets, and routers:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+openstack network list
+openstack subnet list
+openstack router list
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify that the instance is connected to the correct network and subnet, and that a proper route exists for external connectivity (if needed).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Inspect Security Groups and Firewalls:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>List security groups associated with the instance:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+openstack security group list
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Review inbound rules in each security group to ensure that necessary ports are open (e.g., SSH - port 22, HTTP - port 80).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Investigate Floating IP Addresses:</strong>
+If you suspect that the issue is related to external connectivity:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>List available floating IP addresses:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+openstack floating ip list
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Allocate a floating IP address to your instance if it does not already have one:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+openstack floating ip create &lt;pool_name&gt;
+openstack server add floating ip &lt;instance_name_or_id&gt; &lt;allocated_floating_ip&gt;
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Examine Nova Console Logs:</strong>
+Review the Nova logs for any errors or relevant information during instance creation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenStack control node log file location (adjust according to your OpenStack distribution):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash/etc/nova/compute.log
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Consult Keystone Logs and Configuration:</strong>
+If authentication issues are suspected, examine the Keystone logs and configuration files for any discrepancies:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Keystone log file location (adjust according to your OpenStack distribution):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash/var/log/keystone/keystone.log
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Review Ironic Logs (for Bare-metal Instances):</strong>
+If dealing with a bare-metal instance, review the Ironic logs for any errors during provisioning or cleaning:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ironic log file location (adjust according to your OpenStack distribution):</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash/var/log/ironic/ironic.log
+```</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Additional Resources</strong></p>
+</div>
+<div class="paragraph">
+<p>For more in-depth troubleshooting and advanced scenarios, refer to the official Red Hat OpenStack Platform documentation: [Red Hat OpenStack Platform Documentation](<a href="https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/" class="bare">https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/</a>)</p>
+</div>
+<div class="paragraph">
+<p>By following these steps and utilizing available resources, you should be able to identify and resolve common connectivity issues in your RHOSP environment effectively. Remember that troubleshooting often requires a systematic approach and patience, so take your time to investigate each potential cause thoroughly.</p>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="rhosp-instance-creation.html">RHOSP instance creation</a></span>
+  <span class="next"><a href="../appendix/appendix.html">Appendix</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

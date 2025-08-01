@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Instance types and flavors :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="compute-nova-in-rhosp.html">
+    <link rel="next" href="launching-and-managing-instances.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a></li>
+    <li><a href="instance-types-and-flavors.html">Instance types and flavors</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Instance types and flavors</h1>
+<div class="sect2">
+<h3 id="_instance_types_and_flavors"><a class="anchor" href="#_instance_types_and_flavors"></a>Instance Types and Flavors</h3>
+<div class="paragraph">
+<p>In Red Hat OpenStack Platform (RHOSP), an instance represents a virtual machine (VM) running on a host machine. Instance types and flavors are crucial for understanding the resources allocated to these VMs. This section explains the difference between instance types and flavors, their significance, and how they impact your RHOSP environment.</p>
+</div>
+</div>
+<h1 id="_instance_types" class="sect0"><a class="anchor" href="#_instance_types"></a>Instance Types</h1>
+<div class="paragraph">
+<p>Instance types in RHOSP define the hardware specifications of virtual machines, such as CPU, memory, and storage. They provide a standardized way to categorize VMs based on performance and resource requirements. Common instance types include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Micro</strong>: Suitable for lightweight applications or testing environments, with limited resources (e.g., 1 vCPU, 512 MB RAM).</p>
+</li>
+<li>
+<p><strong>Small</strong>: Adequate for small-scale web servers, databases, or development workloads, with moderate resources (e.g., 2 vCPUs, 4 GB RAM).</p>
+</li>
+<li>
+<p><strong>Medium</strong>: Suitable for medium-sized applications or more resource-intensive workloads, such as test/dev environments or small production deployments (e.g., 4 vCPUs, 8 GB RAM).</p>
+</li>
+<li>
+<p><strong>Large</strong>: Designed for high-performance computing tasks, databases, or larger production workloads, with substantial resources (e.g., 16 vCPUs, 32 GB RAM).</p>
+</li>
+<li>
+<p><strong>Extra Large</strong>: Optimal for large-scale applications and demanding workloads like big data analytics or high-performance cluster computing (e.g., 32 vCPUs, 64 GB RAM).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Keep in mind that instance types are provider-specific and can vary between RHOSP deployments. Always consult your cloud provider&#8217;s documentation for accurate specifications.</p>
+</div>
+<h1 id="_flavors" class="sect0"><a class="anchor" href="#_flavors"></a>Flavors</h1>
+<div class="paragraph">
+<p>Flavors, on the other hand, are a more flexible representation of instance resources in RHOSP. They allow administrators to define custom configurations for virtual machine instances based on specific needs. Flavors consist of the following key attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Name</strong>: The human-readable name of the flavor (e.g., 'standard.small', 'highcpu').</p>
+</li>
+<li>
+<p><strong>RAM</strong>: The amount of RAM (in MB) allocated to each instance.</p>
+</li>
+<li>
+<p><strong>vCPUs</strong>: The number of virtual CPUs assigned to an instance.</p>
+</li>
+<li>
+<p><strong>Disk</strong>: The root disk size in GB or a description for ephemeral disks.</p>
+</li>
+<li>
+<p><strong>Swap</strong>: The swap space size in MB, if enabled.</p>
+</li>
+<li>
+<p><strong>Ephemeral Configuration</strong>: Settings for any additional ephemeral disks attached to instances using this flavor.</p>
+</li>
+<li>
+<p><strong>OS Disk Configuration</strong>: Specifies how the operating system (OS) disk is managed, such as using or not using snapshots and backup.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Administrators can create custom flavors tailored to specific workloads, optimizing resource allocation and costs. This flexibility allows organizations to manage diverse applications efficiently within a single RHOSP environment.</p>
+</div>
+<h1 id="_instance_types_vs_flavors" class="sect0"><a class="anchor" href="#_instance_types_vs_flavors"></a>Instance Types vs. Flavors</h1>
+<div class="paragraph">
+<p>While instance types categorize hardware resources in a standardized way, flavors offer more customization for administrators. An instance type might correspond to one or multiple flavors in an RHOSP deployment. For example, a cloud provider&#8217;s 'small' instance type could map to two different flavors: one with more RAM and another with more vCPUs based on user requirements.</p>
+</div>
+<div class="paragraph">
+<p>Understanding the distinction between instance types and flavors empowers you to effectively manage resources and optimize your RHOSP environment for various workloads. This knowledge will be invaluable when creating, managing, and troubleshooting instances within Red Hat OpenStack Platform.</p>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a></span>
+  <span class="next"><a href="launching-and-managing-instances.html">Launching and managing instances</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Managing volumes and images :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="overview-of-storage-services-cinder-swift-glance.html">
+    <link rel="next" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="storage-in-rhosp.html">Storage in RHOSP</a></li>
+    <li><a href="managing-volumes-and-images.html">Managing volumes and images</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Managing volumes and images</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Managing Volumes and Images in Red Hat OpenStack Platform (RHOSP)</strong></p>
+</div>
+<div class="paragraph">
+<p>In this section, we will delve into managing storage services in RHOSP, specifically focusing on Cinder for block storage and Swift for object storage through images. We&#8217;ll explore creating, attaching, detaching, and deleting volumes as well as uploading and downloading images.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_5_storage_in_rhosp_managing_volumes_and_images"><a class="anchor" href="#_5_storage_in_rhosp_managing_volumes_and_images"></a>5. Storage in RHOSP: Managing Volumes and Images</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.1 Overview of Storage Services</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>OpenStack provides various storage services for block (Cinder) and object (Swift) storage. These services are crucial for managing persistent data in your cloud environment.</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cinder (Block Storage):</strong> Offers scalable, persistent block-level storage devices for use with instances. It supports various volume types like HDD, SSD, and tensor.</p>
+</li>
+<li>
+<p><strong>Swift (Object Storage):</strong> Provides a highly available and distributed object storage system for files and binary large objects (BLOBs). Swift stores data as objects in containers.</p>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2 Managing Volumes with Cinder</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Volumes in Cinder are used for persistent block-level storage that can be attached to and detached from instances. Here’s how to manage volumes:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.1 Creating a Volume</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>To create a volume, use the following OpenStack CLI command:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack volume create --size &lt;size&gt; &lt;volume-name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;size&gt;` with the desired volume size in GB and `&lt;volume-name&gt;` with a name for your new volume.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.2 Attaching a Volume</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Attach a volume to an instance using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack server add volume &lt;instance-id&gt; &lt;volume-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;instance-id&gt;` with the ID of the instance to which you want to attach the volume, and `&lt;volume-id&gt;` with the ID of the newly created volume.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.3 Detaching a Volume</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>To detach a volume from an instance:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack server remove volume &lt;instance-id&gt; &lt;volume-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;instance-id&gt;` and `&lt;volume-id&gt;` as before.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.4 Deleting a Volume</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>When you no longer need a volume, delete it with:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack volume delete &lt;volume-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;volume-id&gt;` with the ID of the volume to be removed.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.5 Snapshots</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>You can create snapshots of volumes for backup purposes using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack volume snapshot create &lt;volume-name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>To list available snapshots, use:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openrest client volume snapshot list &lt;volume-name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.6 Restoring from a Snapshot</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Restore a volume from a snapshot with:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack volume create --snapshot &lt;snapshot-id&gt; &lt;new-volume-name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;snapshot-id&gt;` with the ID of the snapshot and `&lt;new-volume-name&gt;` with a name for the restored volume.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.2.7 Deleting a Snapshot</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Remove an unwanted snapshot using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack volume snapshot delete &lt;snapshot-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;snapshot-id&gt;` with the ID of the snapshot to be deleted.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>== 5.3 Managing Images in Swift</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Images in RHOSP are used for booting instances, and they are stored as files in the Swift object storage service. Here's how to manage images:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.3.1 Uploading an Image</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Upload a new image to Glance (the image service) using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack image create --disk-format &lt;format&gt; --container &lt;container&gt; --file &lt;image-path&gt; &lt;image-name&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;format&gt;` with the desired disk format (e.g., qcow2, raw), `&lt;container&gt;` with the name of the container in which to store the image, `&lt;image-path&gt;` with the local path to your image file, and `&lt;image-name&gt;` with a name for your new image.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.3.2 Listing Images</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>List available images with:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack image list
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.3.3 Downloading an Image</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Download an image from Glance using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack image save --file &lt;image-destination&gt; &lt;image-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;image-destination&gt;` with the path where you want to save the image file and `&lt;image-id&gt;` with the ID of the image.</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>=== 5.3.4 Deleting an Image</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Remove an unwanted image using:</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ openstack image delete &lt;image-id&gt;
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Replace `&lt;image-id&gt;` with the ID of the image to be deleted.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hands_on_lab_exercises"><a class="anchor" href="#_hands_on_lab_exercises"></a>Hands-on Lab Exercises</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Volume Management:</strong> Create, attach, and detach volumes. Create snapshots and restore from them.</p>
+</li>
+<li>
+<p><strong>Image Management:</strong> Upload an image to Glance, list available images, and download one for local use.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>By completing these exercises, learners will gain hands-on experience with managing volumes and images in RHOSP, enabling them to effectively handle persistent storage and instance booting requirements in their cloud environments.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a></span>
+  <span class="next"><a href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

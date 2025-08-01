@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenStack networking concepts :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="networking-in-rhosp.html">
+    <link rel="next" href="configuring-networks-subnets-and-routers.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="networking-in-rhosp.html">Networking in RHOSP</a></li>
+    <li><a href="openstack-networking-concepts.html">OpenStack networking concepts</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">OpenStack networking concepts</h1>
+<div class="sect2">
+<h3 id="_openstack_networking_concepts"><a class="anchor" href="#_openstack_networking_concepts"></a>OpenStack Networking Concepts</h3>
+<div class="paragraph">
+<p>OpenStack provides a robust and flexible networking solution through its Neutron service, enabling users to create and manage networks, subnets, routers, and other networking components. Here&#8217;s an overview of key OpenStack networking concepts:</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_networking_components"><a class="anchor" href="#_networking_components"></a>Networking Components</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Networks</strong>: These represent logical isolation in the data center, providing a broadcast domain similar to VLANs in traditional networks. Each network requires a unique subnet and can be assigned different IP address ranges.</p>
+</li>
+<li>
+<p><strong>Subnets</strong>: Subnets are smaller segments of networks used to allocate IP addresses to instances. A subnet is linked to a specific network and has its own IP address range, subnet mask, and gateway.</p>
+</li>
+<li>
+<p><strong>Routers</strong>: Routers enable communication between different subnets and networks within OpenStack. They facilitate traffic routing by learning routes dynamically through protocols like OSPF, RIP, or statically configured routes.</p>
+</li>
+<li>
+<p><strong>Ports</strong>: Ports represent the connection points between instances and networks/subnets. Each port is associated with a network or trunk (described below) and can have additional attributes such as security groups and Quality of Service (QoS) policies.</p>
+</li>
+<li>
+<p><strong>Trunks</strong>: Trunks allow a single port to connect to multiple networks simultaneously, facilitating multi-tenancy and network segmentation.</p>
+</li>
+<li>
+<p><strong>Floating IPs</strong>: These are publicly routable IP addresses that can be associated with instances for external access from the internet or other networks outside of the OpenStack environment.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_networking_models"><a class="anchor" href="#_networking_models"></a>Networking Models</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenStack supports various networking models to cater to diverse deployment requirements:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Local</strong>: In this model, each instance connects directly to a network defined in OpenStack without requiring additional components like VLANs or VLs (Virtual Local Area Networks). It&#8217;s suitable for small-scale deployments and testing.</p>
+</li>
+<li>
+<p><strong>VLAN</strong>: Utilizes VLANs to provide logical segmentation within a physical network. Multiple VLANs share the same physical infrastructure but are isolated from each other at Layer 2.</p>
+</li>
+<li>
+<p><strong>GRE/VXLAN Tunneling</strong>: This model uses GRE (Generic Routing Encapsulation) or VXLAN (Virtual Extensible LAN) tunnels to create overlay networks. These tunnels encapsulate Ethernet frames within IP packets, allowing virtual networks to span across physical infrastructure.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_networking_services"><a class="anchor" href="#_networking_services"></a>Networking Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenStack networking relies on various services for its functionality:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Neutron Server</strong>: The core service responsible for managing and provisioning networks, subnets, routers, ports, and other networking components.</p>
+</li>
+<li>
+<p><strong>ML2 Plugin</strong>: The modular layer 2 plugin that provides a framework for extending Neutron to support diverse networking technologies and models.</p>
+</li>
+<li>
+<p><strong>Open vSwitch (OVS)</strong>: A widely used software-defined networking (SDN) solution that serves as the default mechanism driver in OpenStack for implementing networking features such as VLANs, GRE/VXLAN tunneling, and security groups.</p>
+</li>
+<li>
+<p><strong>L2 Agent</strong>: Runs on network nodes and manages local networking resources, communicating with the Neutron server to provide networking services to instances.</p>
+</li>
+<li>
+<p><strong>Metadata Agent</strong>: Provides instance metadata services that allow instances to retrieve configuration details and communicate with the OpenStack environment.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hands_on_activity_configuring_basic_networking"><a class="anchor" href="#_hands_on_activity_configuring_basic_networking"></a>Hands-on Activity: Configuring Basic Networking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To solidify your understanding of OpenStack networking concepts, follow these steps to configure basic networking in your Red Hat OpenStack Platform (RHOSP) lab environment:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Login</strong> to the RHOSP dashboard and navigate to <strong>Project &gt; Network &gt; Networks</strong>. Click 'Create Network' and provide a name, select an appropriate networking model (e.g., VLAN or GRE/VXLAN), and specify an IP address range.</p>
+</li>
+<li>
+<p><strong>Create Subnet</strong>: Navigate to <strong>Project &gt; Network &gt; Subnets</strong>, click 'Create Subnet', associate it with the previously created network, and provide an IP address range and gateway.</p>
+</li>
+<li>
+<p><strong>Create Router</strong>: Go to <strong>Project &gt; Network &gt; Routers</strong>, click 'Create Router', choose a name, and connect it to your existing network and subnet.</p>
+</li>
+<li>
+<p><strong>Add Interface</strong>: Under the router details, click 'Add Interface' to associate it with the desired network or subnet. This enables communication between connected instances and networks.</p>
+</li>
+<li>
+<p><strong>Allocate Floating IP</strong>: Navigate to <strong>Project &gt; Network &gt; Floating IPs</strong>, allocate a floating IP address, and associate it with an instance for external connectivity.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By completing this activity, you&#8217;ll gain hands-on experience in configuring basic OpenStack networking components and better understand how they function together within the RHOSP environment.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="networking-in-rhosp.html">Networking in RHOSP</a></span>
+  <span class="next"><a href="configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

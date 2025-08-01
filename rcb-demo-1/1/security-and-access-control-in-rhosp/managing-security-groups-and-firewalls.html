@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Managing security groups and firewalls :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="understanding-keystone-for-authentication-and-authorization.html">
+    <link rel="next" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a></li>
+    <li><a href="managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Managing security groups and firewalls</h1>
+<div class="sect2">
+<h3 id="_managing_security_groups_and_firewalls"><a class="anchor" href="#_managing_security_groups_and_firewalls"></a>Managing Security Groups and Firewalls</h3>
+<div class="paragraph">
+<p>Security groups and firewalls are crucial components in maintaining the integrity and confidentiality of resources within a Red Hat OpenStack Platform (RHOSP) environment. In this section, we will discuss how to effectively manage security groups and firewalls using the RHOSP Horizon Dashboard, focusing on creating, modifying, and deleting rules to control inbound and outbound traffic for your instances.</p>
+</div>
+<div class="sect3">
+<h4 id="_1_understanding_security_groups_and_firewalls_in_rhosp"><a class="anchor" href="#_1_understanding_security_groups_and_firewalls_in_rhosp"></a>1. Understanding Security Groups and Firewalls in RHOSP</h4>
+<div class="paragraph">
+<p>In OpenStack, security groups act as virtual firewalls at the instance level, controlling both inbound and outbound traffic based on predefined rules. They are an essential part of the networking service (Neutron) and enable administrators to secure their cloud resources by managing access to and from instances.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_2_accessing_security_groups_via_horizon_dashboard"><a class="anchor" href="#_2_accessing_security_groups_via_horizon_dashboard"></a>2. Accessing Security Groups via Horizon Dashboard</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the RHOSP Horizon Dashboard using your credentials.</p>
+</li>
+<li>
+<p>Navigate to <strong>Project</strong> &gt; <strong>Compute</strong> &gt; <strong>Access &amp; Security</strong>.</p>
+</li>
+<li>
+<p>In the <strong>Security Groups</strong> section, you can see a list of existing security groups. Here, you can create new security groups or manage the rules for existing ones.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_3_creating_a_new_security_group"><a class="anchor" href="#_3_creating_a_new_security_group"></a>3. Creating a New Security Group</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the <strong>Create Security Group</strong> button.</p>
+</li>
+<li>
+<p>Enter a descriptive name and optional description for the new security group.</p>
+</li>
+<li>
+<p>Click <strong>Create Security Group</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_4_managing_rules_in_a_security_group"><a class="anchor" href="#_4_managing_rules_in_a_security_group"></a>4. Managing Rules in a Security Group</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the desired security group from the list.</p>
+</li>
+<li>
+<p>Navigate to the <strong>Manage Rules</strong> tab.</p>
+</li>
+<li>
+<p>Click on <strong>Create Rule</strong> to add new rules.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Define the rule name, protocol (TCP, UDP, ICMP), and port range or specific ports.</p>
+</li>
+<li>
+<p>Specify whether it&#8217;s an inbound (default) or outbound rule by selecting the corresponding radio button.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> to apply the new rule.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_5_associating_instances_with_security_groups"><a class="anchor" href="#_5_associating_instances_with_security_groups"></a>5. Associating Instances with Security Groups</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Navigate to the <strong>Instances</strong> section in <strong>Project</strong> &gt; <strong>Compute</strong>.</p>
+</li>
+<li>
+<p>Select the instance you wish to associate with a security group.</p>
+</li>
+<li>
+<p>In the <strong>Actions</strong> dropdown, choose <strong>Add Security Group</strong>.</p>
+</li>
+<li>
+<p>Choose the desired security group from the list and click <strong>OK</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_6_deleting_security_groups"><a class="anchor" href="#_6_deleting_security_groups"></a>6. Deleting Security Groups</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the security group you want to delete from the list in the <strong>Security Groups</strong> section.</p>
+</li>
+<li>
+<p>Click on the <strong>Delete Security Group</strong> button.</p>
+</li>
+<li>
+<p>Confirm the deletion by entering the security group name in the pop-up dialog and clicking <strong>Delete</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_7_understanding_keystone_for_authentication_and_authorization"><a class="anchor" href="#_7_understanding_keystone_for_authentication_and_authorization"></a>7. Understanding Keystone for Authentication and Authorization</h4>
+<div class="paragraph">
+<p>OpenStack&#8217;s Identity service, known as Keystone, plays a significant role in managing user authentication and authorization within RHOSP. Administrators can define roles and map them to users or groups, controlling access to various OpenStack services and resources, including security group management.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_8_managing_security_groups_programmatically"><a class="anchor" href="#_8_managing_security_groups_programmatically"></a>8. Managing Security Groups Programmatically</h4>
+<div class="paragraph">
+<p>Besides using the Horizon Dashboard, administrators and developers can also manage security groups via OpenStack&#8217;s command-line interface (CLI) tool called <code>openstack client</code> or through APIs for programmatic access. This flexibility allows for integration with automation scripts and tools in larger deployments.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h3>
+<div class="paragraph">
+<p>Understanding how to manage security groups and firewalls is essential for maintaining the security of resources within a RHOSP environment. Using the Horizon Dashboard, administrators can easily create, modify, and delete rules, associate instances with appropriate security groups, and control access through roles managed by Keystone. This section provides hands-on guidance on managing security groups to ensure your cloud resources are properly protected against unauthorized access and potential threats.</p>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a></span>
+  <span class="next"><a href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

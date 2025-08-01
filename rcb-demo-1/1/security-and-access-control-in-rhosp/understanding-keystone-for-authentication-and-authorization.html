@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Understanding Keystone for authentication and authorization :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
+    <link rel="prev" href="security-and-access-control-in-rhosp.html">
+    <link rel="next" href="managing-security-groups-and-firewalls.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../compute-nova-in-rhosp/compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/instance-types-and-flavors.html">Instance types and flavors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../compute-nova-in-rhosp/launching-and-managing-instances.html">Launching and managing instances</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a></li>
+    <li><a href="understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Understanding Keystone for authentication and authorization</h1>
+<div class="sect2">
+<h3 id="_understanding_keystone_for_authentication_and_authorization"><a class="anchor" href="#_understanding_keystone_for_authentication_and_authorization"></a>Understanding Keystone for Authentication and Authorization</h3>
+<div class="paragraph">
+<p>Red Hat OpenStack Platform (RHOSP) employs an identity service named <strong>Keystone</strong> to manage users, services, and tenants (projects). It provides a centralized authentication and authorization service across all OpenStack components. This section outlines the fundamentals of Keystone, its architecture, core concepts, and how it facilitates access control in RHOSP.</p>
+</div>
+<div class="sect3">
+<h4 id="_keystone_architecture"><a class="anchor" href="#_keystone_architecture"></a>Keystone Architecture</h4>
+<div class="paragraph">
+<p>Keystone is composed of several processes that run as separate services:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>api</strong>: The API service exposes a RESTful web service for communication with other OpenStack components and external clients. It validates requests, interacts with the database, and invokes business logic within other Keystone processes.</p>
+</li>
+<li>
+<p><strong>admin</strong>: The admin service handles administrative tasks such as managing users, roles, and tenants.</p>
+</li>
+<li>
+<p><strong>keystone-all</strong>: A utility process that manages token validation for incoming API calls, ensuring that requests are properly authenticated.</p>
+</li>
+<li>
+<p><strong>database</strong>: Stores all persistent data related to users, tenants, roles, services, and policies.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_core_keystone_concepts"><a class="anchor" href="#_core_keystone_concepts"></a>Core Keystone Concepts</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Users</strong>: Individual accounts in RHOSP, which can be granted specific permissions and roles.</p>
+</li>
+<li>
+<p><strong>Tenants (Projects)</strong>: Logical containers for resources such as virtual machines, networks, and storage. Each tenant has its own set of users and resources.</p>
+</li>
+<li>
+<p><strong>Roles</strong>: A role defines a set of permissions that dictate how a user can interact with RHOSP resources. Common roles include admin, member, and reader.</p>
+</li>
+<li>
+<p><strong>Services</strong>: The OpenStack components that require authentication for communication between each other. Services like Nova (Compute), Neutron (Networking), Glance (Image), Cinder (Block Storage), etc., rely on Keystone to authenticate their requests.</p>
+</li>
+<li>
+<p><strong>Tokens</strong>: Keystone generates unique tokens upon successful authentication. Tokens are then used to identify and authorize users when they interact with OpenStack services.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_authentication_flow_in_rhosp"><a class="anchor" href="#_authentication_flow_in_rhosp"></a>Authentication Flow in RHOSP</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A user submits a request to an OpenStack service, such as creating a virtual machine.</p>
+</li>
+<li>
+<p>The OpenStack service passes the request along with required credentials (username and password) to Keystone&#8217;s <strong>api</strong> process.</p>
+</li>
+<li>
+<p>Keystone verifies the user’s credentials against its database.</p>
+</li>
+<li>
+<p>If the credentials are valid, Keystone generates an authentication token and sends it back to the OpenStack service.</p>
+</li>
+<li>
+<p>The OpenStack service validates the token using the <strong>keystone-all</strong> process before fulfilling the user&#8217;s request.</p>
+</li>
+<li>
+<p>Subsequent requests from the user to the OpenStack service include this token for authorization purposes.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_access_control_mechanisms"><a class="anchor" href="#_access_control_mechanisms"></a>Access Control Mechanisms</h4>
+<div class="paragraph">
+<p>Keystone enforces access control by associating roles with tenants and users. This ensures that a user can only perform actions permitted by their assigned role within their tenant. Key mechanisms include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Role-Based Access Control (RBAC)</strong>: Keystone uses RBAC to define permissions associated with roles. These permissions dictate what actions users can perform on resources within tenants.</p>
+</li>
+<li>
+<p><strong>Tenant Isolation</strong>: Users are confined to their assigned tenant, preventing unauthorized access to other tenants’ resources.</p>
+</li>
+<li>
+<p><strong>Fine-Grained Access Control</strong>: Keystone supports detailed control over individual resource types (e.g., networks, instances) by defining specific actions that can be performed on them (e.g., create, read, update, delete).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_troubleshooting_common_issues"><a class="anchor" href="#_troubleshooting_common_issues"></a>Troubleshooting Common Issues</h4>
+<div class="paragraph">
+<p>When working with Keystone in RHOSP, common issues may include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Authentication failures</strong>: Check user credentials, Keystone service status, and network connectivity to resolve authentication problems.</p>
+</li>
+<li>
+<p><strong>Insufficient permissions</strong>: Verify that users have the appropriate roles assigned within their tenants for desired actions. Review RBAC configurations if necessary.</p>
+</li>
+<li>
+<p><strong>Token validation errors</strong>: Ensure that the OpenStack services are correctly configured to communicate with Keystone via token validation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Understanding Keystone is crucial for managing user access and ensuring secure operations in Red Hat OpenStack Platform. Its robust authentication and authorization mechanisms allow administrators to control resource usage effectively, thereby maintaining a secure cloud environment.</p>
+</div>
+<div class="paragraph">
+<p>===</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a></span>
+  <span class="next"><a href="managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
