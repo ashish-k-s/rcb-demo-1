@@ -3,9 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Compute (Nova) in RHOSP :: Fundamentals of Red Hat OpenStack Platform (RHOSP)</title>
-    <link rel="prev" href="../storage-in-rhosp/managing-volumes-and-images.html">
-    <link rel="next" href="instance-types-and-flavors.html">
+    <title>Compute (Nova) in RHOSP :: Interacting with Ansible Lightspeed</title>
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -15,7 +13,7 @@
   <nav class="navbar">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
-      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Interacting with Ansible Lightspeed</a>
       <button class="navbar-burger" data-target="topbar-nav">
         <span></span>
         <span></span>
@@ -35,7 +33,7 @@
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></h3>
+    <h3 class="title"><a href="../index.html">Interacting with Ansible Lightspeed</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -55,13 +53,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../understanding-cloud-computing-concepts/understanding-cloud-computing-concepts.html">Understanding Cloud Computing Concepts</a>
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../understanding-cloud-computing-concepts/definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a>
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.html">Understanding the core concepts of Ansible and its integration with RHEL</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../understanding-cloud-computing-concepts/service-models-iaas-paas-saas.html">Service models: IaaS, PaaS, SaaS</a>
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a>
   </li>
 </ul>
   </li>
@@ -71,131 +75,34 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../introduction-to-openstack/introduction-to-openstack.html">Introduction to OpenStack</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../introduction-to-openstack/overview-of-openstack-architecture.html">Overview of OpenStack architecture</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../introduction-to-openstack/openstack-components-and-services.html">OpenStack components and services</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/managing-rhosp-with-the-horizon-dashboard.html">Managing RHOSP with the Horizon Dashboard</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../managing-rhosp-with-the-horizon-dashboard/creating-and-managing-projects-users-and-roles.html">Creating and managing projects, users, and roles</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../networking-in-rhosp/networking-in-rhosp.html">Networking in RHOSP</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../networking-in-rhosp/openstack-networking-concepts.html">OpenStack networking concepts</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../networking-in-rhosp/configuring-networks-subnets-and-routers.html">Configuring networks, subnets, and routers</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../storage-in-rhosp/storage-in-rhosp.html">Storage in RHOSP</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../storage-in-rhosp/overview-of-storage-services-cinder-swift-glance.html">Overview of storage services: Cinder, Swift, Glance</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="instance-types-and-flavors.html">Instance types and flavors</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="launching-and-managing-instances.html">Launching and managing instances</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../security-and-access-control-in-rhosp/security-and-access-control-in-rhosp.html">Security and Access Control in RHOSP</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../security-and-access-control-in-rhosp/understanding-keystone-for-authentication-and-authorization.html">Understanding Keystone for authentication and authorization</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../security-and-access-control-in-rhosp/managing-security-groups-and-firewalls.html">Managing security groups and firewalls</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/monitoring-and-troubleshooting-rhosp.html">Monitoring and Troubleshooting RHOSP</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/using-ceilometer-and-gnocchi-for-metrics-and-events.html">Using Ceilometer and Gnocchi for metrics and events</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/using-lightspeed-features-like-recommendations-and-remediation.html">Using Lightspeed features like recommendations and remediation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../monitoring-and-troubleshooting-rhosp/identifying-and-resolving-common-issues.html">Identifying and resolving common issues</a>
-  </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
-<ul class="nav-list">
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-lab/setting-up-a-lab-environment-for-practicing-rhosp-fundamentals.html">Setting up a lab environment for practicing RHOSP fundamentals</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/validating-and-troubleshooting-ansible-playbook-executions.html">Validating and troubleshooting Ansible playbook executions</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-lab/exercises-covering-installation-configuration-and-basic-management-tasks.html">Exercises covering installation, configuration, and basic management tasks</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-lab/rhosp-instance-creation.html">RHOSP instance creation</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-lab/troubleshooting-rhosp-instance-connectivity-issues.html">Troubleshooting RHOSP instance connectivity issues</a>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/identifying-common-issues-and-learning-resolution-strategies.html">Identifying common issues and learning resolution strategies</a>
   </li>
 </ul>
   </li>
@@ -213,12 +120,12 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
-    <span class="title">Fundamentals of Red Hat OpenStack Platform (RHOSP)</span>
+    <span class="title">Interacting with Ansible Lightspeed</span>
     <span class="version">1</span>
   </div>
   <ul class="components">
     <li class="component is-current">
-      <a class="title" href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a>
+      <a class="title" href="../index.html">Interacting with Ansible Lightspeed</a>
       <ul class="versions">
         <li class="version is-current is-latest">
           <a href="../index.html">1</a>
@@ -236,7 +143,7 @@
   <a href="../index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">Fundamentals of Red Hat OpenStack Platform (RHOSP)</a></li>
+    <li><a href="../index.html">Interacting with Ansible Lightspeed</a></li>
     <li><a href="compute-nova-in-rhosp.html">Compute (Nova) in RHOSP</a></li>
   </ul>
 </nav>
@@ -251,10 +158,6 @@
 <div class="paragraph">
 <p>Nova, a core component of Red Hat OpenStack Platform (RHOSP), is responsible for providing and managing virtual machines (VMs) or instances. It offers various instance types and flavors, enabling users to select the appropriate resources based on their workload requirements. Nova supports multiple hypervisors, including KVM, VMware, and Hyper-V, ensuring flexibility in deployment. Users can launch instances through the Horizon Dashboard or command line interface (CLI), specifying parameters like flavor, image, and network. Once launched, instances can be managed with operations such as start, stop, pause, and resume. Additionally, Nova provides APIs for integration with other OpenStack services and third-party tools, facilitating automation and orchestration in cloud environments.</p>
 </div>
-<nav class="pagination">
-  <span class="prev"><a href="../storage-in-rhosp/managing-volumes-and-images.html">Managing volumes and images</a></span>
-  <span class="next"><a href="instance-types-and-flavors.html">Instance types and flavors</a></span>
-</nav>
 </article>
   </div>
 </main>

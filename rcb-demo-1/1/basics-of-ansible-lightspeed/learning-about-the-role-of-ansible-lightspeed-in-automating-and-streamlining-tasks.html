@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Learning about the role of Ansible Lightspeed in automating and streamlining tasks :: Interacting with Ansible Lightspeed</title>
+    <link rel="prev" href="setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">
+    <link rel="next" href="../hands-on-labs-with-ansible-lightspeed/hands-on-labs-with-ansible-lightspeed.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Interacting with Ansible Lightspeed</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Interacting with Ansible Lightspeed</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.html">Understanding the core concepts of Ansible and its integration with RHEL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/using-lightspeed-features-like-recommendations-and-remediation.html">Using Lightspeed features like recommendations and remediation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/validating-and-troubleshooting-ansible-playbook-executions.html">Validating and troubleshooting Ansible playbook executions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/identifying-common-issues-and-learning-resolution-strategies.html">Identifying common issues and learning resolution strategies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Interacting with Ansible Lightspeed</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Interacting with Ansible Lightspeed</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Interacting with Ansible Lightspeed</a></li>
+    <li><a href="basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a></li>
+    <li><a href="learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</h1>
+<div class="sect1">
+<h2 id="_learning_about_the_role_of_ansible_lightspeed_in_automating_and_streamlining_tasks"><a class="anchor" href="#_learning_about_the_role_of_ansible_lightspeed_in_automating_and_streamlining_tasks"></a>Learning about the Role of Ansible Lightspeed in Automating and Streamlining Tasks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Ansible Lightspeed, an integral component of Red Hat Enterprise Linux (RHEL), is designed to automate and streamline various system management tasks, leveraging artificial intelligence (AI) to enhance efficiency and reduce human error. By understanding and utilizing Ansible Lightspeed, administrators can significantly improve their workflow when managing RHEL systems.</p>
+</div>
+<div class="paragraph">
+<p>1.1 Overview of Ansible Lightspeed</p>
+</div>
+<div class="paragraph">
+<p>Ansible Lightspeed is built on top of the powerful automation platform Ansible, which simplifies configuration management, application deployment, and task orchestration across your infrastructure. By integrating AI capabilities, Ansible Lightspeed offers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Intelligent Recommendations:</strong> Utilizing vast Red Hat Knowledge Base information, Ansible Lightspeed provides tailored recommendations for system hardening, security compliance, and performance optimization. These suggestions help administrators make informed decisions and reduce the time spent on researching solutions.</p>
+</li>
+<li>
+<p><strong>Automated Remediation:</strong> Ansible Lightspeed identifies deviations from best practices and offers automated fixes to rectify issues, ensuring systems remain secure, compliant, and performant with minimal manual intervention.</p>
+</li>
+<li>
+<p><strong>Guided Troubleshooting:</strong> The AI-powered assistant within Lightspeed guides administrators through complex troubleshooting scenarios by providing contextual information, suggestions, and potential resolutions based on real-world Red Hat data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>1.2 Implementing Ansible Lightspeed in Your Environment</p>
+</div>
+<div class="paragraph">
+<p>To start using Ansible Lightspeed in your RHEL environment, follow these steps:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Install Ansible and RHEL:</strong> Begin by ensuring you have the latest version of Ansible installed on your control node and that all managed RHEL systems are up to date. You can find installation instructions in the [Ansible documentation](<a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html" class="bare">https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html</a>).</p>
+</li>
+<li>
+<p><strong>Configure Network Settings:</strong> Ensure proper network settings for controlled testing between your control node and managed RHEL systems using Ansible&#8217;s inventory management features, as explained in [Ansible Documentation - Inventory](<a href="https://docs.ansible.com/ansible/latest/user_guide/introduction_patterns.html#inventory" class="bare">https://docs.ansible.com/ansible/latest/user_guide/introduction_patterns.html#inventory</a>).</p>
+</li>
+<li>
+<p><strong>Integrate Ansible Lightspeed:</strong> Use the <code>ansible-lightspeed</code> command-line tool to interact with Lightspeed within your playbooks or ad-hoc commands. Refer to the [Ansible Lightspeed documentation](<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_amazon_web_services/using-ansible-lightspeed-for-rhel-system-configurations_deploying-rhel-on-aws" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/deploying_red_hat_enterprise_linux_8_on_amazon_web_services/using-ansible-lightspeed-for-rhel-system-configurations_deploying-rhel-on-aws</a>) for more information on integration and usage.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>1.3 Hands-on Activity: Automating RHEL Tasks with Ansible Lightspeed</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s create a simple Ansible playbook to demonstrate how Ansible Lightspeed can streamline common system management tasks.</p>
+</div>
+<div class="paragraph">
+<p><strong>Objective:</strong> Install the 'httpd' web server package on your managed RHEL systems using Ansible Lightspeed recommendations and automated remediation.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create an Ansible playbook named <code>install_httpd.yml</code>:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+- hosts: rhel_systems
+  become: yes
+  tasks:
+    - name: Get recommendation for installing httpd
+      ansible.builtin.command: ansible-lightspeed recommend --module-name httpd
+
+    - name: Display Ansible Lightspeed recommendation
+      ansible.builtin.debug:
+        var: httpd_recommendation
+
+    - name: Install httpd package based on Lightspeed recommendation
+      package:
+        name: "{{ httpd_recommendation.recommended_packages | join(',') }}"
+        state: present</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Run the playbook against your RHEL systems:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible-playbook install_httpd.yml</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example illustrates how Ansible Lightspeed can be integrated into your automation tasks to streamline system management and ensure best practices compliance. Administrators can extend this concept to various other use cases, such as security hardening, performance optimization, and more.</p>
+</div>
+<div class="paragraph">
+<p>By understanding and implementing Ansible Lightspeed, you unlock the potential to efficiently manage RHEL systems at scale while benefiting from AI-driven insights and recommendations. This ultimately leads to increased productivity, reduced errors, and enhanced system stability.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a></span>
+  <span class="next"><a href="../hands-on-labs-with-ansible-lightspeed/hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

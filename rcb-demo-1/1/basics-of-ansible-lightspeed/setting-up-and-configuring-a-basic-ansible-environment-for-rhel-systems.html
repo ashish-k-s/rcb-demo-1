@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Accessing and navigating the dashboard :: Interacting with Ansible Lightspeed</title>
+    <title>Setting up and configuring a basic Ansible environment for RHEL systems :: Interacting with Ansible Lightspeed</title>
+    <link rel="prev" href="exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">
+    <link rel="next" href="learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -53,19 +55,19 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../basics-of-ansible-lightspeed/basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a>
+    <a class="nav-link" href="basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics-of-ansible-lightspeed/understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.html">Understanding the core concepts of Ansible and its integration with RHEL</a>
+    <a class="nav-link" href="understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.html">Understanding the core concepts of Ansible and its integration with RHEL</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics-of-ansible-lightspeed/exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a>
+    <a class="nav-link" href="exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics-of-ansible-lightspeed/setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../basics-of-ansible-lightspeed/learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a>
+    <a class="nav-link" href="learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a>
   </li>
 </ul>
   </li>
@@ -144,7 +146,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Interacting with Ansible Lightspeed</a></li>
-    <li><a href="accessing-and-navigating-the-dashboard.html">Accessing and navigating the dashboard</a></li>
+    <li><a href="basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a></li>
+    <li><a href="setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a></li>
   </ul>
 </nav>
 </div>
@@ -153,31 +156,28 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Accessing and navigating the dashboard</h1>
+<h1 class="page">Setting up and configuring a basic Ansible environment for RHEL systems</h1>
 <div class="sect1">
-<h2 id="_managing_rhosp_with_the_horizon_dashboard"><a class="anchor" href="#_managing_rhosp_with_the_horizon_dashboard"></a>Managing RHOSP with the Horizon Dashboard</h2>
+<h2 id="_setting_up_and_configuring_a_basic_ansible_environment_for_rhel_systems"><a class="anchor" href="#_setting_up_and_configuring_a_basic_ansible_environment_for_rhel_systems"></a>Setting up and Configuring a Basic Ansible Environment for RHEL Systems</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_accessing_and_navigating_the_dashboard"><a class="anchor" href="#_accessing_and_navigating_the_dashboard"></a>Accessing and Navigating the Dashboard</h3>
 <div class="paragraph">
-<p>In Red Hat OpenStack Platform (RHOSP), the <strong>Horizon Dashboard</strong> provides a web-based user interface for managing OpenStack services. It serves as a unified control panel, enabling administrators and users to interact with various components efficiently. This section outlines the process of accessing and navigating the Horizon Dashboard.</p>
-</div>
+<p>Ansible Lightspeed enhances automation capabilities on Red Hat Enterprise Linux (RHEL) systems through an integrated command-line assistant. To set up and configure a basic Ansible environment for managing RHEL systems, follow these steps:</p>
 </div>
 <div class="sect2">
-<h3 id="_accessing_the_horizon_dashboard"><a class="anchor" href="#_accessing_the_horizon_dashboard"></a>Accessing the Horizon Dashboard</h3>
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Open a supported web browser</strong>: The Horizon Dashboard is compatible with popular browsers such as Google Chrome, Mozilla Firefox, and Microsoft Edge.</p>
+<p><strong>Red Hat Subscription</strong>: Ensure you have a valid Red Hat subscription to access necessary software packages and repositories.</p>
 </li>
 <li>
-<p><strong>Enter the dashboard URL</strong>: In your browser&#8217;s address bar, type the following URL, replacing <code>HOSTNAME</code> with your RHOSP environment&#8217;s fully qualified domain name or IP address:</p>
+<p><strong>Ansible Repository</strong>: Add the EPEL (Extra Packages for Enterprise Linux) and Ansible repositories to your system.</p>
 <div class="literalblock">
 <div class="content">
-<pre>   ```
-   https://HOSTNAME/horizon
-   ```
-3. **Authentication**: Upon accessing the Horizon Dashboard for the first time, you will be prompted to enter your OpenStack credentials (username and password). These credentials are managed by Keystone, the identity service in RHOSP responsible for authentication and authorization.</pre>
+<pre>```bash
+sudo dnf install -y epel-release
+sudo dnf config-manager --add-repo=https://repos.fedorapeople.org/repositories/ansible/Anaconda/ansible-3.12-for-RHEL-8-x86_64/ansible-3.12-for-RHEL-8-x86_64.repo
+```</pre>
 </div>
 </div>
 </li>
@@ -185,67 +185,105 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_navigating_the_horizon_dashboard"><a class="anchor" href="#_navigating_the_horizon_dashboard"></a>Navigating the Horizon Dashboard</h3>
+<h3 id="_installing_ansible"><a class="anchor" href="#_installing_ansible"></a>Installing Ansible</h3>
 <div class="paragraph">
-<p>Once authenticated, you&#8217;ll see the main dashboard providing an overview of key resources and activities within your RHOSP environment:</p>
+<p>Use the <code>dnf</code> package manager to install Ansible and its required dependencies:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">sudo dnf install -y ansible</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_inventory_file"><a class="anchor" href="#_creating_inventory_file"></a>Creating Inventory File</h3>
+<div class="paragraph">
+<p>Create an inventory file named <code>hosts</code> in a suitable directory (e.g., <code>/etc/ansible</code>) to manage your RHEL systems:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">[webservers]
+server1.example.com
+server2.example.com
+
+[dbservers]
+server3.example.com
+server4.example.com</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, we have two groups, <code>webservers</code> and <code>dbservers</code>, representing different sets of RHEL systems.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_ansible_user_with_ssh_key_authentication"><a class="anchor" href="#_configuring_ansible_user_with_ssh_key_authentication"></a>Configuring Ansible User with SSH Key Authentication</h3>
+<div class="paragraph">
+<p>Ensure that the user running Ansible has passwordless SSH access to target RHEL systems for seamless management:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Project Overview</strong>: Displays a summary of projects (also known as 'tenants') associated with your account, including compute, block storage (Cinder), and object storage (Swift) usage statistics.</p>
-</li>
-<li>
-<p><strong>Recent Activity</strong>: Lists recent actions performed in the dashboard, such as instance launches or image uploads, allowing you to monitor system activity.</p>
-</li>
-<li>
-<p><strong>Navigation Menu</strong>: Located on the left-hand side, this menu provides access to various OpenStack services and their respective management functionalities:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Compute (Nova)</strong>: Manage virtual machine instances and flavors.</p>
-</li>
-<li>
-<p><strong>Networking</strong>: Create and manage networks, subnets, and routers.</p>
-</li>
-<li>
-<p><strong>Object Storage (Swift)</strong>: Interact with object storage services for storing and retrieving files.</p>
-</li>
-<li>
-<p><strong>Block Storage (Cinder)</strong>: Manage block storage volumes and snapshots.</p>
-</li>
-<li>
-<p><strong>Images</strong>: Upload, manage, and use disk images for launching instances.</p>
-</li>
-<li>
-<p><strong>Users &amp; Roles</strong>: Handle user accounts and assign roles to control access permissions.</p>
-</li>
-</ul>
+<p>Generate an SSH key pair on the control node (Ansible server) if not already done:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```</pre>
+</div>
 </div>
 </li>
 <li>
-<p><strong>Search Bar</strong>: Located at the top of the page, this bar allows you to quickly search for resources across different OpenStack services.</p>
-</li>
-<li>
-<p><strong>Help Menu</strong>: Access context-sensitive help and documentation for each dashboard section by clicking the '?' icon next to the respective service in the navigation menu.</p>
+<p>Copy the public key to authorized\_keys file of target RHEL systems using <code>ssh-copy-id</code> or manually:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ssh-copy-id user@server1.example.com
+```</pre>
+</div>
+</div>
 </li>
 </ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_additional_notes"><a class="anchor" href="#_additional_notes"></a>Additional Notes</h3>
+<h3 id="_testing_ansible_connectivity"><a class="anchor" href="#_testing_ansible_connectivity"></a>Testing Ansible Connectivity</h3>
+<div class="paragraph">
+<p>To verify that Ansible can connect to your target systems, run a simple ad-hoc command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">ansible webservers -m ping</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the connection is successful, you should see output similar to this for each host in the <code>webservers</code> group.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_additional_configuration_optional"><a class="anchor" href="#_additional_configuration_optional"></a>Additional Configuration (Optional)</h3>
+<div class="paragraph">
+<p>You can further customize your Ansible environment by configuring additional settings such as:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Multiple Dashboards</strong>: Depending on your user roles, you might have access to additional dashboards such as the 'Administrative Dashboard' or 'Settings Dashboard'. These can be accessed via the user dropdown menu in the top right corner.</p>
+<p><code>ansible.cfg</code>: Global configuration file located in <code>/etc/ansible/</code> or <code>~/.config/ansible/</code>. Modify it to set default values for various options like <code>forks</code>, <code>timeout</code>, etc.</p>
 </li>
 <li>
-<p><strong>Customization</strong>: Some aspects of the Horizon Dashboard can be customized according to your organization&#8217;s branding preferences. This includes logo uploads and modifying CSS styles. Consult the relevant RHOSP documentation for more information on customization options.</p>
+<p>Environment variables: Use environment variables to override settings at runtime. For example, setting the <code>ANSIBLE_BECOME_METHOD</code> variable can specify a privileged account for executing tasks with elevated permissions (<code>sudo</code>).</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>By following these steps, you will have set up and configured a basic Ansible environment on your RHEL systems, ready to manage and automate system administration tasks effectively.</p>
 </div>
 </div>
 </div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a></span>
+  <span class="next"><a href="learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a></span>
+</nav>
 </article>
   </div>
 </main>

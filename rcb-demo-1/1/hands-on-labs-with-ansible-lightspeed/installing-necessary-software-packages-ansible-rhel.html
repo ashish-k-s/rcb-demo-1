@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Definition and benefits of cloud computing :: Interacting with Ansible Lightspeed</title>
+    <title>Installing necessary software packages (Ansible, RHEL) :: Interacting with Ansible Lightspeed</title>
+    <link rel="prev" href="setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">
+    <link rel="next" href="configuring-network-settings-for-controlled-testing.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <script>var uiRootPath = '../../../_'</script>
@@ -75,34 +77,34 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a>
+    <a class="nav-link" href="hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a>
+    <a class="nav-link" href="setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a>
+    <a class="nav-link" href="configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a>
+    <a class="nav-link" href="creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a>
+    <a class="nav-link" href="writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a>
+    <a class="nav-link" href="running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a>
+    <a class="nav-link" href="using-lightspeed-features-like-recommendations-and-remediation.html">Using Lightspeed features like recommendations and remediation</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/using-lightspeed-features-like-recommendations-and-remediation.html">Using Lightspeed features like recommendations and remediation</a>
+    <a class="nav-link" href="validating-and-troubleshooting-ansible-playbook-executions.html">Validating and troubleshooting Ansible playbook executions</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/validating-and-troubleshooting-ansible-playbook-executions.html">Validating and troubleshooting Ansible playbook executions</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../hands-on-labs-with-ansible-lightspeed/identifying-common-issues-and-learning-resolution-strategies.html">Identifying common issues and learning resolution strategies</a>
+    <a class="nav-link" href="identifying-common-issues-and-learning-resolution-strategies.html">Identifying common issues and learning resolution strategies</a>
   </li>
 </ul>
   </li>
@@ -144,7 +146,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Interacting with Ansible Lightspeed</a></li>
-    <li><a href="definition-and-benefits-of-cloud-computing.html">Definition and benefits of cloud computing</a></li>
+    <li><a href="hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a></li>
+    <li><a href="installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a></li>
   </ul>
 </nav>
 </div>
@@ -153,51 +156,80 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Definition and benefits of cloud computing</h1>
+<h1 class="page">Installing necessary software packages (Ansible, RHEL)</h1>
 <div class="sect1">
-<h2 id="_understanding_cloud_computing_concepts"><a class="anchor" href="#_understanding_cloud_computing_concepts"></a>Understanding Cloud Computing Concepts</h2>
+<h2 id="_installing_necessary_software_packages_ansible_rhel"><a class="anchor" href="#_installing_necessary_software_packages_ansible_rhel"></a>Installing Necessary Software Packages (Ansible, RHEL)</h2>
 <div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>= Definition and Benefits of Cloud Computing</pre>
-</div>
+<div class="paragraph">
+<p>To begin working with Ansible Lightspeed on Red Hat Enterprise Linux (RHEL), you need to install both Ansible and RHEL software packages. This section guides you through installing Ansible using the official RHEL repositories, adhering to Red Hat&#8217;s recommended practices.</p>
 </div>
 <div class="paragraph">
-<p>Cloud computing is a revolutionary approach to delivering information technology resources over the internet with on-demand self-service, broad network access, resource pooling, rapid elasticity, and measured service. It enables users to access shared pools of configurable computing resources like servers, storage, applications, and services without requiring direct active management by the service provider&#8217;s IT team.</p>
-</div>
-<div class="paragraph">
-<p>The main benefits of cloud computing are:</p>
+<p><strong>Prerequisites:</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><strong>Cost Efficiency</strong>: Cloud services reduce the upfront capital expenditure on hardware infrastructure. Organizations pay for only what they use, eliminating costs associated with maintaining physical servers and other IT equipment.</p>
+<p>A subscribed RHEL system with proper access rights. For more information on subscribing and system registration, refer to [Getting Started with RHEL System Registration](<a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/getting_started_with_the_rhel_8_web_console/index" class="bare">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/getting_started_with_the_rhel_8_web_console/index</a>).</p>
 </li>
 <li>
-<p><strong>Scalability and Elasticity</strong>: With cloud resources, organizations can scale their computing needs up or down rapidly according to demand. This flexibility ensures that businesses can handle varying workloads efficiently without over-provisioning resources during low-demand periods.</p>
-</li>
-<li>
-<p><strong>Accessibility and Mobility</strong>: Cloud services provide anywhere, anytime access to data and applications through the internet. Users can access resources from various devices, facilitating remote work and collaboration among geographically dispersed teams.</p>
-</li>
-<li>
-<p><strong>Disaster Recovery and Business Continuity</strong>: Cloud providers typically implement robust backup and recovery mechanisms, ensuring high availability and data resilience against failures. This minimizes downtime and supports business continuity during unforeseen events.</p>
-</li>
-<li>
-<p><strong>Innovation and Agility</strong>: The cloud environment enables faster deployment of new applications and services by eliminating the need for extensive internal infrastructure setup. Organizations can quickly adapt to changing market conditions or customer demands.</p>
-</li>
-<li>
-<p><strong>Resource Pooling</strong>: Cloud computing allows pooling of resources from various providers, which enhances resource utilization and reduces waste. It leads to a more efficient use of IT assets across multiple tenants.</p>
+<p>Sufficient privileges to execute system commands and install software packages (usually via the <code>sudo</code> command).</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>In summary, cloud computing transforms traditional on-premises IT by offering scalable, flexible, cost-effective solutions that empower organizations to focus on core competencies rather than managing infrastructure. The benefits outlined above collectively contribute to improved efficiency, reduced costs, and increased agility for businesses leveraging cloud services.</p>
+<p><strong>Procedure:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Update your RHEL system</strong>: Before installing new software, ensure that your system&#8217;s package list is up-to-date:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ sudo dnf update -y
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Install Ansible and RHEL</strong>: Install the necessary packages using the <code>dnf</code> (Dandified YUM) package manager:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ sudo dnf install ansible -y
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Verify the installation</strong>: You can verify that Ansible has been installed correctly by checking its version:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```
+$ ansible --version
+```</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>This command should display the installed version of Ansible, confirming a successful installation.</pre>
+</div>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>Next, let&#8217;s explore the different service models in cloud computing: <strong>IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service)</strong>.</p>
+<p><strong>Important Note:</strong> According to Red Hat&#8217;s official documentation, avoid using <code>pip install command-line-assistant</code> as it is not supported. Instead, rely on RHEL repositories for installing packages like Ansible and the command-line assistant powered by RHEL Lightspeed.</p>
+</div>
+<div class="paragraph">
+<p>Now that you have successfully installed Ansible and RHEL software packages, proceed to configuring a basic Ansible environment and learning more about Ansible Lightspeed&#8217;s role in automating and streamlining tasks as outlined in subsequent sections of this training content.</p>
 </div>
 </div>
 </div>
+<nav class="pagination">
+  <span class="prev"><a href="setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a></span>
+  <span class="next"><a href="configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a></span>
+</nav>
 </article>
   </div>
 </main>

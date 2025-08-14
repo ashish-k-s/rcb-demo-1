@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Writing basic tasks for installing software and configuring services :: Interacting with Ansible Lightspeed</title>
+    <link rel="prev" href="creating-simple-ansible-playbooks-for-managing-rhel-systems.html">
+    <link rel="next" href="running-ansible-lightspeed-commands-to-automate-system-management.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Interacting with Ansible Lightspeed</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/course-starter-template/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Interacting with Ansible Lightspeed</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/basics-of-ansible-lightspeed.html">Basics of Ansible Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.html">Understanding the core concepts of Ansible and its integration with RHEL</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/exploring-key-features-and-benefits-of-using-ansible-for-system-management.html">Exploring key features and benefits of using Ansible for system management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.html">Setting up and configuring a basic Ansible environment for RHEL systems</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../basics-of-ansible-lightspeed/learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.html">Learning about the role of Ansible Lightspeed in automating and streamlining tasks</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-a-lab-environment-for-practicing-ansible-lightspeed-commands.html">Setting up a lab environment for practicing Ansible Lightspeed commands</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="installing-necessary-software-packages-ansible-rhel.html">Installing necessary software packages (Ansible, RHEL)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuring-network-settings-for-controlled-testing.html">Configuring network settings for controlled testing</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="using-lightspeed-features-like-recommendations-and-remediation.html">Using Lightspeed features like recommendations and remediation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="validating-and-troubleshooting-ansible-playbook-executions.html">Validating and troubleshooting Ansible playbook executions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identifying-common-issues-and-learning-resolution-strategies.html">Identifying common issues and learning resolution strategies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Interacting with Ansible Lightspeed</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Interacting with Ansible Lightspeed</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Interacting with Ansible Lightspeed</a></li>
+    <li><a href="hands-on-labs-with-ansible-lightspeed.html">Hands-on Labs with Ansible Lightspeed</a></li>
+    <li><a href="writing-basic-tasks-for-installing-software-and-configuring-services.html">Writing basic tasks for installing software and configuring services</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Writing basic tasks for installing software and configuring services</h1>
+<div class="sect1">
+<h2 id="_hands_on_labs_with_ansible_lightspeed"><a class="anchor" href="#_hands_on_labs_with_ansible_lightspeed"></a>Hands-on Labs with Ansible Lightspeed</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>===</p>
+</div>
+<div class="paragraph">
+<p>In this section, you&#8217;ll learn how to create simple Ansible playbooks for managing Red Hat Enterprise Linux (RHEL) systems and use Ansible Lightspeed commands to automate system management tasks. We will focus on writing basic tasks for installing software and configuring services.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_simple_ansible_playbooks"><a class="anchor" href="#_creating_simple_ansible_playbooks"></a>Creating Simple Ansible Playbooks</h3>
+<div class="paragraph">
+<p>Ansible playbooks are written in YAML format and define a configuration, deploy software, and generally configure systems to a desired state. Let&#8217;s create a simple playbook that installs the <code>httpd</code> package and starts the web server service.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Create a new directory for your playbook</strong> and navigate into it:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+mkdir ansible-lightspeed-lab
+cd ansible-lightspeed-lab
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Initialize a new Ansible project</strong>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-galaxy collection install community.general
+ansible-collection build -t httpd_install
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Create an inventory file</strong> named <code>inventory</code> to define your managed nodes:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```ini
+[lightspeed]
+&lt;your_rhel_host_ip&gt;  # Replace with the IP address of your RHEL system
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Write a playbook</strong> named <code>install_httpd.yml</code> that uses the custom collection to install <code>httpd</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+---
+- name: Install and start httpd
+  hosts: lightspeed
+  become: yes
+  gather_facts: no</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>roles:
+  - community.httpd</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Run the playbook</strong> with Ansible Lightspeed to automate installation:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook install_httpd.yml --extra-vars 'ansible_user=&lt;your_rhel_user&gt; ansible_password=&lt;your_rhel_password&gt;'
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuring_services_with_ansible_playbooks"><a class="anchor" href="#_configuring_services_with_ansible_playbooks"></a>Configuring Services with Ansible Playbooks</h3>
+<div class="paragraph">
+<p>Now, let&#8217;s extend the previous playbook to also configure the <code>httpd</code> service:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Update your role</strong> in <code>roles/community.httpd/tasks/main.yml</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```yaml
+- name: Ensure httpd is installed
+  yum:
+    name: httpd
+    state: present</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>name: Start and enable httpd service
+  service:
+    name: httpd
+    enabled: yes
+    state: started
+<code>`</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Run the updated playbook</strong>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook install_httpd.yml --extra-vars 'ansible_user=&lt;your_rhel_user&gt; ansible_password=&lt;your_rhel_password&gt;'
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_ansible_lightspeed_for_recommendations_and_remediation"><a class="anchor" href="#_using_ansible_lightspeed_for_recommendations_and_remediation"></a>Using Ansible Lightspeed for Recommendations and Remediation</h3>
+<div class="paragraph">
+<p>Ansible Lightspeed can provide recommendations based on best practices and security policies. Although direct integration with Lightspeed features like recommendations and remediation isn&#8217;t covered in this simple example, you can use the following general steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Connect to your Ansible Tower or Automation Hub</strong> where Ansible Lightspeed is integrated.</p>
+</li>
+<li>
+<p><strong>Access the content library</strong> that contains Ansible roles, collections, and other artifacts curated by Red Hat for various use cases.</p>
+</li>
+<li>
+<p><strong>Use Ansible Lightspeed&#8217;s recommendations</strong> while creating playbooks, either by selecting recommended roles/collections or reviewing suggested configurations.</p>
+</li>
+<li>
+<p><strong>Leverage remediation capabilities</strong> to address security issues and compliance gaps automatically, based on insights provided by Ansible Lightspeed.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validating_and_troubleshooting_playbook_executions"><a class="anchor" href="#_validating_and_troubleshooting_playbook_executions"></a>Validating and Troubleshooting Playbook Executions</h3>
+<div class="paragraph">
+<p>After running your playbooks, you can validate their execution and troubleshoot issues:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Check the playbook output</strong> for success or failure messages, warnings, and changes made to your system.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-playbook install_httpd.yml --extra-vars 'ansible_user=&lt;your_rhel_user&gt; ansible_password=&lt;your_rhel_password&gt;' --check
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Investigate any failures</strong> by examining the error messages and logs. Use <code>ansible-lint</code> to check your playbooks for syntax issues or potential problems:</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+ansible-lint install_httpd.yml
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Troubleshoot network, authentication, or permission issues</strong>, as these are common causes of Ansible execution failures on RHEL systems. Review the Ansible documentation and community resources for further guidance on resolving such problems.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>By following this hands-on activity, you will gain practical experience in writing basic tasks for installing software and configuring services using Ansible playbooks tailored for Red Hat Enterprise Linux (RHEL) systems. Further exploration of Ansible Lightspeed recommendations and remediation capabilities can enhance your system management efficiency and security posture.</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="creating-simple-ansible-playbooks-for-managing-rhel-systems.html">Creating simple Ansible playbooks for managing RHEL systems</a></span>
+  <span class="next"><a href="running-ansible-lightspeed-commands-to-automate-system-management.html">Running Ansible Lightspeed commands to automate system management</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
