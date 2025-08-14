@@ -1,26 +1,12 @@
 name: rcb-demo-1
-title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
+title:  Interacting with Ansible Lightspeed
 version: 1
 nav:
 - modules/ROOT/nav.adoc
 - modules/LABENV/nav.adoc
 
-- modules/understanding-cloud-computing-concepts/nav.adoc
+- modules/basics-of-ansible-lightspeed/nav.adoc
 
-- modules/introduction-to-openstack/nav.adoc
-
-- modules/managing-rhosp-with-the-horizon-dashboard/nav.adoc
-
-- modules/networking-in-rhosp/nav.adoc
-
-- modules/storage-in-rhosp/nav.adoc
-
-- modules/compute-nova-in-rhosp/nav.adoc
-
-- modules/security-and-access-control-in-rhosp/nav.adoc
-
-- modules/monitoring-and-troubleshooting-rhosp/nav.adoc
-
-- modules/hands-on-lab/nav.adoc
+- modules/hands-on-labs-with-ansible-lightspeed/nav.adoc
 
 - modules/appendix/nav.adoc

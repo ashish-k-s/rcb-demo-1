@@ -1,5 +1,5 @@
 site:
-  title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
+  title:  Interacting with Ansible Lightspeed
   start_page: rcb-demo-1::index.adoc
 
 content:

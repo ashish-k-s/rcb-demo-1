@@ -1,0 +1,74 @@
+#  Setting up and configuring a basic Ansible environment for RHEL systems
+
+== Setting up and Configuring a Basic Ansible Environment for RHEL Systems
+
+Ansible Lightspeed enhances automation capabilities on Red Hat Enterprise Linux (RHEL) systems through an integrated command-line assistant. To set up and configure a basic Ansible environment for managing RHEL systems, follow these steps:
+
+### Prerequisites
+
+1. **Red Hat Subscription**: Ensure you have a valid Red Hat subscription to access necessary software packages and repositories.
+2. **Ansible Repository**: Add the EPEL (Extra Packages for Enterprise Linux) and Ansible repositories to your system.
+
+   ```bash
+   sudo dnf install -y epel-release
+   sudo dnf config-manager --add-repo=https://repos.fedorapeople.org/repositories/ansible/Anaconda/ansible-3.12-for-RHEL-8-x86_64/ansible-3.12-for-RHEL-8-x86_64.repo
+   ```
+
+### Installing Ansible
+
+Use the `dnf` package manager to install Ansible and its required dependencies:
+
+```bash
+sudo dnf install -y ansible
+```
+
+### Creating Inventory File
+
+Create an inventory file named `hosts` in a suitable directory (e.g., `/etc/ansible`) to manage your RHEL systems:
+
+```bash
+[webservers]
+server1.example.com
+server2.example.com
+
+[dbservers]
+server3.example.com
+server4.example.com
+```
+
+In this example, we have two groups, `webservers` and `dbservers`, representing different sets of RHEL systems.
+
+### Configuring Ansible User with SSH Key Authentication
+
+Ensure that the user running Ansible has passwordless SSH access to target RHEL systems for seamless management:
+
+1. Generate an SSH key pair on the control node (Ansible server) if not already done:
+
+   ```bash
+   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+   ```
+
+2. Copy the public key to authorized\_keys file of target RHEL systems using `ssh-copy-id` or manually:
+
+   ```bash
+   ssh-copy-id user@server1.example.com
+   ```
+
+### Testing Ansible Connectivity
+
+To verify that Ansible can connect to your target systems, run a simple ad-hoc command:
+
+```bash
+ansible webservers -m ping
+```
+
+If the connection is successful, you should see output similar to this for each host in the `webservers` group.
+
+### Additional Configuration (Optional)
+
+You can further customize your Ansible environment by configuring additional settings such as:
+
+- `ansible.cfg`: Global configuration file located in `/etc/ansible/` or `~/.config/ansible/`. Modify it to set default values for various options like `forks`, `timeout`, etc.
+- Environment variables: Use environment variables to override settings at runtime. For example, setting the `ANSIBLE_BECOME_METHOD` variable can specify a privileged account for executing tasks with elevated permissions (`sudo`).
+
+By following these steps, you will have set up and configured a basic Ansible environment on your RHEL systems, ready to manage and automate system administration tasks effectively.

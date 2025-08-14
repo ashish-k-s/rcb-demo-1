@@ -1,0 +1,36 @@
+#  Installing necessary software packages (Ansible, RHEL)
+
+== Installing Necessary Software Packages (Ansible, RHEL)
+
+To begin working with Ansible Lightspeed on Red Hat Enterprise Linux (RHEL), you need to install both Ansible and RHEL software packages. This section guides you through installing Ansible using the official RHEL repositories, adhering to Red Hat's recommended practices.
+
+**Prerequisites:**
+
+1. A subscribed RHEL system with proper access rights. For more information on subscribing and system registration, refer to [Getting Started with RHEL System Registration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/getting_started_with_the_rhel_8_web_console/index).
+2. Sufficient privileges to execute system commands and install software packages (usually via the `sudo` command).
+
+**Procedure:**
+
+1. **Update your RHEL system**: Before installing new software, ensure that your system's package list is up-to-date:
+
+   ```
+   $ sudo dnf update -y
+   ```
+
+2. **Install Ansible and RHEL**: Install the necessary packages using the `dnf` (Dandified YUM) package manager:
+
+   ```
+   $ sudo dnf install ansible -y
+   ```
+
+3. **Verify the installation**: You can verify that Ansible has been installed correctly by checking its version:
+
+   ```
+   $ ansible --version
+   ```
+
+   This command should display the installed version of Ansible, confirming a successful installation.
+
+**Important Note:** According to Red Hat's official documentation, avoid using `pip install command-line-assistant` as it is not supported. Instead, rely on RHEL repositories for installing packages like Ansible and the command-line assistant powered by RHEL Lightspeed.
+
+Now that you have successfully installed Ansible and RHEL software packages, proceed to configuring a basic Ansible environment and learning more about Ansible Lightspeed's role in automating and streamlining tasks as outlined in subsequent sections of this training content.

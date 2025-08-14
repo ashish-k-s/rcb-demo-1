@@ -1,0 +1,105 @@
+#  Writing basic tasks for installing software and configuring services
+
+== Hands-on Labs with Ansible Lightspeed
+===
+
+In this section, you'll learn how to create simple Ansible playbooks for managing Red Hat Enterprise Linux (RHEL) systems and use Ansible Lightspeed commands to automate system management tasks. We will focus on writing basic tasks for installing software and configuring services.
+
+### Creating Simple Ansible Playbooks
+
+Ansible playbooks are written in YAML format and define a configuration, deploy software, and generally configure systems to a desired state. Let's create a simple playbook that installs the `httpd` package and starts the web server service.
+
+1. **Create a new directory for your playbook** and navigate into it:
+
+   ```bash
+   mkdir ansible-lightspeed-lab
+   cd ansible-lightspeed-lab
+   ```
+
+2. **Initialize a new Ansible project**:
+
+   ```bash
+   ansible-galaxy collection install community.general
+   ansible-collection build -t httpd_install
+   ```
+
+3. **Create an inventory file** named `inventory` to define your managed nodes:
+
+   ```ini
+   [lightspeed]
+   <your_rhel_host_ip>  # Replace with the IP address of your RHEL system
+   ```
+
+4. **Write a playbook** named `install_httpd.yml` that uses the custom collection to install `httpd`:
+
+   ```yaml
+   ---
+   - name: Install and start httpd
+     hosts: lightspeed
+     become: yes
+     gather_facts: no
+
+     roles:
+       - community.httpd
+
+   ```
+
+5. **Run the playbook** with Ansible Lightspeed to automate installation:
+
+   ```bash
+   ansible-playbook install_httpd.yml --extra-vars 'ansible_user=<your_rhel_user> ansible_password=<your_rhel_password>'
+   ```
+
+### Configuring Services with Ansible Playbooks
+
+Now, let's extend the previous playbook to also configure the `httpd` service:
+
+1. **Update your role** in `roles/community.httpd/tasks/main.yml`:
+
+   ```yaml
+   - name: Ensure httpd is installed
+     yum:
+       name: httpd
+       state: present
+
+   - name: Start and enable httpd service
+     service:
+       name: httpd
+       enabled: yes
+       state: started
+   ```
+
+2. **Run the updated playbook**:
+
+   ```bash
+   ansible-playbook install_httpd.yml --extra-vars 'ansible_user=<your_rhel_user> ansible_password=<your_rhel_password>'
+   ```
+
+### Using Ansible Lightspeed for Recommendations and Remediation
+
+Ansible Lightspeed can provide recommendations based on best practices and security policies. Although direct integration with Lightspeed features like recommendations and remediation isn't covered in this simple example, you can use the following general steps:
+
+1. **Connect to your Ansible Tower or Automation Hub** where Ansible Lightspeed is integrated.
+2. **Access the content library** that contains Ansible roles, collections, and other artifacts curated by Red Hat for various use cases.
+3. **Use Ansible Lightspeed's recommendations** while creating playbooks, either by selecting recommended roles/collections or reviewing suggested configurations.
+4. **Leverage remediation capabilities** to address security issues and compliance gaps automatically, based on insights provided by Ansible Lightspeed.
+
+### Validating and Troubleshooting Playbook Executions
+
+After running your playbooks, you can validate their execution and troubleshoot issues:
+
+1. **Check the playbook output** for success or failure messages, warnings, and changes made to your system.
+
+   ```bash
+   ansible-playbook install_httpd.yml --extra-vars 'ansible_user=<your_rhel_user> ansible_password=<your_rhel_password>' --check
+   ```
+
+2. **Investigate any failures** by examining the error messages and logs. Use `ansible-lint` to check your playbooks for syntax issues or potential problems:
+
+   ```bash
+   ansible-lint install_httpd.yml
+   ```
+
+3. **Troubleshoot network, authentication, or permission issues**, as these are common causes of Ansible execution failures on RHEL systems. Review the Ansible documentation and community resources for further guidance on resolving such problems.
+
+By following this hands-on activity, you will gain practical experience in writing basic tasks for installing software and configuring services using Ansible playbooks tailored for Red Hat Enterprise Linux (RHEL) systems. Further exploration of Ansible Lightspeed recommendations and remediation capabilities can enhance your system management efficiency and security posture.

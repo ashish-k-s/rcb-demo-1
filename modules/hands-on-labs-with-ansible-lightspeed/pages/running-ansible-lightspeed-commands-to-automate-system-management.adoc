@@ -1,0 +1,54 @@
+#  Running Ansible Lightspeed commands to automate system management
+
+== Running Ansible Lightspeed Commands to Automate System Management
+
+Ansible Lightspeed extends the capabilities of Ansible by providing recommendations and remediation steps for misconfigurations and security vulnerabilities directly from the Red Hat Insights data. This section will guide you through using Ansible Lightspeed commands to automate system management tasks on Red Hat Enterprise Linux (RHEL) systems.
+
+### 5.1 Utilizing Recommendations and Remediation
+
+Ansible Lightspeed offers two primary functionalities: recommendations and remediation.
+
+**Recommendations:**
+Ansible Lightspeed analyzes the RHEL system's state against known best practices, security benchmarks, and compliance policies, generating tailored recommendations for improvements. To fetch these recommendations using the Ansible Lightspeed CLI, use the following command:
+
+```bash
+ansible-lights speed --recommendations <system_id>
+```
+
+Replace `<system_id>` with the ID of your RHEL system obtained from Red Hat Insights or Ansible Tower.
+
+**Remediation:**
+Once you have reviewed and accepted the recommendations, you can automate the implementation using the remediation feature. Run the following command to apply suggested changes:
+
+```bash
+ansible-lightspeed remediate --recommendations <recommendation_id>
+```
+
+Replace `<recommendation_id>` with the ID of the specific recommendation you wish to implement.
+
+### 5.2 Validating and Troubleshooting Ansible Playbook Executions
+
+After running Ansible Lightspeed commands, it is essential to validate the execution results and troubleshoot any issues that may arise. To accomplish this, follow these steps:
+
+1. **Check remediation status:** Verify if the remediation was successful using the following command:
+
+   ```bash
+   ansible-lightspeed show-remediation <recommendation_id>
+   ```
+
+2. **Review system logs:** Inspect logs to identify any potential issues or errors during the remediation process. Check files in `/var/log/ansible/` for detailed information about Ansible activities, and review RHEL system logs like `/var/log/messages` and `/var/log/secure`.
+
+3. **Troubleshooting common issues:**
+   - If a recommended change fails to apply, manually execute the corresponding Ansible playbook to isolate the issue:
+
+     ```bash
+     ansible-playbook <playbooks_directory>/<playbook_name>.yml
+     ```
+
+   - Ensure the system meets prerequisites and has necessary software packages installed. For instance, verify Ansible and RHEL are up-to-date using:
+
+     ```bash
+     sudo yum update -y ansible redhat-release-rhel10
+     ```
+
+By following this guide, you will be able to effectively use Ansible Lightspeed commands to automate system management tasks, ensuring your RHEL systems adhere to best practices and security benchmarks. Remember to validate and troubleshoot playbook executions for optimal results.

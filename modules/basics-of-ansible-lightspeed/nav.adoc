@@ -1,0 +1,5 @@
+* xref:basics-of-ansible-lightspeed.adoc[]
+** xref:understanding-the-core-concepts-of-ansible-and-its-integration-with-rhel.adoc[]
+** xref:exploring-key-features-and-benefits-of-using-ansible-for-system-management.adoc[]
+** xref:setting-up-and-configuring-a-basic-ansible-environment-for-rhel-systems.adoc[]
+** xref:learning-about-the-role-of-ansible-lightspeed-in-automating-and-streamlining-tasks.adoc[]

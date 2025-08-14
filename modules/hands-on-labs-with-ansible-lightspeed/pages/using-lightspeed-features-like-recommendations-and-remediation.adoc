@@ -1,0 +1,65 @@
+#  Using Lightspeed features like recommendations and remediation
+
+=== Using Lightspeed Features: Recommendations and Remediation ===
+
+Ansible Lightspeed, integrated with RHEL systems, offers powerful intelligent functionalities through its command-line assistant. This section will focus on utilizing the key features of recommendations and remediation provided by Ansible Lightspeed to streamline system management tasks.
+
+=== 2.1 Leveraging Recommendations ===
+
+Ansible Lightspeed's recommendation feature is an AI-driven capability that analyzes your RHEL system configuration and provides suggestions for improvements based on best practices, compliance policies, and security benchmarks. Here’s how to use it:
+
+* **Accessing Recommendations**:
+   To get recommendations for your RHEL system, run the following command in your terminal:
+
+   ```bash
+   ansible-lightspeed recommend --host <hostname>
+   ```
+
+   Replace `<hostname>` with the actual hostname or IP address of the target RHEL system.
+
+* **Interpreting Results**:
+   The output will present a list of recommendations tailored to your system, along with severity levels (Low, Moderate, High) and explanations for each suggestion. For example:
+
+   ```
+   Recommendation Severity: High
+   Description: Ensure SELinux is enabled for enhanced security.
+   Suggested Action: Set 'SELINUX=enforcing' in /etc/selinux/config.
+   ```
+
+* **Applying Recommendations**:
+   To apply recommendations, copy the suggested Ansible playbook or use the generated code snippets and execute them against your RHEL systems. For instance:
+
+   ```bash
+   ansible-playbook -i <inventory_file> recommendation_<recommendation_id>.yml
+   ```
+
+=== 2.2 Employing Remediation ===
+
+Remediation in Ansible Lightspeed automates the process of implementing the recommendations directly on your RHEL systems, ensuring that your environment complies with best practices and policies. Here’s how to use remediation:
+
+* **Initiating Remediation**:
+   Begin by selecting a recommendation you wish to remediate using the `remediate` command followed by the recommendation ID:
+
+   ```bash
+   ansible-lightspeed remediate --recommendation <recommendation_id> --host <hostname>
+   ```
+
+* **Monitoring Progress**:
+   The remediation process will apply changes and report its progress. You can monitor the execution using the following command, replacing `<remediation_id>` with the assigned ID:
+
+   ```bash
+   ansible-lightspeed status --remediation <remediation_id>
+   ```
+
+* **Validation**:
+   After remediation is complete, validate that changes were applied correctly by reviewing system configurations or using compliance scanning tools.
+
+=== Troubleshooting ===
+
+While using Lightspeed features, you might encounter several issues:
+
+1. *Inability to access recommendations*: Ensure you have the latest Ansible Lightspeed version and that your RHEL systems are properly connected to the Red Hat Insights service.
+2. *Recommendation application failures*: Check if the recommended changes align with your system's requirements and ensure you have appropriate permissions to modify those settings.
+3. *Remediation issues*: Verify that the remediation playbooks execute without errors, and that any dependencies (e.g., required packages) are installed on the target systems.
+
+By understanding and effectively using Ansible Lightspeed’s recommendations and remediation capabilities, you can significantly enhance your RHEL system management efficiency while ensuring compliance with industry standards and best practices.

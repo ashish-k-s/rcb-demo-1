@@ -1,9 +1,9 @@
-=  Fundamentals of Red Hat OpenStack Platform (RHOSP)
+=  Interacting with Ansible Lightspeed
 :navtitle: Home
 
 == Introduction
 
-Course Title:  Fundamentals of Red Hat OpenStack Platform (RHOSP)
+Course Title:  Interacting with Ansible Lightspeed
 
 Description:
 Course description FIXME
@@ -13,23 +13,9 @@ Duration: FIXME hours
 == Topics covered in this course
 
 
-*  Understanding Cloud Computing Concepts
+*  Basics of Ansible Lightspeed
 
-*  Introduction to OpenStack
-
-*  Managing RHOSP with the Horizon Dashboard
-
-*  Networking in RHOSP
-
-*  Storage in RHOSP
-
-*  Compute (Nova) in RHOSP
-
-*  Security and Access Control in RHOSP
-
-*  Monitoring and Troubleshooting RHOSP
-
-*  Hands-on Lab
+*  Hands-on Labs with Ansible Lightspeed
 
 
 

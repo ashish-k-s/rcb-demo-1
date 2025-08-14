@@ -1,0 +1,72 @@
+#  Creating simple Ansible playbooks for managing RHEL systems
+
+== Creating Simple Ansible Playbooks for Managing RHEL Systems
+
+Ansible playbooks are fundamental for automating system management tasks on Red Hat Enterprise Linux (RHEL) systems using Ansible Lightspeed. A playbook is a YAML-formatted file that defines a policy you wish to apply to one or many managed nodes. This section will guide you through writing basic Ansible playbooks for managing RHEL systems, covering the installation of software and configuration of services.
+
+### Prerequisites
+Before creating Ansible playbooks, ensure you have set up an Ansible environment as described in the 'Setting up a Lab Environment' section. Additionally, make sure Ansible Lightspeed is properly integrated with your RHEL systems.
+
+### Understanding Playbook Structure
+Ansible playbooks follow a specific structure consisting of:
+1. **Play:** A top-level grouping for hosts or groups of managed nodes.
+2. **Tasks:** Actions that are performed on managed nodes.
+3. **Handlers:** Responses to notifications received from notify statements in tasks, ensuring orderly task execution.
+4. **Roles:** Reusable modules and resources, promoting modularity and maintainability.
+
+### Writing a Basic Playbook for Software Installation
+Here's an example playbook that installs the `httpd` package on RHEL systems:
+
+```yaml
+---
+- name: Install httpd package
+  hosts: rhel_systems
+  become: yes
+  tasks:
+    - name: Ensure httpd is installed
+      yum:
+        name: httpd
+        state: present
+```
+
+In this playbook:
+- `name` defines a descriptive identifier for the play.
+- `hosts` specifies the managed nodes, in this case, all systems tagged with 'rhel_systems'.
+- `become: yes` ensures tasks are executed with root privileges.
+- The task uses the `yum` module to manage packages on RHEL systems, ensuring that `httpd` is installed and present.
+
+### Writing a Basic Playbook for Service Configuration
+Now let's create a playbook to start and enable the Apache web server service:
+
+```yaml
+---
+- name: Manage httpd service
+  hosts: rhel_systems
+  become: yes
+  tasks:
+    - name: Ensure httpd service is running and enabled
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+```
+
+This playbook uses the `service` module to manage the Apache web server (`httpd`) service, ensuring it's running and automatically starts on system boot.
+
+### Running Playbooks with Ansible Lightspeed
+To execute these playbooks using Ansible Lightspeed, save them as files (e.g., `install_httpd.yml` for software installation) in a dedicated `playbooks` directory within your Ansible project folder structure. Then run the playbook via the command line:
+
+```bash
+ansible-playbook -i <inventory> playbooks/install_httpd.yml
+```
+
+Replace `<inventory>` with the path to your Ansible inventory file, which contains host definitions for RHEL systems managed by Ansible Lightspeed.
+
+### Troubleshooting Ansible Playbook Executions
+When executing playbooks, you might encounter various issues such as permission errors or service failures. To address these problems:
+1. Review the playbook and task logs to identify the source of the error.
+2. Verify that the managed nodes are correctly defined in your Ansible inventory file.
+3. Confirm that the required modules (e.g., `yum` and `service`) are available on your control node.
+4. Use Ansible Lightspeed recommendations to resolve issues and optimize playbook executions.
+
+By understanding the structure of Ansible playbooks and applying the examples above, you can automate software installation and service configuration tasks on RHEL systems using Ansible Lightspeed. This foundational knowledge will enable more complex system management automation in subsequent lab activities and real-world scenarios.

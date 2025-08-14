@@ -1,0 +1,9 @@
+#  Basics of Ansible Lightspeed
+
+- **Basics of Ansible Lightspeed**
+
+  - Understand the fundamental aspects of Ansible and its integration with RHEL for streamlined system management.
+  - Explore key features and benefits of using Ansible Lightspeed, including automating tasks and gaining insights from Red Hat expertise.
+  - Learn to set up and configure a basic Ansible environment tailored for RHEL systems, enabling efficient automation.
+  - Familiarize yourself with the role of Ansible Lightspeed in providing recommendations and remediation for system management tasks.
+  - This foundational knowledge prepares users for hands-on labs where they can practice using Ansible Lightspeed commands and playbooks for managing RHEL systems effectively.
