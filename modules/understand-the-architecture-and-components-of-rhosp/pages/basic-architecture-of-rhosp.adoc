@@ -1,0 +1,36 @@
+#  Basic Architecture of RHOSP
+
+```
+== Basic Architecture of RHOSP
+
+Red Hat OpenStack Platform (RHOSP) is a robust, vendor-neutral cloud computing platform. Its architecture is designed to manage and provision large pools of compute, storage, and networking resources on demand. This section will provide an overview of the basic architecture of RHOSP, focusing on its control and data planes, as well as key OpenStack services.
+
+=== Control Plane
+
+The **Control Plane** in RHOSP is responsible for managing and orchestrating the infrastructure. It includes essential services that handle tasks such as:
+
+- **Identity Service (Keystone):** Manages users, projects, roles, and APIs. It provides authentication and authorization for all OpenStack services.
+- **Image Service (Glance):** Stores and retrieves disk images used for the launch of virtual machines (VMs).
+- **Compute Service (Nova):** Provides virtual machines and manages them throughout their lifecycle.
+- **Network Service (Neutron):** Manages the networking components, including routers, switches, and subnets.
+- **Orchestration Service (Heat):** Automates the deployment and scaling of applications.
+- **Dashboard (Horizon):** The web-based user interface for managing OpenStack services and resources.
+
+=== Data Plane
+
+The **Data Plane** in RHOSP is where the actual compute, storage, and networking resources reside. It consists of the following components:
+
+- **Compute Nodes:** Host virtual machines and handle their execution.
+- **Storage Nodes:** Provide block, object, and shared file system storage.
+- **Networking Nodes:** Manage network traffic using various networking technologies.
+
+=== OpenStack Services
+
+RHOSP leverages a variety of OpenStack services to deliver its functionalities. Here are some of the critical services:
+
+- **Cinder**: Provides persistent block storage to guest VMs.
+- **Swift**: Offers scalable object storage for files and other unstructured data.
+- **Manila**: Enables the management of shared file systems.
+- **Ceph**: Provides distributed storage and is often used for both block and object storage in RHOSP deployments.
+
+Understanding the basic architecture of RHOSP is crucial for effectively managing and utilizing its resources. The control plane manages and orchestrates the infrastructure, while the data plane houses the actual resources. Various OpenStack services work together to deliver compute, storage, and networking

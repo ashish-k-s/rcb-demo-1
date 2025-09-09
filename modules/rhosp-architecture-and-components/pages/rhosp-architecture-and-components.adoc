@@ -1,0 +1,7 @@
+#  RHOSP Architecture and Components
+
+- **Control Plane**: This is the brain of RHOSP, responsible for managing and monitoring the resources in the cloud environment. It includes essential services like Identity (Keystone), Dashboard (Horizon), and Orchestration (Heat).
+
+- **Data Plane**: This is where the actual compute, storage, and networking resources reside. It handles the workloads and communicates with the Control Plane for resource allocation.
+
+- **OpenStack Services**: RHOSP comprises various services that cater to different needs. These include Nova for compute, Neutron for networking, Cinder for block storage, Glance for image service, and Keystone for identity service, among others. Each service plays a crucial role in the overall functionality of RHOSP.

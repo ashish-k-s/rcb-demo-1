@@ -1,0 +1,38 @@
+#  Shared File Systems
+
+== RHOSP Storage Options
+
+Red Hat OpenStack Platform (RHOSP) offers various storage options to meet diverse data storage needs. Among these, Shared File Systems play a crucial role in providing persistent, shared storage for virtual machines and bare metal instances.
+
+### Shared File Systems Overview
+
+Shared File Systems in RHOSP are built on top of the open-source project, Manila, which provides a highly scalable distributed file system service for multitenancy cloud environments. Manila allows users to create and manage file shares in a self-service manner, providing a simple and intuitive interface to provision complex storage solutions.
+
+### Key Features of Shared File Systems
+
+1. **Multitenancy**: Manila supports multiple tenants, enabling secure isolation of storage resources.
+2. **Share Types**: Users can define share types with specific performance levels and features, such as QoS, snapshot support, and replication.
+3. **Share Protocols**: Manila supports various share protocols, including NFS, CIFS, and GlusterFS, allowing compatibility with a wide range of clients.
+4. **Snapshots and Cloning**: Users can create snapshots and clone shares for backup and testing purposes.
+5. **Scalability**: Manila is designed to scale horizontally, allowing for seamless expansion of storage capacity and performance.
+
+### Shared File System Components
+
+1. **Manila API**: The core component responsible for managing storage resources and handling requests from clients.
+2. **Manila Scheduler**: Determines the appropriate backend driver to handle share creation and management.
+3. **Backend Drivers**: Implement the actual storage functionality, such as CephFS, NFS, and GlusterFS.
+4. **Manila Share Service**: Manages the lifecycle of shares, including creation, deletion, and snapshot management.
+
+### Hands-on Activity: Managing Shared File Systems
+
+**Objective**: Create, manage, and delete a shared file system using the RHOSP Dashboard (Horizon).
+
+**Prerequisites**:
+- Access to a running RHOSP environment with Manila service enabled.
+- A user account with the necessary permissions to manage shared file systems.
+
+**Steps**:
+
+1. Log in to the RHOSP Dashboard (Horizon).
+2. Navigate to the "Project" > "File Shares" section.
+3. Click on "Create Share" and provide the

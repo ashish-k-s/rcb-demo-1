@@ -1,0 +1,9 @@
+#  RHOSP Networking Concepts
+
+- **RHOSP Networking Concepts**
+
+  - **Networking Services**: Red Hat OpenStack Platform (RHOSP) utilizes several networking services including Open vSwitch (OVS), Neutron, and Nova. OVS is a virtual switch that provides standard port extenders, while Neutron is the primary networking service responsible for managing networks, subnets, and routers. Nova handles instance networking.
+
+  - **Networking Models**: RHOSP supports two networking models - Flat (Legacy) and ML2. The Flat model is simpler, directly connecting instances to the external network, while ML2 offers more flexibility and advanced features like VLANs, VXLANs, and GRE tunnels.
+
+  - **VLAN Management**: VLAN (Virtual Local Area Network) management in RHOSP allows for network segmentation and isolation. Neutron's VLAN manager enables the creation and management of VLANs, facilitating efficient network traffic control and enhancing security.

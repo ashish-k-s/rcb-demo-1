@@ -1,0 +1,51 @@
+#  Command Line Interface (CLI)
+
+```
+Command Line Interface (CLI)
+==========================
+
+The Command Line Interface (CLI) is a powerful tool for managing and interacting with Red Hat OpenStack Platform (RHOSP). It provides a text-based interface for users to execute commands and scripts, enabling automation and efficient management of OpenStack resources. This section will cover the basics of using the RHOSP CLI, including installation, basic commands, and examples of common tasks.
+
+**Installation**
+
+To install the RHOSP CLI, you need to have Python 2.7 or 3.4+ installed on your local machine. Once Python is installed, use pip to install the OpenStack SDK:
+
+.. code-block:: bash
+
+    $ pip install python-openstackclient
+
+**Basic Commands**
+
+After installation, you can access the CLI by simply typing `openstack` in your terminal. This will display a list of available OpenStack services and their respective commands.
+
+Here are some fundamental OpenStack CLI commands:
+
+- **Authentication**: To authenticate with your OpenStack environment, use the following command:
+
+.. code-block:: bash
+
+    $ openstack token issue --os-auth-url <auth-url> --os-project-name <project-name> --os-username <username> --os-password <password> --os-tenant-name <tenant-name>
+
+- **Listing Resources**: To list various OpenStack resources, such as instances, images, or flavors, you can use the `list` command followed by the resource type. For example:
+
+.. code-block:: bash
+
+    $ openstack server list  # Lists all servers (instances)
+    $ openstack image list  # Lists all images
+    $ openstack flavor list  # Lists all flavors
+
+- **Creating Resources**: You can create new resources using the appropriate 'create' command. For instance, to create a new server:
+
+.. code-block:: bash
+
+    $ openstack server create --flavor <flavor-id> --image <image-id> --network <network-id> my-new-server
+
+- **Deleting Resources**: To delete a resource, use the 'delete' command followed by the resource type and name or ID. For example:
+
+.. code-block:: bash
+
+    $ openstack server delete my-new-server
+
+**Examples of Common Tasks**
+
+1. **Launching an Instance**: To

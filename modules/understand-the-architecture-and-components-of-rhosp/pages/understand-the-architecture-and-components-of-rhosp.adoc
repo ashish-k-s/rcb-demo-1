@@ -1,0 +1,5 @@
+#  Understand the architecture and components of RHOSP
+
+- **Basic Architecture of RHOSP**: Red Hat OpenStack Platform (RHOSP) follows a modular architecture, comprising of Control Plane and Data Plane. The Control Plane manages and orchestrates the infrastructure, while the Data Plane provides the actual compute, storage, and networking resources.
+
+- **Components of RHOSP**: RHOSP is composed of various OpenStack services, each responsible for specific functions. These include networking services (Neutron), compute services (Nova), image services (Glance), and orchestration services (Heat). Additionally, there are other services for storage (Cinder, Swift, Manila), dashboard (Horizon), and metadata (Keystone).

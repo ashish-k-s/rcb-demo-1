@@ -1,0 +1,44 @@
+#  Control Plane
+
+```
+== Control Plane
+
+The Control Plane in Red Hat OpenStack Platform (RHOSP) is responsible for managing and orchestrating the compute, networking, and storage resources. It provides a centralized management interface for administrators to control and monitor the entire cloud infrastructure. The Control Plane consists of several key components:
+
+- **OpenStack Services**: These are the core services that run on the Control Plane nodes. They include:
+
+  - **Nova**: The compute orchestration service, which manages and controls virtual machines (VMs) and bare metal.
+  
+  - **Neutron**: The networking service, which provides an API to manage networks, subnets, routers, and firewalls.
+  
+  - **Glance**: The image service, which stores and retrieves disk images used for launching instances.
+  
+  - **Keystone**: The identity service, which provides authentication and authorization for all OpenStack services.
+  
+  - **Horizon**: The dashboard service, which offers a web-based user interface to interact with OpenStack services.
+  
+  - **Cinder**: The block storage service, which manages persistent block storage devices for use with VMs.
+  
+  - **Swift**: The object storage service, which provides scalable object storage.
+  
+  - **Heat**: The orchestration service, which allows users to manage and provision resources using templates.
+  
+  - **Ceilometer**: The telemetry service, which collects and stores time-series data about the utilization of resources.
+  
+  - **Aodh**: The alarming service, which allows users to set alarms based on the telemetry data.
+  
+  - **Gnocchi**: The metric service, which stores and provides access to time-series data.
+  
+  - **Designate**: The DNS service, which provides dynamic DNS capabilities.
+  
+  - **Galaxy**: The configuration management service, which allows users to manage and deploy configurations.
+
+- **API Services**: These services provide RESTful APIs for communication between different OpenStack components and external systems.
+
+- **Message Queue**: This component facilitates communication between OpenStack services using a message broker like RabbitMQ.
+
+- **Database**: This component stores persistent data for OpenStack services, typically using a relational database like MariaDB or PostgreSQL.
+
+Understanding the Control Plane is crucial for managing and customizing RHOSP to meet specific organizational needs. In the following hands-on lab, you will have the opportunity to explore and configure these components in a practical setting.
+
+== H

@@ -1,0 +1,40 @@
+#  Monitoring System Health
+
+```
+== RHOSP Management and Monitoring
+
+Monitoring the health of a Red Hat OpenStack Platform (RHOSP) environment is crucial for maintaining its stability, performance, and security. This section will cover various tools and methods to monitor your RHOSP deployment effectively.
+
+=== Command Line Interface (CLI)
+
+The RHOSP CLI, primarily `openstack`, offers several commands to check the health and status of various components. For instance, you can use:
+
+- `openstack service list`: Lists all OpenStack services and their statuses.
+- `openstack endpoint list`: Displays endpoints for all OpenStack services.
+- `openstack network list`: Lists all networks in the environment.
+
+These commands provide a quick overview of the system's health and help identify any issues at a glance.
+
+=== Dashboard (Horizon)
+
+The RHOSP Dashboard, also known as Horizon, provides a user-friendly web-based interface to monitor the system's health. Key areas to focus on include:
+
+- **Project > Overview**: Gives a high-level summary of resources like instances, flavors, and projects.
+- **Admin > System Information**: Displays detailed information about the OpenStack release, services, and their statuses.
+- **Admin > Events**: Logs system events, which can be useful for troubleshooting and identifying issues.
+
+Regularly checking these sections helps administrators stay informed about the system's health and performance.
+
+=== Monitoring Tools
+
+Beyond the CLI and Dashboard, dedicated monitoring tools can provide deeper insights into the RHOSP environment. Some popular options include:
+
+- **Prometheus**: An open-source monitoring and alerting toolkit that collects metrics from configured targets at specified intervals.
+- **Grafana**: A visualization tool that works with various data sources, including Prometheus, to create interactive dashboards.
+- **Ceilometer**: An OpenStack project that provides a single point of contact for billing, metering, and alarms, collecting data from various OpenStack services.
+
+To set up monitoring with these tools, you'll need to configure them to collect metrics from your RHOSP nodes and services. This typically involves setting up data collection agents, configuring alert rules, and creating dashboards for visualizing key performance indicators (KPIs).
+
+=== Hands-on Lab: Monitoring System Health
+
+**Objective:** Configure and use monitoring tools to track the health and performance of

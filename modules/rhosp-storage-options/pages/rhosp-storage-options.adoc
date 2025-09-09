@@ -1,0 +1,9 @@
+#  RHOSP Storage Options
+
+Red Hat OpenStack Platform (RHOSP) offers diverse storage options to cater to various use cases.
+
+- **Block Storage**: Provides persistent block-level storage devices for virtual machines. It allows for the creation, attachment, and management of volumes, offering high performance and reliability.
+
+- **Object Storage**: Designed for storing large amounts of unstructured data, such as images, videos, or documents. It uses a distributed model, ensuring data redundancy and scalability.
+
+- **Shared File Systems**: Enables multiple servers to access the same set of files concurrently. It's ideal for applications requiring shared access to file systems, like databases and high-performance computing environments.

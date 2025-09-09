@@ -1,0 +1,48 @@
+#  Setting up a RHOSP Environment
+
+## Setting up a RHOSP Environment
+
+### Overview
+
+Setting up a Red Hat OpenStack Platform (RHOSP) environment involves several steps, from preparing the undercloud to configuring overcloud nodes. This section will guide you through the process of setting up a basic RHOSP environment using the director (TripleO) method.
+
+### Prerequisites
+
+Before starting, ensure you have the following prerequisites in place:
+
+1. **Hardware**: At least three physical machines for undercloud, overcloud controller, and overcloud compute nodes.
+2. **Operating System**: Red Hat Enterprise Linux (RHEL) 8.x installed on all nodes.
+3. **Subscriptions**: Ensure that all nodes have valid Red Hat subscriptions.
+4. **Network Configuration**: Proper network configuration, including external, provisioning, introspection, management, and storage networks.
+5. **Software**: Required software packages installed, such as `python3`, `git`, `createrepo`, and `dnf`.
+
+### Step 1: Prepare the Undercloud
+
+1. **Install and Configure Undercloud**:
+   - Install Red Hat OpenStack Platform director on your chosen undercloud node.
+   - Configure the undercloud network interfaces and enable necessary services.
+
+2. **Register and Subscribe**:
+   - Register the undercloud with the Red Hat Customer Portal.
+   - Subscribe the undercloud to the required channels, such as `rhos-8-for-rhel-8-x86_64-rpms`.
+
+3. **Install Director Packages**:
+   - Install the director packages using `dnf`.
+
+### Step 2: Prepare Overcloud Nodes
+
+1. **Register and Subscribe Overcloud Nodes**:
+   - Register each overcloud node with the Red Hat Customer Portal.
+   - Subscribe the overcloud nodes to the required channels, such as `rhos-8-for-rhel-8-x86_64-rpms`.
+
+2. **Configure Network Services**:
+   - Configure network services like DNS, DHCP, and NTP on the overcloud nodes.
+
+3. **Enable Necessary Repositories**:
+   - Enable the required repositories on the overcloud nodes.
+
+### Step 3: Create and Configure the Overcloud
+
+1. **Create the Overcloud Stack**:
+   - Use the `openstack overcloud rbac` command to create the overcloud stack.
+

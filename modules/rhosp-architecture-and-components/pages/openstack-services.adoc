@@ -1,0 +1,44 @@
+#  OpenStack Services
+
+```
+== OpenStack Services
+
+Red Hat OpenStack Platform (RHOSP) is composed of several core services that work together to provide a robust cloud infrastructure. These services can be broadly categorized into control plane services, data plane services, and other essential services.
+
+### Control Plane Services
+
+Control plane services manage the overall state and configuration of the cloud. They handle tasks such as scheduling, authentication, and network management. Key control plane services in RHOSP include:
+
+- **Keystone**: This is the identity service responsible for authentication and authorization. It maintains a catalog of services, users, tenants (projects), and roles, and manages access to cloud resources.
+
+- **Glance**: Image service in OpenStack, which is responsible for storing and retrieving disk images used for launching instances.
+
+- **Nova**: Compute service that manages the lifecycle of compute instances. It handles scheduling, starting, stopping, and terminating virtual machines.
+
+- **Neutron**: Networking service that provides an extensible framework for networking. It allows administrators to define and manage network connectivity and IP addressing.
+
+### Data Plane Services
+
+Data plane services are responsible for executing the actual workloads. They interact directly with the underlying hardware. In RHOSP, data plane services include:
+
+- **Cinder**: Block storage service that manages the creation, deletion, and attachment of block storage devices for virtual machines.
+
+- **Swift**: Object storage service that provides scalable object storage for files and media content.
+
+- **Ceph**: Distributed storage system that provides unified block, object, and file system storage in a single platform.
+
+### Other Essential Services
+
+Apart from control and data plane services, RHOSP includes other crucial services:
+
+- **Heat**: Orchestration service that automates the deployment and scaling of applications and infrastructure.
+
+- **Horizon**: Dashboard service that provides a web-based user interface to interact with OpenStack services.
+
+- **Ceilometer**: Telemetry service that gathers measurements and metrics about the cloud resources and services.
+
+- **Gnocchi**: Time-series database service designed to store and provide access to time-series data.
+
+### Hands-on Activity: Exploring OpenStack Services
+
+**Objective:** Familiarize with the OpenStack Dashboard (Horizon) and understand the interaction between various OpenStack services.

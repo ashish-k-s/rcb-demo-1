@@ -1,0 +1,43 @@
+#  Networking Models
+
+== RHOSP Networking Models
+
+Red Hat OpenStack Platform (RHOSP) supports multiple networking models, each offering distinct features and capabilities to meet diverse networking requirements. The primary networking models in RHOSP are:
+
+1. **Flat Network Model**
+2. **VLAN Network Model**
+3. **GRE Network Model**
+4. **VXLAN Network Model**
+5. **GXE Network Model**
+
+### Flat Network Model
+
+The Flat Network Model is the simplest networking model in RHOSP. In this model, all virtual machines (VMs) are connected to the same network, which is typically a physical network interface on the OpenStack Network Node. This model is suitable for small-scale deployments or testing purposes, as it lacks isolation between VMs.
+
+#### Key Characteristics:
+- All VMs share the same network.
+- No network segmentation or isolation.
+- Suitable for simple deployments or testing.
+
+### VLAN Network Model
+
+The VLAN Network Model provides network segmentation using Virtual Local Area Networks (VLANs). Each project (tenant) gets its own VLAN, ensuring isolation between projects. This model is widely used in production environments due to its balance between isolation and manageability.
+
+#### Key Characteristics:
+- Each project gets its own VLAN.
+- VMs are isolated from each other.
+- Supports network segmentation and security policies.
+- Requires proper VLAN configuration on the underlying physical network.
+
+### GRE Network Model
+
+The GRE (Generic Routing Encapsulation) Network Model uses GRE tunnels to create isolated networks. GRE tunnels encapsulate Ethernet frames within IP packets, allowing VMs to communicate across different networks as if they were on the same local network. This model is useful for extending networks over long distances or connecting disparate networks.
+
+#### Key Characteristics:
+- Uses GRE tunnels for network isolation.
+- VMs can communicate across different networks.
+- Suitable for extending networks over long distances or connecting disparate networks.
+
+### VXLAN Network Model
+
+The VXLAN (Virtual Extensible LAN) Network Model is a layer 2 overlay technique that enables the creation of large-scale, isolated networks. VXLAN uses MAC-over-IP encapsulation to extend layer 2 networks over layer 3 infrastructure, allowing for the creation of thousands of isolated networks. This model is ideal

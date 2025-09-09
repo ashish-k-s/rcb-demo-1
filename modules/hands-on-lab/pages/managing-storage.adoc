@@ -1,0 +1,43 @@
+#  Managing Storage
+
+```
+== RHOSP Storage Options
+
+Red Hat OpenStack Platform (RHOSP) offers a variety of storage options to meet diverse data storage needs. This section will focus on the three primary storage types available in RHOSP: Block Storage, Object Storage, and Shared File Systems.
+
+=== Block Storage
+
+Block storage, provided by Cinder, is aimed at applications requiring persistent block-level storage devices. These devices can be attached and detached from instances as needed. Key features include:
+
+- **Persistence**: Data remains even if the instance is stopped or deleted.
+- **Performance**: Offers high IOPS and throughput, suitable for transactional systems.
+- **Scalability**: Volumes can be scaled up to several terabytes.
+- **Snapshots and Images**: Allows creating snapshots for backup and restoring instances from images.
+
+=== Object Storage
+
+Object storage, handled by Swift, is designed for storing large volumes of unstructured data like images, videos, or backups. It's ideal for content delivery, archival, and backup purposes. Notable characteristics are:
+
+- **Scalability**: Designed to scale to exabytes of data.
+- **Durability**: Data is replicated across multiple servers for fault tolerance.
+- **Simplicity**: Objects are accessed via HTTP, making it easy to integrate with various applications.
+- **Cost-effective**: Suitable for storing infrequently accessed data.
+
+=== Shared File Systems
+
+Shared file systems, managed by Manila, provide a method for users to request and consume networked file systems, such as NFS, CIFS, and glusterFS. This service is beneficial for applications requiring shared access to file systems. Key aspects include:
+
+- **Shared Access**: Multiple instances can access the same file system concurrently.
+- **Flexibility**: Supports various protocols and backends.
+- **Management**: Centralized management of shares, allowing for easy provisioning and deletion.
+- **Security**: Offers share access control lists (ACLs) for security.
+
+=== Hands-on Lab: Managing Storage
+
+**Objective**: Learn to create, manage, and delete Block Storage volumes, upload/download objects using Swift, and provision/mount shared file systems via Manila.
+
+**Activities**:
+
+1. **Creating Block Storage Volumes**:
+   - Log into the RHOSP Dashboard (Horizon).
+   -

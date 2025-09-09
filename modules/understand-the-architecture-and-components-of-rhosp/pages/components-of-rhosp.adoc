@@ -1,0 +1,27 @@
+#  Components of RHOSP
+
+**Components of Red Hat OpenStack Platform (RHOSP)**
+
+Red Hat OpenStack Platform (RHOSP) is a robust, enterprise-grade infrastructure-as-a-service (IaaS) solution. It's built upon a collection of interrelated components that work together to provide a scalable and reliable cloud computing environment. This section will detail the primary components of RHOSP, focusing on the Control Plane, Data Plane, and OpenStack Services.
+
+=== Control Plane
+
+The Control Plane, also known as the 'controller node,' is the brain of the RHOSP system. It houses several critical services responsible for managing and orchestrating the entire cloud infrastructure. Key components of the Control Plane include:
+
+- **OpenStack Identity Service (Keystone):** This service provides API endpoints for authentication and authorization. It maintains a catalog of services, users, tenants (projects), and roles, and it handles all the requests to the OpenStack services.
+
+- **OpenStack Dashboard (Horizon):** Horizon is the web-based user interface for managing OpenStack services. It provides a graphical way to interact with OpenStack resources, simplifying tasks like launching instances, managing networks, and configuring storage.
+
+- **OpenStack Bare Metal Service (Ironic):** Ironic is responsible for provisioning bare metal machines, enabling the deployment of physical servers as virtualized resources.
+
+- **OpenStack Orchestration Service (Heat):** Heat automates the deployment and scaling of applications by managing resources in the cloud through templates. It allows users to define the infrastructure as code, making it easier to manage complex applications.
+
+- **OpenStack Image Service (Glance):** Glance stores and retrieves disk images that are used for the launch of virtual machine instances. It provides a catalog of virtual machine images and supports various image formats and backends.
+
+- **OpenStack Networking Service (Neutron):** Neutron is the VLAN manager in RHOSP, providing network connectivity as a service between interface attachments on compute resources. It supports various networking technologies, including VLANs, VXLANs, GRE, and more.
+
+=== Data Plane
+
+The Data Plane, or 'compute nodes,' is where the actual workloads run. These nodes host the virtual machines and containers that make up the applications and services in your cloud environment. The primary components of the Data Plane include:
+
+- **OpenStack Compute Service (

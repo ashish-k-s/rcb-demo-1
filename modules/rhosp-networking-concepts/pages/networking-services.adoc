@@ -1,0 +1,28 @@
+#  Networking Services
+
+== Networking Services
+
+Networking is a critical aspect of Red Hat OpenStack Platform (RHOSP), enabling communication between various components and services. RHOSP provides several networking services to meet diverse networking requirements. Here, we will explore the key networking services in RHOSP:
+
+##### 1. Neutron (OpenStack Networking)
+
+Neutron is the primary networking service in RHOSP, responsible for managing the network connectivity and IP addressing of virtual machines (VMs) and other infrastructure components. It offers a wide range of features, including:
+
+- **Logical Networking**: Neutron enables the creation of virtual networks, subnets, routers, and ports, allowing for flexible network segmentation and isolation.
+- **IP Address Management (IPAM)**: Neutron integrates with various IPAM plugins to allocate and manage IP addresses efficiently.
+- **Security Groups and Firewalls**: Neutron provides security groups to control inbound and outbound traffic at the instance level and integrates with firewall services like firewall-as-a-service (FWaaS) for advanced firewall management.
+- **Load Balancing-as-a-Service (LBaaS)**: Neutron integrates with LBaaS to distribute network traffic across multiple VMs, enhancing application availability and scalability.
+
+##### 2. Octavia
+
+Octavia is an open-source, scalable, and highly available load balancer for RHOSP. It provides a RESTful API and is compatible with the Neutron LBaaS v2 API. Octavia offers the following features:
+
+- **Amphora-based architecture**: Octavia uses virtual machines (amphorae) as load balancers, ensuring high availability and scalability.
+- **Multiple algorithms**: Octavia supports various load-balancing algorithms, such as round-robin, least connections, and source IP hash.
+- **Health monitoring**: Octavia continuously monitors the health of backend servers and removes unhealthy instances from the load-balanced pool.
+
+##### 3. Designate (DNS as a Service)
+
+Designate is the DNS service in RHOSP, providing a hierarchical, extensible, and highly available DNS solution. It enables the creation and management of records for domains and subdomains, facilitating name resolution for VMs and other infrastructure components. Key features of Designate include:
+
+- **Zone management**: Designate allows the creation and management of DNS zones

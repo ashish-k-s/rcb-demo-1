@@ -1,0 +1,35 @@
+#  Dashboard (Horizon)
+
+== Dashboard (Horizon)
+
+The Red Hat OpenStack Platform (RHOSP) Dashboard, also known as Horizon, serves as the primary web-based user interface for managing and interacting with OpenStack services. It provides a graphical alternative to the command-line interface (CLI), making it easier for administrators and users to manage cloud resources visually.
+
+### 1. Dashboard Overview
+
+Horizon is built using the Django framework and offers a responsive design, allowing users to access it from various devices, including desktops, tablets, and smartphones. It provides an intuitive, user-friendly interface that simplifies the management of OpenStack resources, such as compute instances, storage, networking, and images.
+
+### 2. Key Features
+
+- **Project Management**: Users can create and manage projects, which are logical containers for resources like instances, volumes, and networks.
+- **User Management**: Administrators can create and manage users, roles, and tenants (projects) to control access to resources.
+- **Compute (Nova)**: Manage virtual machine instances, including launching, resizing, and terminating instances.
+- **Networking (Neutron)**: Create and manage networks, subnets, routers, and load balancers.
+- **Block Storage (Cinder)**: Create, attach, and manage persistent block storage volumes for instances.
+- **Image Service (Glance)**: Upload, manage, and discover virtual machine images.
+- **Dashboard Customization**: Extend and customize the dashboard with plugins to meet specific requirements.
+
+### 3. Accessing Horizon
+
+To access the Horizon Dashboard, open a supported web browser and navigate to the public URL followed by `/horizon`. For example: `http://<openstack_controller_ip>/horizon`. Log in using your credentials, and you will be directed to the dashboard's main page.
+
+### 4. Hands-on Activity: Exploring Horizon
+
+**Objective:** Familiarize yourself with the Horizon Dashboard by exploring its features and functionalities.
+
+**Steps:**
+
+1. Access the Horizon Dashboard using a supported web browser.
+2. Log in with your RHOSP credentials.
+3. Navigate through the main menu to explore different sections, such as Project, Admin, and Help.
+4. Create a new project and assign a user role to it.
+5. Launch

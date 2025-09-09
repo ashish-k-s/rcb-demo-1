@@ -1,0 +1,32 @@
+#  Data Plane
+
+```
+== Data Plane
+
+The Data Plane in Red Hat OpenStack Platform (RHOSP) is responsible for handling the actual data traffic within the cloud environment. It's the part of the OpenStack architecture that interacts directly with the virtual machines (VMs) and physical servers to deliver network services.
+
+### Basic Architecture of RHOSP Data Plane
+
+The Data Plane in RHOSP consists of several key components:
+
+1. **Neutron (Networking Service):** Neutron is the primary networking service in OpenStack. It provides network connectivity as a service between interface attachments on core resources. Neutron extends the OpenStack API to include networking services, and includes implementations for routers, switches, firewalls, load balancers, VPNs, and more.
+
+2. **Nova (Compute Service):** Nova is the core of the RHOSP Compute offering (Nova). It is a Python-based application that provides the necessary APIs and services to instantiate and manage virtual machines. The Data Plane interacts with Nova to allocate resources to VMs.
+
+3. **Cinder (Block Storage Service):** Cinder is the block storage service for OpenStack. It provides persistent block-level storage devices for use with OpenStack compute instances. The Data Plane uses Cinder to manage storage for VMs.
+
+4. **Glance (Image Service):** Glance stores and retrieves disk images, server configurations, and other data relevant to instances. The Data Plane uses Glance to boot VMs from disk or volume images.
+
+5. **Keystone (Identity Service):** Keystone provides a unified identity service for all the OpenStack services. It is a critical service for the Data Plane as it authenticates and authorizes the requests made to other OpenStack services.
+
+### Hands-on Activity: Exploring the Data Plane
+
+**Objective:** To understand how the Data Plane components interact with each other.
+
+**Steps:**
+
+1. **Access the OpenStack Dashboard (Horizon):** Log in to your RHOSP environment and access the Horizon dashboard.
+
+2. **Navigate to the Project > Compute > Instances:** Here, you can see the list of running instances. This is a result of interactions between the Data Plane and Nova.
+
+3. **Navigate to the Project > Compute > Volumes:** This section shows the block storage volumes managed by Cinder. This demonstrates the Data Plane's interaction with the block storage service.

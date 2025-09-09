@@ -1,0 +1,6 @@
+* xref:hands-on-lab.adoc[]
+** xref:setting-up-a-rhosp-environment.adoc[]
+** xref:configuring-networking.adoc[]
+** xref:managing-storage.adoc[]
+** xref:implementing-security-policies.adoc[]
+** xref:monitoring-system-health.adoc[]

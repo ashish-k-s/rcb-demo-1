@@ -1,0 +1,42 @@
+#  Object Storage
+
+## Object Storage in Red Hat OpenStack Platform (RHOSP)
+
+Object storage is a data storage architecture that manages data as objects, as opposed to traditional file storage systems that manage data as a file hierarchy, or block-based systems that manage data as blocks within sectors and tracks. In RHOSP, object storage is provided by the Swift service.
+
+### Swift: The Object Storage Service
+
+Swift is a highly available, distributed, eventually consistent object/container store. It is designed to store blobs (binary large objects), such as media files or virtual machine images. Swift stores data as objects, which are kept in containers. Containers act like folders, and each object has an unique URL for access.
+
+### Key Features of Swift
+
+1. **Scalability**: Swift is designed to scale horizontally. You can add more storage nodes to increase capacity.
+2. **Durability**: Data is replicated across multiple disks and multiple nodes to prevent data loss.
+3. **Eventual Consistency**: Swift provides eventual consistency, meaning updates might not be immediately visible across all replicas but will propagate over time.
+4. **API Access**: Swift provides a RESTful API for managing containers and objects, allowing integration with various applications.
+
+### Hands-on Activity: Managing Object Storage with Swift
+
+#### Step 1: Accessing Swift Service
+
+Log into your RHOSP dashboard (Horizon). Navigate to the "Project" dropdown and select 'System Projects' > 'swift'. Here, you can create containers (similar to folders) and upload/download objects (files).
+
+#### Step 2: Creating a Container
+
+Click on 'Create Container'. Provide a name for your container (e.g., `my-container`).
+
+#### Step 3: Uploading an Object
+
+Within the newly created container, click on 'Upload Object'. Select the file you wish to upload from your local machine. Once uploaded, Swift will provide a URL to access this object.
+
+#### Step 4: Downloading an Object
+
+To download an object, navigate to it in your container, and click 'Download'. The object will be saved to your local machine.
+
+#### Step 5: Deleting a Container
+
+If you no longer need a container, select it and click 'Delete Container'. Confirm the deletion when prompted.
+
+### Monitoring Swift
+
+You can monitor the health and performance of Swift using tools like

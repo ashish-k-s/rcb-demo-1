@@ -1,0 +1,35 @@
+#  VLAN Management
+
+**VLAN Management in Red Hat OpenStack Platform (RHOSP)**
+
+Virtual Local Area Networks (VLANs) are a method to segment network traffic logically, providing isolation and security within the same physical network infrastructure. In RHOSP, VLAN management is crucial for efficient network configuration and resource allocation.
+
+## Understanding VLANs in RHOSP
+
+### Basic Concepts
+
+1. **VLAN**: A VLAN is a broadcast domain that groups devices at the data link layer regardless of their physical location. VLANs help reduce the need for physical subdivisions in a network and provide a way to group devices for services such as traffic management, security, and broadcast control.
+
+2. **VLAN Tagging**: VLAN tagging is the process of inserting a VLAN identifier into the Ethernet frame header. This allows a single physical network interface to carry traffic from multiple VLANs. The most common tagging methods are IEEE 802.1Q and ISL. RHOSP primarily uses 802.1Q tagging.
+
+3. **VLAN Trunking**: VLAN trunking is a method of carrying traffic for multiple VLANs across a single link between network devices. In RHOSP, VLAN trunking is used to connect the OpenStack Networking (Neutron) nodes to the physical network switches.
+
+### VLAN Management Components
+
+In RHOSP, VLAN management involves several key components:
+
+- **Neutron**: The OpenStack networking service responsible for managing VLANs, networks, subnets, and routers.
+- **ML2 Plugin**: The Modular Layer 2 plugin in Neutron that provides a framework for network plugins to interact with the Neutron API. ML2 supports various networking mechanisms, including VLANs.
+- **Networking Plugins**: Plugins like `ml2/type:vlan` and `mechanism_drivers` handle the actual VLAN configuration on the underlying network infrastructure.
+
+## VLAN Configuration in RHOSP
+
+### Creating VLANs
+
+To create VLANs in RHOSP, follow these steps:
+
+1. **Login to the OpenStack Dashboard (Horizon)**: Access the dashboard using your credentials.
+
+2. **Navigate to Project > Network > VLANs**: Click on 'Create VLAN' to initiate the process.
+
+3. **Fill in VLAN Details**:

@@ -1,0 +1,4 @@
+* xref:rhosp-storage-options.adoc[]
+** xref:block-storage.adoc[]
+** xref:object-storage.adoc[]
+** xref:shared-file-systems.adoc[]

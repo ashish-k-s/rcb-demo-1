@@ -1,0 +1,40 @@
+#  Monitoring Tools
+
+```
+== RHOSP Management and Monitoring
+
+In Red Hat OpenStack Platform (RHOSP), monitoring is a crucial aspect of maintaining a healthy and efficient cloud environment. This section will cover the various tools available for monitoring RHOSP, enabling administrators to keep track of system health, performance, and resource utilization.
+
+=== Command Line Interface (CLI)
+
+The RHOSP CLI, primarily comprising `openstack` client commands, offers a powerful way to interact with OpenStack services and retrieve monitoring data. Administrators can use these commands to query various resources, such as instances, networks, and storage, and gather essential metrics.
+
+For example, to list all services and their statuses, you can use:
+
+```bash
+openstack service list
+```
+
+To check the status of a specific service, like Nova Compute, execute:
+
+```bash
+openstack service show compute
+```
+
+=== Dashboard (Horizon)
+
+The RHOSP Dashboard, also known as Horizon, provides a user-friendly web-based interface for managing and monitoring OpenStack resources. It offers an intuitive dashboard displaying key performance indicators (KPIs) and system status, along with detailed views for each OpenStack service.
+
+Some notable features of Horizon for monitoring include:
+
+- **Project-specific resource usage**: View resource consumption (CPU, memory, disk) by projects and their respective instances.
+- **Instance details**: Inspect instance performance metrics, such as network statistics and disk I/O.
+- **Alarm management**: Set up alarms based on thresholds for various resources and receive notifications when those thresholds are breached.
+
+=== Monitoring Tools
+
+Beyond the built-in CLI and Dashboard, RHOSP supports integration with third-party monitoring tools for comprehensive system monitoring and alerting. Some popular options include:
+
+- **Prometheus**: An open-source monitoring and alerting toolkit that collects metrics from configured targets at specified intervals, evaluates rule expressions, displays results, and can trigger alerts if certain conditions are observed.
+- **Grafana**: A multi-platform open-source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources, such as Prometheus.
+- **Ceilometer**: An OpenStack project that provides a single point of contact for telemetry services, allowing the collection of measurements and events from various OpenStack components.

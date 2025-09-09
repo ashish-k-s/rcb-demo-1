@@ -1,0 +1,39 @@
+#  Configuring Networking
+
+== Configuring Networking
+
+Networking is a crucial aspect of Red Hat OpenStack Platform (RHOSP) as it enables communication between various components and services. This section will guide you through the essential networking concepts and configurations in RHOSP.
+
+### Networking Services
+
+RHOSP networking is managed by several key services:
+
+- **Neutron**: The primary networking service responsible for managing the network connectivity and IP addressing of the virtual machines (VMs).
+- **Nova**: Manages VM instances and their networking.
+- **Cinder**: Provides block storage to VMs, which can be used for various networking purposes.
+- **Glance**: Stores VM images, including their networking configurations.
+
+### Networking Models
+
+RHOSP supports multiple networking models to cater to diverse deployment needs:
+
+1. **Flat Network Model**: A simple model where all VMs are connected to a single, flat network. This model is easy to set up but lacks isolation between VMs.
+2. **VLAN Network Model**: This model uses Virtual Local Area Networks (VLANs) to segment the network into isolated broadcast domains. It provides better isolation and security compared to the Flat model.
+3. **GRE/VXLAN Tunneling**: These models use tunneling protocols to encapsulate and transmit Layer 2 Ethernet frames over Layer 3 IP networks. They offer high scalability and multi-tenancy support.
+4. **DXC (Distributed Virtual Router)**: A model that allows for advanced networking features like load balancing, firewalling, and VPN.
+
+### VLAN Management
+
+VLANs are essential for segmenting and isolating network traffic in RHOSP. Here’s how to manage VLANs:
+
+1. **Create VLANs**: Use the Neutron CLI or Dashboard (Horizon) to create VLANs. For example, to create a VLAN with ID 100 using the CLI, run:
+
+   ```
+   openstack network vlan create --name vlan100 --document-id 100
+   ```
+
+2. **Associate VLAN with Subnet**: After creating a VLAN, associate it with a subnet to enable communication between VMs on that subnet.
+
+   ```
+   openstack network subnet create --name subnet100 --network vlan100 --cidr 192.168.100.0/24
+   ```

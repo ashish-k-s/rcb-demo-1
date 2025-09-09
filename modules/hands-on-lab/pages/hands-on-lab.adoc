@@ -1,0 +1,8 @@
+#  Hands-on Lab
+
+- **Hands-on Lab**: This section provides practical experience with Red Hat OpenStack Platform (RHOSP). It includes setting up a RHOSP environment, configuring networking, managing storage, implementing security policies, and monitoring system health.
+  - *Setting up a RHOSP Environment*: Learn to install and configure RHOSP, transforming your system into a fully functional cloud infrastructure.
+  - *Configuring Networking*: Understand and implement RHOSP's networking services and models, including VLAN management for efficient traffic control.
+  - *Managing Storage*: Explore various storage options in RHOSP, such as block storage, object storage, and shared file systems, and learn how to manage them effectively.
+  - *Implementing Security Policies*: Gain insights into securing your RHOSP environment by implementing necessary security policies.
+  - *Monitoring System Health*: Acquire skills to monitor the health and performance of your RHOSP system using various monitoring tools.
