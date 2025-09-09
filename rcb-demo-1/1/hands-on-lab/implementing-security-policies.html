@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Implementing Security Policies :: Red Hat OpenStack Platform (RHOSP) Basics</title>
+    <link rel="prev" href="managing-storage.html">
+    <link rel="next" href="monitoring-system-health.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/basic-architecture-of-rhosp.html">Basic Architecture of RHOSP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/components-of-rhosp.html">Components of RHOSP</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-architecture-and-components/rhosp-architecture-and-components.html">RHOSP Architecture and Components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/control-plane.html">Control Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/data-plane.html">Data Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/openstack-services.html">OpenStack Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-networking-concepts/rhosp-networking-concepts.html">RHOSP Networking Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-services.html">Networking Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-models.html">Networking Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/vlan-management.html">VLAN Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-storage-options/rhosp-storage-options.html">RHOSP Storage Options</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/block-storage.html">Block Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/object-storage.html">Object Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/shared-file-systems.html">Shared File Systems</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-management-and-monitoring/rhosp-management-and-monitoring.html">RHOSP Management and Monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/command-line-interface-cli.html">Command Line Interface (CLI)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/dashboard-horizon.html">Dashboard (Horizon)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/monitoring-tools.html">Monitoring Tools</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="setting-up-a-rhosp-environment.html">Setting up a RHOSP Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuring-networking.html">Configuring Networking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managing-storage.html">Managing Storage</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="implementing-security-policies.html">Implementing Security Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="monitoring-system-health.html">Monitoring System Health</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Red Hat OpenStack Platform (RHOSP) Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></li>
+    <li><a href="hands-on-lab.html">Hands-on Lab</a></li>
+    <li><a href="implementing-security-policies.html">Implementing Security Policies</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Implementing Security Policies</h1>
+<div class="sect1">
+<h2 id="_implementing_security_policies"><a class="anchor" href="#_implementing_security_policies"></a>Implementing Security Policies</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Implementing security policies in Red Hat OpenStack Platform (RHOSP) is crucial to safeguard your cloud infrastructure. This section will guide you through the essential security measures, including identity management, network security, and data protection.</p>
+</div>
+<div class="sect2">
+<h3 id="_identity_management"><a class="anchor" href="#_identity_management"></a>Identity Management</h3>
+<div class="paragraph">
+<p>In RHOSP, Keystone is the central identity service that manages users, projects, roles, and authentication. To implement robust identity management:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Create Users and Projects:</strong> Use the OpenStack CLI or Dashboard (Horizon) to create users and projects. Assign appropriate roles to users to control their access levels.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# Create a new user
+openstack user create --password PASSWORD USERNAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Create a new project
+openstack project create PROJECT_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Add the user to the project with the 'member' role
+openstack project add user USERNAME --proj PROJECT_NAME --role member
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Domain Management:</strong> Organize users and projects into domains for better management and isolation.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# Create a new domain
+openstack domain create DOMAIN_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Add a user to the domain
+openstack user add domain --id DOMAIN_ID USERNAME
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_network_security"><a class="anchor" href="#_network_security"></a>Network Security</h3>
+<div class="paragraph">
+<p>Secure your RHOSP network using the following methods:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Security Groups:</strong> Control inbound and outbound traffic for instances using security groups.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# Create a new security group
+openstack security group create SECURITY_GROUP_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Add rules to the security group
+openstack security group rule create --proto PROTOCOL --port-range START_PORT-END_PORT --remote-ip CIDR SECURITY_GROUP_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Assign the security group to an instance
+openstack server add security group SERVER_NAME SECURITY_GROUP_NAME
+```</pre>
+</div>
+</div>
+</li>
+<li>
+<p><strong>Firewall as a Service (FWaaS):</strong> Utilize FWaaS to manage firewalls at the network node level.</p>
+<div class="literalblock">
+<div class="content">
+<pre>```bash
+# Create a firewall
+openstack firewall create FIREWALL_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Add rules to the firewall
+openstack firewall rule create --protocol PROTOCOL --port START_PORT-END_PORT FIREWALL_NAME</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Associate the firewall with a network
+openstack firewall set --default FIREWALL_NAME NETWORK_NAME
+```</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_data_protection"><a class="anchor" href="#_data_protection"></a>Data Protection</h3>
+<div class="paragraph">
+<p>Protect your data using encryption and access control mechanisms:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Encryption:</strong> Enable</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="managing-storage.html">Managing Storage</a></span>
+  <span class="next"><a href="monitoring-system-health.html">Monitoring System Health</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

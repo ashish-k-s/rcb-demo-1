@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Basic Architecture of RHOSP :: Red Hat OpenStack Platform (RHOSP) Basics</title>
+    <link rel="prev" href="understand-the-architecture-and-components-of-rhosp.html">
+    <link rel="next" href="components-of-rhosp.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="basic-architecture-of-rhosp.html">Basic Architecture of RHOSP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="components-of-rhosp.html">Components of RHOSP</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-architecture-and-components/rhosp-architecture-and-components.html">RHOSP Architecture and Components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/control-plane.html">Control Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/data-plane.html">Data Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/openstack-services.html">OpenStack Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-networking-concepts/rhosp-networking-concepts.html">RHOSP Networking Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-services.html">Networking Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-models.html">Networking Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/vlan-management.html">VLAN Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-storage-options/rhosp-storage-options.html">RHOSP Storage Options</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/block-storage.html">Block Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/object-storage.html">Object Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/shared-file-systems.html">Shared File Systems</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-management-and-monitoring/rhosp-management-and-monitoring.html">RHOSP Management and Monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/command-line-interface-cli.html">Command Line Interface (CLI)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/dashboard-horizon.html">Dashboard (Horizon)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/monitoring-tools.html">Monitoring Tools</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-rhosp-environment.html">Setting up a RHOSP Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/configuring-networking.html">Configuring Networking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/managing-storage.html">Managing Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/implementing-security-policies.html">Implementing Security Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/monitoring-system-health.html">Monitoring System Health</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Red Hat OpenStack Platform (RHOSP) Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></li>
+    <li><a href="understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a></li>
+    <li><a href="basic-architecture-of-rhosp.html">Basic Architecture of RHOSP</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Basic Architecture of RHOSP</h1>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">== Basic Architecture of RHOSP
+
+Red Hat OpenStack Platform (RHOSP) is a robust, vendor-neutral cloud computing platform. Its architecture is designed to manage and provision large pools of compute, storage, and networking resources on demand. This section will provide an overview of the basic architecture of RHOSP, focusing on its control and data planes, as well as key OpenStack services.
+
+=== Control Plane
+
+The **Control Plane** in RHOSP is responsible for managing and orchestrating the infrastructure. It includes essential services that handle tasks such as:
+
+- **Identity Service (Keystone):** Manages users, projects, roles, and APIs. It provides authentication and authorization for all OpenStack services.
+- **Image Service (Glance):** Stores and retrieves disk images used for the launch of virtual machines (VMs).
+- **Compute Service (Nova):** Provides virtual machines and manages them throughout their lifecycle.
+- **Network Service (Neutron):** Manages the networking components, including routers, switches, and subnets.
+- **Orchestration Service (Heat):** Automates the deployment and scaling of applications.
+- **Dashboard (Horizon):** The web-based user interface for managing OpenStack services and resources.
+
+=== Data Plane
+
+The **Data Plane** in RHOSP is where the actual compute, storage, and networking resources reside. It consists of the following components:
+
+- **Compute Nodes:** Host virtual machines and handle their execution.
+- **Storage Nodes:** Provide block, object, and shared file system storage.
+- **Networking Nodes:** Manage network traffic using various networking technologies.
+
+=== OpenStack Services
+
+RHOSP leverages a variety of OpenStack services to deliver its functionalities. Here are some of the critical services:
+
+- **Cinder**: Provides persistent block storage to guest VMs.
+- **Swift**: Offers scalable object storage for files and other unstructured data.
+- **Manila**: Enables the management of shared file systems.
+- **Ceph**: Provides distributed storage and is often used for both block and object storage in RHOSP deployments.
+
+Understanding the basic architecture of RHOSP is crucial for effectively managing and utilizing its resources. The control plane manages and orchestrates the infrastructure, while the data plane houses the actual resources. Various OpenStack services work together to deliver compute, storage, and networking</code></pre>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a></span>
+  <span class="next"><a href="components-of-rhosp.html">Components of RHOSP</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

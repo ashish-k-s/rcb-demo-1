@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Monitoring Tools :: Red Hat OpenStack Platform (RHOSP) Basics</title>
+    <link rel="prev" href="dashboard-horizon.html">
+    <link rel="next" href="../hands-on-lab/hands-on-lab.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/basic-architecture-of-rhosp.html">Basic Architecture of RHOSP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/components-of-rhosp.html">Components of RHOSP</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-architecture-and-components/rhosp-architecture-and-components.html">RHOSP Architecture and Components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/control-plane.html">Control Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/data-plane.html">Data Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/openstack-services.html">OpenStack Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-networking-concepts/rhosp-networking-concepts.html">RHOSP Networking Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-services.html">Networking Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/networking-models.html">Networking Models</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-networking-concepts/vlan-management.html">VLAN Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-storage-options/rhosp-storage-options.html">RHOSP Storage Options</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/block-storage.html">Block Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/object-storage.html">Object Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/shared-file-systems.html">Shared File Systems</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="rhosp-management-and-monitoring.html">RHOSP Management and Monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="command-line-interface-cli.html">Command Line Interface (CLI)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dashboard-horizon.html">Dashboard (Horizon)</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="monitoring-tools.html">Monitoring Tools</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-rhosp-environment.html">Setting up a RHOSP Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/configuring-networking.html">Configuring Networking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/managing-storage.html">Managing Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/implementing-security-policies.html">Implementing Security Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/monitoring-system-health.html">Monitoring System Health</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Red Hat OpenStack Platform (RHOSP) Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></li>
+    <li><a href="rhosp-management-and-monitoring.html">RHOSP Management and Monitoring</a></li>
+    <li><a href="monitoring-tools.html">Monitoring Tools</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Monitoring Tools</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">== RHOSP Management and Monitoring
+
+In Red Hat OpenStack Platform (RHOSP), monitoring is a crucial aspect of maintaining a healthy and efficient cloud environment. This section will cover the various tools available for monitoring RHOSP, enabling administrators to keep track of system health, performance, and resource utilization.
+
+=== Command Line Interface (CLI)
+
+The RHOSP CLI, primarily comprising `openstack` client commands, offers a powerful way to interact with OpenStack services and retrieve monitoring data. Administrators can use these commands to query various resources, such as instances, networks, and storage, and gather essential metrics.
+
+For example, to list all services and their statuses, you can use:
+
+```bash
+openstack service list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To check the status of a specific service, like Nova Compute, execute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">openstack service show compute</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dashboard_horizon"><a class="anchor" href="#_dashboard_horizon"></a>Dashboard (Horizon)</h3>
+<div class="paragraph">
+<p>The RHOSP Dashboard, also known as Horizon, provides a user-friendly web-based interface for managing and monitoring OpenStack resources. It offers an intuitive dashboard displaying key performance indicators (KPIs) and system status, along with detailed views for each OpenStack service.</p>
+</div>
+<div class="paragraph">
+<p>Some notable features of Horizon for monitoring include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Project-specific resource usage</strong>: View resource consumption (CPU, memory, disk) by projects and their respective instances.</p>
+</li>
+<li>
+<p><strong>Instance details</strong>: Inspect instance performance metrics, such as network statistics and disk I/O.</p>
+</li>
+<li>
+<p><strong>Alarm management</strong>: Set up alarms based on thresholds for various resources and receive notifications when those thresholds are breached.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_monitoring_tools"><a class="anchor" href="#_monitoring_tools"></a>Monitoring Tools</h3>
+<div class="paragraph">
+<p>Beyond the built-in CLI and Dashboard, RHOSP supports integration with third-party monitoring tools for comprehensive system monitoring and alerting. Some popular options include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Prometheus</strong>: An open-source monitoring and alerting toolkit that collects metrics from configured targets at specified intervals, evaluates rule expressions, displays results, and can trigger alerts if certain conditions are observed.</p>
+</li>
+<li>
+<p><strong>Grafana</strong>: A multi-platform open-source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources, such as Prometheus.</p>
+</li>
+<li>
+<p><strong>Ceilometer</strong>: An OpenStack project that provides a single point of contact for telemetry services, allowing the collection of measurements and events from various OpenStack components.</p>
+</li>
+</ul>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="dashboard-horizon.html">Dashboard (Horizon)</a></span>
+  <span class="next"><a href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

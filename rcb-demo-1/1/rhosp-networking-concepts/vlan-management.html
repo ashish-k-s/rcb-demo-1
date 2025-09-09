@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VLAN Management :: Red Hat OpenStack Platform (RHOSP) Basics</title>
+    <link rel="prev" href="networking-models.html">
+    <link rel="next" href="../rhosp-storage-options/rhosp-storage-options.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/REPLACEREPONAME/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rcb-demo-1" data-version="1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../LABENV/index.html">Lab Environment</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/understand-the-architecture-and-components-of-rhosp.html">Understand the architecture and components of RHOSP</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/basic-architecture-of-rhosp.html">Basic Architecture of RHOSP</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../understand-the-architecture-and-components-of-rhosp/components-of-rhosp.html">Components of RHOSP</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-architecture-and-components/rhosp-architecture-and-components.html">RHOSP Architecture and Components</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/control-plane.html">Control Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/data-plane.html">Data Plane</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-architecture-and-components/openstack-services.html">OpenStack Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="rhosp-networking-concepts.html">RHOSP Networking Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking-services.html">Networking Services</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="networking-models.html">Networking Models</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="vlan-management.html">VLAN Management</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-storage-options/rhosp-storage-options.html">RHOSP Storage Options</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/block-storage.html">Block Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/object-storage.html">Object Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-storage-options/shared-file-systems.html">Shared File Systems</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../rhosp-management-and-monitoring/rhosp-management-and-monitoring.html">RHOSP Management and Monitoring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/command-line-interface-cli.html">Command Line Interface (CLI)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/dashboard-horizon.html">Dashboard (Horizon)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../rhosp-management-and-monitoring/monitoring-tools.html">Monitoring Tools</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../hands-on-lab/hands-on-lab.html">Hands-on Lab</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/setting-up-a-rhosp-environment.html">Setting up a RHOSP Environment</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/configuring-networking.html">Configuring Networking</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/managing-storage.html">Managing Storage</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/implementing-security-policies.html">Implementing Security Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../hands-on-lab/monitoring-system-health.html">Monitoring System Health</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Red Hat OpenStack Platform (RHOSP) Basics</span>
+    <span class="version">1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Red Hat OpenStack Platform (RHOSP) Basics</a></li>
+    <li><a href="rhosp-networking-concepts.html">RHOSP Networking Concepts</a></li>
+    <li><a href="vlan-management.html">VLAN Management</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">VLAN Management</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>VLAN Management in Red Hat OpenStack Platform (RHOSP)</strong></p>
+</div>
+<div class="paragraph">
+<p>Virtual Local Area Networks (VLANs) are a method to segment network traffic logically, providing isolation and security within the same physical network infrastructure. In RHOSP, VLAN management is crucial for efficient network configuration and resource allocation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_understanding_vlans_in_rhosp"><a class="anchor" href="#_understanding_vlans_in_rhosp"></a>Understanding VLANs in RHOSP</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_basic_concepts"><a class="anchor" href="#_basic_concepts"></a>Basic Concepts</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>VLAN</strong>: A VLAN is a broadcast domain that groups devices at the data link layer regardless of their physical location. VLANs help reduce the need for physical subdivisions in a network and provide a way to group devices for services such as traffic management, security, and broadcast control.</p>
+</li>
+<li>
+<p><strong>VLAN Tagging</strong>: VLAN tagging is the process of inserting a VLAN identifier into the Ethernet frame header. This allows a single physical network interface to carry traffic from multiple VLANs. The most common tagging methods are IEEE 802.1Q and ISL. RHOSP primarily uses 802.1Q tagging.</p>
+</li>
+<li>
+<p><strong>VLAN Trunking</strong>: VLAN trunking is a method of carrying traffic for multiple VLANs across a single link between network devices. In RHOSP, VLAN trunking is used to connect the OpenStack Networking (Neutron) nodes to the physical network switches.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_vlan_management_components"><a class="anchor" href="#_vlan_management_components"></a>VLAN Management Components</h3>
+<div class="paragraph">
+<p>In RHOSP, VLAN management involves several key components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Neutron</strong>: The OpenStack networking service responsible for managing VLANs, networks, subnets, and routers.</p>
+</li>
+<li>
+<p><strong>ML2 Plugin</strong>: The Modular Layer 2 plugin in Neutron that provides a framework for network plugins to interact with the Neutron API. ML2 supports various networking mechanisms, including VLANs.</p>
+</li>
+<li>
+<p><strong>Networking Plugins</strong>: Plugins like <code>ml2/type:vlan</code> and <code>mechanism_drivers</code> handle the actual VLAN configuration on the underlying network infrastructure.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vlan_configuration_in_rhosp"><a class="anchor" href="#_vlan_configuration_in_rhosp"></a>VLAN Configuration in RHOSP</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_creating_vlans"><a class="anchor" href="#_creating_vlans"></a>Creating VLANs</h3>
+<div class="paragraph">
+<p>To create VLANs in RHOSP, follow these steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Login to the OpenStack Dashboard (Horizon)</strong>: Access the dashboard using your credentials.</p>
+</li>
+<li>
+<p><strong>Navigate to Project &gt; Network &gt; VLANs</strong>: Click on 'Create VLAN' to initiate the process.</p>
+</li>
+<li>
+<p><strong>Fill in VLAN Details</strong>:</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="networking-models.html">Networking Models</a></span>
+  <span class="next"><a href="../rhosp-storage-options/rhosp-storage-options.html">RHOSP Storage Options</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
